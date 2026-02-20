@@ -1,0 +1,901 @@
+import { useState, useEffect, useRef } from "react";
+import logo from "./logo.png";
+import emailjs from "@emailjs/browser";
+import myImage from "./assets/myImage.png";
+import profilePic from "../src/assets/profile.png";
+
+const typewriterText = "Every Problem Leaves Clues. I Design the Solution.";
+
+const projects = [
+  { id:"01", title:"Consulven",  color:"#1c1408", label:"SOLVED", client:"Consulven IFSC",      role:"UI/UX Design", tools:"Figma, Framer, UX Research",         year:"2024", status:"SOLVED", desc:"International advisory firm requiring a credible digital presence.Rebuilt website UX from ground up with structured navigation.Focused on clarity, compliance communication, and enterprise trust.Digital positioning successfully established.",       websiteUrl:"https://consulvenifsc.com/", behanceUrl:"https://www.behance.net/gallery/230230983/Consulven-Consulting-Website-UIUX-Design", mockups:[{label:"Onboarding",src:null},{label:"Dashboard",src:null},{label:"Reports",src:null}] },
+  { id:"02", title:"Prime Counsel", color:"#0d1a0d", label:"SOLVED", client:"Prime Counsel Solution", role:"UI/UX Design",     tools:"Figma, Illustrator, Photoshop",  year:"2024", status:"SOLVED", desc:"Legal consultancy platform requiring modernization and UX overhaul.Redesigned legacy website into a structured, user-focused system.Built antique-inspired legal interface with modern usability standards.Navigation clarity improved. Brand authority strengthened.Deployment successful.", websiteUrl:"https://www.figma.com/proto/gHIhokLPZpAf1NQuBX8mwD/PRIME-COUNSEL?page-id=2622%3A17330&node-id=2622-20118&viewport=711%2C301%2C0.05&t=qZzAeEl1w1ARDyCM-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2622%3A21184", behanceUrl:"https://www.behance.net/gallery/230103201/Ancient-Legal-Web-Design?tracking_source=project_owner_other_projects", mockups:[{label:"Login",src:null},{label:"Portal",src:null},{label:"Records",src:null}] },
+  { id:"03", title:"QuantumQuest Wealth", color:"#0d1a0d", label:"SOLVED", client:"QuantumQuest Wealth", role:"UI/UX Designer, Logo", tools:"Figma, Photoshop, AI",  year:"2025", status:"SOLVED", desc:"Investment advisory firm requiring modern digital identity.Designed high-trust financial interface with structured UX flow.Implemented service architecture, testimonials, and conversion CTAs.User engagement increased. Investor confidence reinforced.System launch successful.", websiteUrl:"https://www.figma.com/proto/gHIhokLPZpAf1NQuBX8mwD/PRIME-COUNSEL?page-id=2622%3A17330&node-id=2622-20118&viewport=711%2C301%2C0.05&t=qZzAeEl1w1ARDyCM-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2622%3A21184", behanceUrl:"https://www.behance.net/gallery/230103201/Ancient-Legal-Web-Design?tracking_source=project_owner_other_projects", mockups:[{label:"Login",src:null},{label:"Portal",src:null},{label:"Records",src:null}] },
+  { id:"04", title:"Fasta Pizza", color:"#0d1a0d", label:"SOLVED", client:"QuantumQuest Wealth", role:"UI/UX Designer", tools:"Figma, Photoshop, Illustator",  year:"2024-2025", status:"SOLVED", desc:"Designed a responsive ecommerce ordering system for Fasta Pizza,focusing on fast menu navigation, mobile usability, and strong CTAs.Result: smoother ordering flow, higher engagement, and improved usability.", websiteUrl:"https://www.figma.com/proto/gHIhokLPZpAf1NQuBX8mwD/PRIME-COUNSEL?page-id=2622%3A17330&node-id=2622-20118&viewport=711%2C301%2C0.05&t=qZzAeEl1w1ARDyCM-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2622%3A21184", behanceUrl:"https://www.behance.net/gallery/230103201/Ancient-Legal-Web-Design?tracking_source=project_owner_other_projects", mockups:[{label:"Login",src:null},{label:"Portal",src:null},{label:"Records",src:null}] },
+  { id:"05", title:"Poster", color:"#0d1a0d", label:"SOLVED", client:"Fasta Pizza", role:"Poster Design", tools:"Photoshop",  year:"2025", status:"SOLVED", desc:"PROMOTIONAL FOOD TRUCK POSTER DESIGNED FOR FASTA PIZZA.VISUAL HIERARCHY OPTIMIZED. BRAND COLORS SYNCHRONIZED.MARKETING BANNER DEPLOYED FOR EVENT BOOKINGS.", websiteUrl:"https://www.figma.com/proto/gHIhokLPZpAf1NQuBX8mwD/PRIME-COUNSEL?page-id=2622%3A17330&node-id=2622-20118&viewport=711%2C301%2C0.05&t=qZzAeEl1w1ARDyCM-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2622%3A21184", behanceUrl:"https://www.behance.net/gallery/230103201/Ancient-Legal-Web-Design?tracking_source=project_owner_other_projects", mockups:[{label:"Login",src:null},{label:"Portal",src:null},{label:"Records",src:null}] },
+  { id:"06", title:"ELS Logo", color:"#0d1a0d", label:"SOLVED", client:"ELS", role:"Logo Design", tools:"Photoshop",  year:"2024", status:"SOLVED", desc:" LEGAL BRAND IDENTITY INITIALIZED.SERIF TYPOGRAPHY SELECTED FOR AUTHORITY SIGNAL.PRIMARY INITIALS EMPHASIZED. TRUST PROTOCOL ACTIVE.LOGO DEPLOYED.", websiteUrl:"https://www.els.legal/services", behanceUrl:"https://www.behance.net/gallery/230103201/Ancient-Legal-Web-Design?tracking_source=project_owner_other_projects", mockups:[{label:"Login",src:null},{label:"Portal",src:null},{label:"Records",src:null}] },
+];
+
+const timeline = [
+  { year:"2022-2023", title:"Sr Customer Support Associate", place:"Teleperformance",   desc:"Handled customer queries and solved e-commerce related issues. Managed complex cases and ensured smooth resolution within timelines." },
+  { year:"2024-2025", title:"UX/UI Designer",                place:"BFC MEDIA PVT LMT", desc:"Designed user-friendly websites and apps. Created wireframes and UI screens, worked with the team, and improved user experience based on research and feedback." },
+];
+
+const education = [
+  { year:"2019–2022", degree:"BCA", field:"Bachelor of Computer Applications", institution:"St. Peters Institute of Higher Education and Research", badge:"GRADUATED" },
+  { year:"2023–2024", degree:"Full-stack developement", field:"Course", institution:"Innovate Technology", badge:"COMPLETED" },
+  { year:"2024–2026", degree:"MBA-HR", field:"Master of Business Administration — Human Resources", institution:"University of Madras", badge:"PURSUING" },
+];
+
+function useWindowWidth() {
+  const [w, setW] = useState(typeof window !== "undefined" ? window.innerWidth : 1200);
+  useEffect(() => {
+    const h = () => setW(window.innerWidth);
+    window.addEventListener("resize", h);
+    return () => window.removeEventListener("resize", h);
+  }, []);
+  return w;
+}
+
+function SectionLabel({ children }) {
+  return (
+    <div style={{ display:"flex", alignItems:"center", gap:12 }}>
+      <div style={{ width:32, height:1, background:"#D4AF37", flexShrink:0 }} />
+      <span style={{ fontFamily:"Courier New,monospace", color:"#D4AF37", letterSpacing:3, textTransform:"uppercase", fontWeight:"bold", fontSize:"clamp(10px,1.4vw,14px)", whiteSpace:"nowrap" }}>
+        {children}
+      </span>
+      <div style={{ flex:1, height:1, background:"linear-gradient(to right,#D4AF37,transparent)" }} />
+    </div>
+  );
+}
+
+function Footer({ theme="noir" }) {
+  const t = theme === "terminal";
+  const [now, setNow] = useState(new Date());
+  const w = useWindowWidth();
+  const isMobile = w < 600;
+  useEffect(() => { const id = setInterval(() => setNow(new Date()), 1000); return () => clearInterval(id); }, []);
+  const h = now.getHours(), m = now.getMinutes().toString().padStart(2,"0");
+  const time = `${h%12||12}:${m} ${h>=12?"PM":"AM"}`;
+  return (
+    <footer style={{ background:t?"#050505":"#0A0604", borderTop:`1px solid ${t?"#00FF41":"#3D2817"}`, padding:isMobile?"40px 16px 24px":"50px 24px 28px" }}>
+      <div style={{ maxWidth:680, margin:"0 auto" }}>
+        {!t && (
+          <div style={{ marginBottom:36 }}>
+            <div style={{ textAlign:"center", marginBottom:24 }}>
+              <h2 style={{ fontFamily:"Courier New,monospace", fontSize:isMobile?20:24, color:"#D4AF37", margin:"0 0 8px", letterSpacing:2, textTransform:"uppercase" }}>Open a New Case</h2>
+              <p style={{ fontFamily:"Courier New,monospace", fontSize:12, color:"#8B6F47", margin:0 }}>Got a design mystery? Let us investigate together.</p>
+            </div>
+            <div style={{ maxWidth:420, margin:"0 auto", background:"linear-gradient(160deg,#1C1208,#0E0A04)", border:"3px solid #3D2C0A", borderRadius:16, padding:"16px 18px 20px", boxShadow:"0 20px 50px rgba(0,0,0,0.85)" }}>
+              <div style={{ display:"flex", justifyContent:"flex-end", gap:5, marginBottom:12 }}>
+                {[now.getDate(), time].map((v,i) => (
+                  <div key={i} style={{ background:"rgba(212,175,55,0.08)", border:"1px solid rgba(212,175,55,0.2)", padding:"3px 8px", borderRadius:4, fontFamily:"Courier New,monospace", fontSize:11, color:"#D4AF37" }}>{v}</div>
+                ))}
+              </div>
+              <div style={{ background:"linear-gradient(160deg,#0D1A0A,#0A1508)", border:"2px solid #2A1F08", borderRadius:8, padding:"13px 15px", marginBottom:14 }}>
+                <div style={{ fontFamily:"Courier New,monospace", fontSize:10, color:"#6B9E5A", marginBottom:5, letterSpacing:2, textTransform:"uppercase" }}>Contact me via email</div>
+                <div style={{ fontFamily:"Courier New,monospace", fontSize:isMobile?12:14, color:"#A8D898", fontWeight:"bold", wordBreak:"break-all" }}>gopikakrishna3081@gmail.com</div>
+              </div>
+              <div style={{ display:"flex", gap:9, alignItems:"center", flexWrap:"wrap" }}>
+                <div style={{ display:"flex", gap:7 }}>
+                  {[{href:"https://github.com/gopikaKrishnaaa",label:"Git"},{href:"https://www.behance.net/gopikakrishvfc",label:"Be"},{href:"https://www.linkedin.com/in/gopika-krishz/",label:"in"}].map(({ href, label }) => (
+                    <a key={label} href={href} target="_blank" rel="noopener noreferrer"
+                      style={{ width:40, height:40, background:"linear-gradient(145deg,#1E1608,#140E04)", border:"2px solid #3D2C0A", borderRadius:9, display:"flex", alignItems:"center", justifyContent:"center", textDecoration:"none", fontFamily:"Arial,sans-serif", fontSize:13, fontWeight:"bold", color:"#8B6F47", transition:"all 0.15s" }}
+                      onMouseEnter={e=>{e.currentTarget.style.borderColor="#D4AF37";e.currentTarget.style.color="#D4AF37";}}
+                      onMouseLeave={e=>{e.currentTarget.style.borderColor="#3D2C0A";e.currentTarget.style.color="#8B6F47";}}>{label}</a>
+                  ))}
+                </div>
+                <a href="#contact" style={{ flex:1, background:"linear-gradient(145deg,#D4AF37,#B8941F)", color:"#0E0A04", fontFamily:"Courier New,monospace", fontSize:12, fontWeight:"bold", textTransform:"uppercase", letterSpacing:2, padding:"11px 14px", textAlign:"center", borderRadius:9, textDecoration:"none", display:"block", minWidth:90 }}>Contact Me</a>
+              </div>
+            </div>
+          </div>
+        )}
+        <div style={{ textAlign:"center", paddingTop:18, borderTop:`1px solid ${t?"#00FF41":"#3D2817"}` }}>
+          <div style={{ fontFamily:"Courier New,monospace", color:t?"#00FF41":"#8B6F47", fontSize:11 }}>
+            {t?"> CASE_FILE 2025 - GOPIKA KRISHNA :: DESIGN_DETECTIVE":"CASE FILE 2026 - GOPIKA KRISHNA DESIGN DETECTIVE"}
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function FloppyDisk({ p, isHover, isInserted, onHover, onLeave, onClick }) {
+  return (
+    <div style={{ cursor:"pointer", transform:isInserted?"translateY(18px) scale(0.92)":isHover?"translateY(-8px) scale(1.04)":"none", transition:"transform 0.25s cubic-bezier(0.22,1,0.36,1)", filter:isHover?"drop-shadow(0 10px 18px rgba(212,175,55,0.35))":"none" }}
+      onMouseEnter={onHover} onMouseLeave={onLeave} onClick={onClick}>
+      <div style={{ background:p.color, border:`2px solid ${isHover?"#D4AF37":"#8B6F47"}`, position:"relative", boxShadow:isHover?"4px 8px 0 #D4AF37":"4px 4px 0 #8B6F47", transition:"border-color 0.2s,box-shadow 0.2s" }}>
+        <div style={{ background:isHover?"#C4A030":"#8B6F47", height:22, margin:"0 10px", display:"flex", alignItems:"center", paddingLeft:7 }}>
+          <div style={{ width:32, height:4, background:"#D4A574", borderRadius:1 }} />
+          <div style={{ marginLeft:"auto", marginRight:3, width:8, height:12, background:"#3D2817", borderRadius:1 }} />
+        </div>
+        <div style={{ background:"#F4E8D0", margin:"5px 7px 7px", padding:"8px" }}>
+          <div style={{ fontFamily:"Courier New,monospace", color:"#3D2817", fontSize:11, fontWeight:"bold", lineHeight:1.4 }}>Case: {p.title}</div>
+          <div style={{ display:"flex", justifyContent:"space-between", marginTop:5, alignItems:"center" }}>
+            <span style={{ background:p.label==="SOLVED"?"#1A4D1A":"#4D1A1A", color:p.label==="SOLVED"?"#00FF41":"#FF6644", fontFamily:"Courier New,monospace", fontSize:8, padding:"2px 5px", fontWeight:"bold" }}>{p.label}</span>
+            <span style={{ fontFamily:"Courier New,monospace", color:"#8B6F47", fontSize:10 }}>#{p.id}</span>
+          </div>
+          {isHover && <div style={{ fontFamily:"Courier New,monospace", color:"#8B0000", fontSize:9, marginTop:3 }}>click to load</div>}
+        </div>
+        <div style={{ position:"absolute", bottom:0, right:0, width:0, height:0, borderTop:"10px solid transparent", borderLeft:"10px solid transparent", borderBottom:"10px solid #1A0F0A", borderRight:"10px solid #1A0F0A" }} />
+        {isInserted && <div style={{ position:"absolute", inset:0, background:"rgba(0,255,65,0.1)", display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"Courier New,monospace", color:"#00FF41", fontSize:10, fontWeight:"bold" }}>LOADING...</div>}
+      </div>
+    </div>
+  );
+}
+
+function TerminalWindow({ title, children, flex="1" }) {
+  return (
+    <div style={{ flex, border:"1px solid #00FF41", background:"rgba(0,255,65,0.02)", minWidth:0 }}>
+      <div style={{ background:"#00FF41", padding:"4px 8px", display:"flex", alignItems:"center", justifyContent:"space-between" }}>
+        <span style={{ fontFamily:"Courier New,monospace", fontSize:9, color:"#050505", fontWeight:"bold", letterSpacing:1 }}>{title}</span>
+        <div style={{ display:"flex", gap:4 }}>{["--","[]","X"].map(s=><span key={s} style={{ fontFamily:"Courier New,monospace", fontSize:9, color:"#050505" }}>{s}</span>)}</div>
+      </div>
+      <div style={{ padding:"8px 10px" }}>{children}</div>
+    </div>
+  );
+}
+
+function ProjectPage({ project, onBack, onNext, nextProject }) {
+  const [termLines, setTermLines] = useState([]);
+  const [diskIn, setDiskIn] = useState(false);
+  const [screenOn, setScreenOn] = useState(false);
+  const [showContent, setShowContent] = useState(false);
+  const [cursor, setCursor] = useState(true);
+  const w = useWindowWidth();
+  const isMobile = w < 600;
+
+  const lines = [
+    `> NOIR_OS v2.4.1 - DETECTIVE BUREAU TERMINAL`,
+    `> Initialising case file system...`,
+    `> Inserting floppy disk [ CASE #${project.id} ]...`,
+    `> Reading encrypted case data...`,
+    `> 100% LOADED`,
+    `> CASE FILE DECRYPTED - ACCESS GRANTED`,
+    `> LOADING :: ${project.title.toUpperCase()}`,
+  ];
+
+  useEffect(() => {
+    setDiskIn(false); setScreenOn(false); setShowContent(false); setTermLines([]);
+    const t1=setTimeout(()=>setDiskIn(true),400);
+    const t2=setTimeout(()=>setScreenOn(true),900);
+    let idx=0;
+    const t3=setTimeout(()=>{
+      const iv=setInterval(()=>{
+        if(idx<lines.length){setTermLines(l=>[...l,lines[idx]]);idx++;}
+        else{clearInterval(iv);setTimeout(()=>setShowContent(true),500);}
+      },370);
+    },1100);
+    const blink=setInterval(()=>setCursor(c=>!c),530);
+    return()=>{clearTimeout(t1);clearTimeout(t2);clearTimeout(t3);clearInterval(blink);};
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[project.id]);
+
+  return (
+    <div style={{ background:"#050505", minHeight:"100vh", display:"flex", flexDirection:"column" }}>
+      <div style={{ position:"fixed", inset:0, backgroundImage:"repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.12) 2px,rgba(0,0,0,0.12) 4px)", pointerEvents:"none", zIndex:50 }} />
+      <nav style={{ position:"fixed", top:0, left:0, right:0, zIndex:200, background:"rgba(5,5,5,0.97)", borderBottom:"1px solid #00FF41", padding:isMobile?"9px 12px":"11px 32px", display:"flex", alignItems:"center", justifyContent:"space-between", gap:8 }}>
+        <button onClick={onBack} style={{ background:"none", border:"1px solid #00FF41", color:"#00FF41", fontFamily:"Courier New,monospace", fontSize:isMobile?9:11, padding:isMobile?"5px 9px":"6px 14px", cursor:"pointer", letterSpacing:1, transition:"all 0.2s" }}
+          onMouseEnter={e=>{e.currentTarget.style.background="#00FF41";e.currentTarget.style.color="#050505";}}
+          onMouseLeave={e=>{e.currentTarget.style.background="none";e.currentTarget.style.color="#00FF41";}}>
+          {isMobile?"BACK":"BACK TO CASE FILES"}
+        </button>
+        {!isMobile && <span style={{ fontFamily:"Courier New,monospace", color:"#00FF41", fontSize:11, letterSpacing:2, textShadow:"0 0 8px #00FF41" }}>CASE #{project.id} :: {project.title.toUpperCase()}{cursor?"_":" "}</span>}
+        <button onClick={onNext} style={{ background:"none", border:"1px solid #00CC33", color:"#00CC33", fontFamily:"Courier New,monospace", fontSize:isMobile?9:11, padding:isMobile?"5px 9px":"6px 14px", cursor:"pointer", letterSpacing:1, transition:"all 0.2s" }}
+          onMouseEnter={e=>{e.currentTarget.style.background="#00CC33";e.currentTarget.style.color="#050505";}}
+          onMouseLeave={e=>{e.currentTarget.style.background="none";e.currentTarget.style.color="#00CC33";}}>NEXT</button>
+      </nav>
+
+      <div style={{ flex:1, paddingTop:56 }}>
+        <div style={{ padding:isMobile?"14px 10px 0":"24px 18px 0", display:"flex", justifyContent:"center" }}>
+          <div style={{ width:"100%", maxWidth:700 }}>
+            <div style={{ background:"linear-gradient(145deg,#2e2e2e,#1c1c1c)", borderRadius:"12px 12px 4px 4px", padding:"6px 6px 0", boxShadow:"0 20px 60px rgba(0,0,0,0.95)", border:"2px solid #383838" }}>
+              <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", padding:"4px 11px 5px" }}>
+                <div style={{ display:"flex", gap:5 }}>{["#ff5f57","#febc2e","#28c840"].map((c,i)=><div key={i} style={{ width:9, height:9, borderRadius:"50%", background:c }} />)}</div>
+                <span style={{ fontFamily:"Courier New,monospace", color:"#555", fontSize:isMobile?8:10, letterSpacing:1 }}>NOIR-OS CASE #{project.id}</span>
+                <div style={{ width:34 }} />
+              </div>
+              <div style={{ background:screenOn?"#010801":"#050505", borderRadius:"6px 6px 0 0", minHeight:isMobile?260:360, position:"relative", overflow:"hidden", border:"2px solid #0d0d0d", transition:"all 1s" }}>
+                <div style={{ padding:isMobile?"12px 11px":"19px 21px", position:"relative", zIndex:5 }}>
+                  {termLines.map((line,i)=>(
+                    <div key={i} style={{ fontFamily:"Courier New,monospace", fontSize:isMobile?9:11, color:i===4?"#D4AF37":i===5?"#00FFFF":i===6?"#39FF14":"#00FF41", marginBottom:4, lineHeight:1.55, animation:"fadeInLine 0.2s ease-out" }}>{line}</div>
+                  ))}
+                  {showContent && (
+                    <div style={{ marginTop:13, animation:"fadeInUp 0.5s ease-out" }}>
+                      <div style={{ display:"flex", gap:8, marginBottom:12, flexWrap:"wrap" }}>
+                        {project.websiteUrl && (
+                          <a href={project.websiteUrl} target="_blank" rel="noopener noreferrer"
+                            style={{ display:"flex", alignItems:"center", gap:6, background:"none", border:"1px solid #00FF41", color:"#00FF41", fontFamily:"Courier New,monospace", fontSize:isMobile?9:10, padding:"5px 12px", textDecoration:"none", letterSpacing:1, transition:"all 0.2s", borderRadius:2 }}
+                            onMouseEnter={e=>{e.currentTarget.style.background="#00FF41";e.currentTarget.style.color="#050505";}}
+                            onMouseLeave={e=>{e.currentTarget.style.background="none";e.currentTarget.style.color="#00FF41";}}>
+                            <span>🌐</span> LIVE WEBSITE
+                          </a>
+                        )}
+                        {project.behanceUrl && (
+                          <a href={project.behanceUrl} target="_blank" rel="noopener noreferrer"
+                            style={{ display:"flex", alignItems:"center", gap:6, background:"none", border:"1px solid #00AAFF", color:"#00AAFF", fontFamily:"Courier New,monospace", fontSize:isMobile?9:10, padding:"5px 12px", textDecoration:"none", letterSpacing:1, transition:"all 0.2s", borderRadius:2 }}
+                            onMouseEnter={e=>{e.currentTarget.style.background="#00AAFF";e.currentTarget.style.color="#050505";}}
+                            onMouseLeave={e=>{e.currentTarget.style.background="none";e.currentTarget.style.color="#00AAFF";}}>
+                            <span>Bē</span> VIEW ON BEHANCE
+                          </a>
+                        )}
+                      </div>
+                      <div style={{ display:"flex", gap:8, marginBottom:8 }}>
+                        {project.mockups.map((m,i)=>(
+                          <div key={i} style={{ flex:1, display:"flex", flexDirection:"column", gap:5 }}>
+                            <div style={{ width:"100%", height:isMobile?90:110, border:"1px solid #00FF41", borderRadius:4, overflow:"hidden", background:"#010a01", position:"relative", boxShadow:"0 0 8px rgba(0,255,65,0.1)" }}>
+                              {m.src
+                                ? <img src={m.src} alt={m.label} style={{ width:"100%", height:"100%", objectFit:"cover", display:"block" }} />
+                                : (
+                                  <div style={{ width:"100%", height:"100%", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", gap:6, background:"#010a01" }}>
+                                    <div style={{ width:24, height:24, border:"1px dashed rgba(0,255,65,0.4)", borderRadius:3, display:"flex", alignItems:"center", justifyContent:"center" }}>
+                                      <span style={{ color:"rgba(0,255,65,0.5)", fontSize:14 }}>+</span>
+                                    </div>
+                                    <span style={{ fontFamily:"Courier New,monospace", fontSize:7, color:"rgba(0,255,65,0.4)", letterSpacing:1, textAlign:"center", lineHeight:1.6 }}>ADD<br/>PHOTO</span>
+                                  </div>
+                                )
+                              }
+                              <div style={{ position:"absolute", top:0, left:0, width:8, height:8, borderTop:"2px solid #00FF41", borderLeft:"2px solid #00FF41" }} />
+                              <div style={{ position:"absolute", top:0, right:0, width:8, height:8, borderTop:"2px solid #00FF41", borderRight:"2px solid #00FF41" }} />
+                              <div style={{ position:"absolute", bottom:0, left:0, width:8, height:8, borderBottom:"2px solid #00FF41", borderLeft:"2px solid #00FF41" }} />
+                              <div style={{ position:"absolute", bottom:0, right:0, width:8, height:8, borderBottom:"2px solid #00FF41", borderRight:"2px solid #00FF41" }} />
+                            </div>
+                            <div style={{ fontFamily:"Courier New,monospace", fontSize:8, color:"#00FF41", textAlign:"center", letterSpacing:1 }}>{m.label.toUpperCase()}</div>
+                          </div>
+                        ))}
+                      </div>
+                      <div style={{ display:"flex", gap:6, flexWrap:"wrap" }}>
+                        <TerminalWindow title="PROJECT_DETAILS" flex="1 1 150px">
+                          <div style={{ fontFamily:"Courier New,monospace", fontSize:isMobile?9:10, lineHeight:1.9 }}>
+                            {[["CLIENT",project.client],["ROLE",project.role],["TOOLS",project.tools],["YEAR",project.year],["STATUS",project.status]].map(([k,v])=>(
+                              <div key={k} style={{ display:"flex", flexWrap:"wrap" }}>
+                                <span style={{ color:"#00FFFF", minWidth:66, fontSize:isMobile?8:9 }}>{k}:</span>
+                                <span style={{ color:"#00FF41", fontSize:isMobile?8:9 }}>{v}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </TerminalWindow>
+                        <TerminalWindow title="CASE_SUMMARY" flex="2 1 180px">
+                          <div style={{ fontFamily:"Courier New,monospace", fontSize:isMobile?9:10, color:"#00CC33", lineHeight:1.8 }}>
+                            {project.desc}
+                            <div style={{ marginTop:7, color:"#D4AF37", fontSize:9 }}>INVESTIGATION COMPLETE {cursor?"_":" "}</div>
+                          </div>
+                        </TerminalWindow>
+                      </div>
+                    </div>
+                  )}
+                  {!showContent && termLines.length>0 && <div style={{ fontFamily:"Courier New,monospace", color:"#00FF41", fontSize:14, marginTop:6 }}>{cursor?"_":" "}</div>}
+                </div>
+              </div>
+            </div>
+            <div style={{ display:"flex", justifyContent:"center" }}><div style={{ width:50, height:16, background:"linear-gradient(to bottom,#222,#181818)", borderRadius:"0 0 3px 3px" }} /></div>
+            <div style={{ display:"flex", justifyContent:"center" }}><div style={{ width:160, height:10, background:"linear-gradient(145deg,#282828,#181818)", borderRadius:4 }} /></div>
+            {!isMobile && (
+              <div style={{ display:"flex", gap:13, marginTop:16, alignItems:"flex-start", justifyContent:"center", flexWrap:"wrap" }}>
+                <div style={{ background:"linear-gradient(145deg,#252525,#1a1a1a)", border:"1px solid #333", borderRadius:6, padding:12, width:148 }}>
+                  <div style={{ fontFamily:"Courier New,monospace", color:"#444", fontSize:9, letterSpacing:2, marginBottom:8, textAlign:"center" }}>NOIR-PC 8600</div>
+                  <div style={{ background:"#0d0d0d", border:"1px solid #3a3a3a", borderRadius:2, height:32, position:"relative", overflow:"hidden", display:"flex", alignItems:"center", justifyContent:"center", marginBottom:8 }}>
+                    <div style={{ position:"absolute", bottom:diskIn?1:-50, left:"50%", transform:"translateX(-50%)", width:72, height:26, background:project.color, border:"1px solid #8B6F47", transition:"bottom 0.55s" }}>
+                      <div style={{ width:28, height:3, background:"#8B6F47", borderRadius:1, margin:"auto", marginTop:11 }} />
+                    </div>
+                    <div style={{ position:"absolute", right:6, top:"50%", transform:"translateY(-50%)", width:5, height:5, borderRadius:"50%", background:diskIn?"#00FF41":"#2a2a2a", transition:"all 0.5s" }} />
+                  </div>
+                  <div style={{ display:"flex", alignItems:"center", gap:5, marginBottom:8 }}>
+                    <div style={{ width:6, height:6, borderRadius:"50%", background:diskIn?"#D4AF37":"#2a2a2a", transition:"all 0.5s" }} />
+                    <span style={{ fontFamily:"Courier New,monospace", color:diskIn?"#D4AF37":"#333", fontSize:8 }}>{diskIn?"READING":"STANDBY"}</span>
+                  </div>
+                  <div style={{ background:"#F4E8D0", padding:"4px 6px", borderRadius:2 }}>
+                    <div style={{ fontFamily:"Courier New,monospace", color:"#3D2817", fontSize:9, fontWeight:"bold" }}>#{project.id}: {project.title}</div>
+                  </div>
+                </div>
+                <div style={{ background:"linear-gradient(145deg,#282828,#1e1e1e)", border:"1px solid #333", borderRadius:8, padding:"10px 11px", flex:1, maxWidth:320 }}>
+                  {[["Q","W","E","R","T","Y","U","I","O","P"],["A","S","D","F","G","H","J","K","L"],["Z","X","C","V","B","N","M"]].map((row,ri)=>(
+                    <div key={ri} style={{ display:"flex", gap:3, marginBottom:3, justifyContent:"center" }}>
+                      {row.map(k=><div key={k} style={{ width:22, height:21, background:"linear-gradient(145deg,#383838,#282828)", border:"1px solid #444", borderRadius:3, display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"Courier New,monospace", fontSize:8, color:"#555", boxShadow:"0 2px 0 #111" }}>{k}</div>)}
+                    </div>
+                  ))}
+                  <div style={{ display:"flex", justifyContent:"center", marginTop:3 }}>
+                    <div style={{ width:120, height:21, background:"linear-gradient(145deg,#383838,#282828)", border:"1px solid #444", borderRadius:3, boxShadow:"0 2px 0 #111" }} />
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+        <div style={{ display:"flex", justifyContent:"center", gap:11, padding:"20px 14px 16px", flexWrap:"wrap" }}>
+          <button onClick={onBack} style={{ padding:"10px 22px", background:"none", border:"1px solid #8B6F47", color:"#8B6F47", fontFamily:"Courier New,monospace", fontSize:11, letterSpacing:2, cursor:"pointer", textTransform:"uppercase", transition:"all 0.2s" }}
+            onMouseEnter={e=>{e.currentTarget.style.borderColor="#D4AF37";e.currentTarget.style.color="#D4AF37";}}
+            onMouseLeave={e=>{e.currentTarget.style.borderColor="#8B6F47";e.currentTarget.style.color="#8B6F47";}}>BACK TO CASE FILES</button>
+          <button onClick={onNext} style={{ padding:"10px 22px", background:"#00FF41", border:"1px solid #00FF41", color:"#050505", fontFamily:"Courier New,monospace", fontSize:11, letterSpacing:2, cursor:"pointer", textTransform:"uppercase", fontWeight:"bold", transition:"background 0.2s" }}
+            onMouseEnter={e=>e.currentTarget.style.background="#39FF14"}
+            onMouseLeave={e=>e.currentTarget.style.background="#00FF41"}>NEXT: {nextProject.title.toUpperCase()}</button>
+        </div>
+      </div>
+      <div style={{ background:"repeating-linear-gradient(45deg,#FFD700 0px,#FFD700 40px,#050505 40px,#050505 80px)", height:40, display:"flex", alignItems:"center", justifyContent:"center", overflow:"hidden", borderTop:"2px solid #00FF41", borderBottom:"2px solid #00FF41" }}>
+        <div style={{ fontFamily:"Courier New,monospace", fontSize:isMobile?9:12, fontWeight:"bold", color:"#050505", letterSpacing:isMobile?3:6, textTransform:"uppercase" }}>EVIDENCE ZONE - AUTHORIZED ACCESS ONLY</div>
+      </div>
+      <Footer theme="terminal" />
+    </div>
+  );
+}
+
+function HomePage({ onSelectProject }) {
+  const [typed, setTyped] = useState("");
+  const [diskHover, setDiskHover] = useState(null);
+  const [diskInserted, setDiskInserted] = useState(null);
+  const [submitStamp, setSubmitStamp] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const iv = useRef(null);
+  const w = useWindowWidth();
+  const isMobile = w < 600;
+  const isTablet = w >= 600 && w < 960;
+  const isDesktop = w >= 960;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    emailjs.sendForm("service_iijmuo8","template_i2g9qo9",e.target,"E_7Nfy2YOkCxvnaNG")
+      .then(()=>{setSubmitStamp(true);setTimeout(()=>setSubmitStamp(false),2200);e.target.reset();})
+      .catch(err=>{alert("Failed to send.");console.error(err);});
+  };
+
+  useEffect(()=>{
+    let i=0;
+    iv.current=setInterval(()=>{setTyped(typewriterText.slice(0,i));if(i++>typewriterText.length)clearInterval(iv.current);},52);
+    return()=>clearInterval(iv.current);
+  },[]);
+
+  const handleDiskClick=(p)=>{setDiskInserted(p.id);setTimeout(()=>{setDiskInserted(null);onSelectProject(p);},900);};
+  const navLinks=[{label:"About",id:"about"},{label:"Skills",id:"skills"},{label:"Cases",id:"cases"},{label:"Contact",id:"contact"}];
+  const scrollTo=(id)=>{document.getElementById(id)?.scrollIntoView({behavior:"smooth"});setMenuOpen(false);};
+  const sp = isMobile ? "56px 16px" : isTablet ? "70px 28px" : "96px 48px";
+
+  return (
+    <div style={{ fontFamily:"Georgia,serif", background:"#1A0F0A", color:"#F4E8D0", minHeight:"100vh", overflowX:"hidden" }}>
+
+      <nav style={{ position:"fixed", top:0, left:0, right:0, zIndex:100, background:"rgba(26,15,10,0.97)", backdropFilter:"blur(8px)", borderBottom:"1px solid #8B6F47", display:"flex", alignItems:"center", justifyContent:"space-between", padding:isMobile?"11px 16px":"13px 40px" }}>
+        <img src={logo} alt="Logo" style={{ height:36, width:"auto", objectFit:"contain" }} />
+        {!isMobile && (
+          <div style={{ display:"flex", gap:isTablet?16:28 }}>
+            {navLinks.map(({label,id})=>(
+              <a key={id} href={`#${id}`} onClick={e=>{e.preventDefault();scrollTo(id);}}
+                style={{ color:"#D4A574", textDecoration:"none", fontFamily:"Courier New,monospace", fontSize:isTablet?12:14, letterSpacing:2, textTransform:"uppercase", cursor:"pointer" }}>{label}</a>
+            ))}
+          </div>
+        )}
+        {isMobile && (
+          <button onClick={()=>setMenuOpen(o=>!o)} style={{ background:"none", border:"1px solid #8B6F47", color:"#D4A574", fontFamily:"Courier New,monospace", fontSize:18, padding:"3px 10px", cursor:"pointer" }}>
+            {menuOpen?"X":"="}
+          </button>
+        )}
+      </nav>
+      {isMobile && menuOpen && (
+        <div style={{ position:"fixed", top:60, left:0, right:0, zIndex:99, background:"rgba(26,15,10,0.98)", borderBottom:"1px solid #8B6F47" }}>
+          {navLinks.map(({label,id})=>(
+            <a key={id} href={`#${id}`} onClick={e=>{e.preventDefault();scrollTo(id);}}
+              style={{ display:"block", color:"#D4A574", textDecoration:"none", fontFamily:"Courier New,monospace", fontSize:15, letterSpacing:2, textTransform:"uppercase", padding:"14px 22px", borderBottom:"1px solid rgba(139,111,71,0.2)" }}>{label}</a>
+          ))}
+        </div>
+      )}
+
+      {/* HERO */}
+      <section style={{ minHeight:"100vh", background:"linear-gradient(to bottom,#3D2817 0%,#1A0F0A 100%)", display:"flex", alignItems:"center", justifyContent:"center", position:"relative", paddingTop:74, overflow:"hidden" }}>
+        <div style={{ position:"absolute", top:"5%", left:"50%", transform:"translateX(-50%)", width:400, height:400, background:"radial-gradient(ellipse at center,rgba(212,175,55,0.2) 0%,transparent 60%)", pointerEvents:"none", filter:"blur(40px)" }} />
+        <div style={{ maxWidth:1040, width:"100%", padding:isMobile?"0 16px":"0 36px", position:"relative", zIndex:1 }}>
+          <div style={{ display:"grid", gridTemplateColumns:isDesktop?"1fr 1fr":"1fr", gap:isDesktop?40:24, alignItems:"center" }}>
+            {!isMobile && (
+              <div style={{ background:"linear-gradient(145deg,#8B6F47,#6B5437)", padding:isTablet?18:26, borderRadius:8, boxShadow:"8px 8px 24px rgba(0,0,0,0.6)", position:"relative", minHeight:isTablet?360:440 }}>
+                <div style={{ position:"absolute", inset:0, backgroundImage:"radial-gradient(circle at 20% 30%,rgba(139,111,71,0.4) 1px,transparent 1px)", backgroundSize:"20px 20px", pointerEvents:"none", borderRadius:8 }} />
+                <svg style={{ position:"absolute", inset:0, width:"100%", height:"100%", pointerEvents:"none" }}>
+                  <line x1="30%" y1="25%" x2="70%" y2="40%" stroke="#8B0000" strokeWidth="2" strokeDasharray="5,5" />
+                  <line x1="70%" y1="40%" x2="50%" y2="70%" stroke="#8B0000" strokeWidth="2" strokeDasharray="5,5" />
+                  <line x1="30%" y1="25%" x2="50%" y2="70%" stroke="#8B0000" strokeWidth="2" strokeDasharray="5,5" />
+                </svg>
+                <div style={{ position:"relative", zIndex:2 }}>
+                  <div style={{ background:"#F4E8D0", padding:14, position:"absolute", top:12, left:12, width:isTablet?155:178, transform:"rotate(-4deg)", boxShadow:"4px 4px 12px rgba(0,0,0,0.4)" }}>
+                    <div style={{ position:"absolute", top:-7, left:"50%", transform:"translateX(-50%)", width:10, height:10, borderRadius:"50%", background:"#8B0000" }} />
+                    <div style={{ borderBottom:"2px solid #8B0000", marginBottom:7, paddingBottom:4 }}>
+                      <div style={{ fontFamily:"Courier New,monospace", fontSize:11, fontWeight:"bold", color:"#8B0000", letterSpacing:2 }}>CASE FILE #001</div>
+                    </div>
+                    <div style={{ fontFamily:"Courier New,monospace", fontSize:10, color:"#3D2817", lineHeight:1.7 }}>SUBJECT: UI/UX DESIGNER<br/>STATUS: ACTIVE<br/>DETECTIVE: GOPIKA KRISHNA<br/>PRIORITY: 5 STARS</div>
+                  </div>
+                  <div style={{ background:"#D4AF37", padding:"10px 13px", position:"absolute", top:isTablet?150:165, right:isTablet?18:26, transform:"rotate(8deg)", boxShadow:"4px 4px 12px rgba(0,0,0,0.5)", border:"2px solid #B8941F", borderRadius:4 }}>
+                    <div style={{ position:"absolute", top:-6, left:"50%", transform:"translateX(-50%)", width:9, height:9, borderRadius:"50%", background:"#8B0000" }} />
+                    <div style={{ textAlign:"center" }}>
+                      <img src={myImage} alt="Profile" style={{ width:26, height:42, marginBottom:3 }} />
+                      <div style={{ fontFamily:"Courier New,monospace", fontSize:9, color:"#1A0F0A", fontWeight:"bold" }}>DETECTIVE</div>
+                    </div>
+                  </div>
+                  <div style={{ background:"#E8DCC4", padding:"8px 8px 6px", position:"absolute", bottom:isTablet?22:24, left:isTablet?28:40, transform:"rotate(5deg)", boxShadow:"4px 4px 12px rgba(0,0,0,0.5)" }}>
+                    <div style={{ width:isTablet?80:92, height:isTablet?80:92, background:"#3D2817", display:"flex", alignItems:"center", justifyContent:"center", fontSize:36, marginBottom:5 }}>🔍</div>
+                    <div style={{ fontFamily:"Courier New,monospace", fontSize:9, color:"#8B6F47", textAlign:"center" }}>EVIDENCE #47</div>
+                  </div>
+                  <div style={{ background:"#FFE97F", padding:"8px 10px", position:"absolute", top:isTablet?235:252, left:isTablet?136:155, width:isTablet?110:122, transform:"rotate(-6deg)", boxShadow:"3px 3px 10px rgba(0,0,0,0.3)" }}>
+                    <div style={{ fontFamily:"Courier New,monospace", fontSize:isTablet?9:10, color:"#3D2817", lineHeight:1.6 }}>
+                      Interview users<br/>Map journey<br/>Design solution<br/>SOLVE CASE!
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            <div>
+              <div style={{ fontFamily:"Courier New,monospace", fontSize:10, color:"#8B6F47", letterSpacing:3, textTransform:"uppercase", marginBottom:13, display:"flex", alignItems:"center", gap:9 }}>
+                <span style={{ display:"inline-block", width:20, height:1, background:"#8B6F47" }} />DETECTIVE CASE FILE #001
+              </div>
+              <h1 style={{ fontFamily:"Courier New,monospace", fontSize:isMobile?"clamp(20px,7vw,30px)":isTablet?"clamp(24px,4vw,38px)":"clamp(26px,3.5vw,44px)", color:"#D4AF37", lineHeight:1.2, margin:"0 0 16px", textShadow:"2px 2px 0 rgba(0,0,0,0.3)" }}>
+                Cracking Design Mysteries, One Case at a Time
+              </h1>
+              <div style={{ background:"#F4E8D0", padding:isMobile?14:20, marginBottom:20, boxShadow:"4px 4px 0 #8B6F47", position:"relative" }}>
+                <div style={{ position:"absolute", top:-6, left:16, fontSize:16, color:"#8B6F47", transform:"rotate(90deg)" }}>📎</div>
+                <p style={{ fontFamily:"Courier New,monospace", fontSize:isMobile?12:14, color:"#3D2817", margin:"0 0 10px", lineHeight:1.8 }}>
+                  {typed}<span style={{ borderRight:"2px solid #3D2817", animation:"blink 1s step-end infinite" }}> </span>
+                </p>
+                <div style={{ fontFamily:"Courier New,monospace", fontSize:11, color:"#8B6F47", fontStyle:"italic" }}>Gopika Krishna, UX/UI Detective</div>
+              </div>
+              <div style={{ display:"flex", gap:10, flexWrap:"wrap", marginBottom:24 }}>
+                <a href="#cases" onClick={e=>{e.preventDefault();scrollTo("cases");}}
+                  style={{ padding:isMobile?"10px 16px":"12px 24px", background:"#D4AF37", color:"#1A0F0A", fontFamily:"Courier New,monospace", fontWeight:"bold", fontSize:isMobile?11:12, letterSpacing:2, textDecoration:"none", textTransform:"uppercase", boxShadow:"4px 4px 0 #8B6F47", transition:"all 0.2s" }}
+                  onMouseEnter={e=>e.currentTarget.style.transform="translate(-2px,-2px)"}
+                  onMouseLeave={e=>e.currentTarget.style.transform="none"}>VIEW CASE FILES</a>
+                <a href="#contact" onClick={e=>{e.preventDefault();scrollTo("contact");}}
+                  style={{ padding:isMobile?"10px 16px":"12px 24px", border:"2px solid #8B6F47", color:"#D4A574", fontFamily:"Courier New,monospace", fontSize:isMobile?11:12, letterSpacing:2, textDecoration:"none", textTransform:"uppercase", transition:"all 0.2s" }}
+                  onMouseEnter={e=>{e.currentTarget.style.borderColor="#D4AF37";e.currentTarget.style.color="#D4AF37";}}
+                  onMouseLeave={e=>{e.currentTarget.style.borderColor="#8B6F47";e.currentTarget.style.color="#D4A574";}}>OPEN NEW CASE</a>
+              </div>
+              <div style={{ display:"flex", gap:10, flexWrap:"wrap" }}>
+                {[["8+","Cases Solved"],["2.5yrs","Field Work"],["4.9","Rating"]].map(([val,label])=>(
+                  <div key={label} style={{ background:"rgba(212,175,55,0.15)", border:"1px solid #8B6F47", padding:isMobile?"8px 12px":"10px 16px", borderRadius:4 }}>
+                    <div style={{ fontFamily:"Courier New,monospace", fontSize:isMobile?17:20, color:"#D4AF37", fontWeight:"bold" }}>{val}</div>
+                    <div style={{ fontFamily:"Courier New,monospace", fontSize:9, color:"#8B6F47", letterSpacing:1, marginTop:2 }}>{label.toUpperCase()}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ABOUT */}
+      <section id="about" style={{ background:"#221409", padding:sp }}>
+        <div style={{ maxWidth:800, margin:"0 auto" }}>
+          <SectionLabel>ABOUT ME</SectionLabel>
+          <div style={{ display:"flex", gap:isMobile?0:32, flexWrap:"wrap", marginTop:36, justifyContent:"center", flexDirection:isMobile?"column":"row", alignItems:isMobile?"center":"flex-start" }}>
+            <div style={{ flexShrink:0, width:isMobile?160:188, marginBottom:isMobile?22:0 }}>
+              <div style={{ background:"#3D2817", border:"2px solid #8B6F47", padding:16, position:"relative", transform:"rotate(-2deg)", boxShadow:"6px 6px 0 #1A0F0A" }}>
+                <div style={{ background:"#8B0000", color:"#F4E8D0", fontFamily:"Courier New,monospace", fontSize:9, padding:"3px 8px", letterSpacing:3, textAlign:"center", marginBottom:9, fontWeight:"bold" }}>DETECTIVE BUREAU</div>
+                <div style={{ width:"100%", aspectRatio:"1", background:"#1A0F0A", marginBottom:9 }}>
+                  <img src={profilePic} alt="Gopika" style={{ width:"100%", height:"100%", objectFit:"cover" }} />
+                </div>
+                <div style={{ fontFamily:"Courier New,monospace", color:"#D4AF37", fontSize:13, fontWeight:"bold" }}>GOPIKA</div>
+                <div style={{ fontFamily:"Courier New,monospace", color:"#D4A574", fontSize:10, marginTop:4, lineHeight:1.7 }}>BADGE: GK30<br/>STATUS: ACTIVE<br/>CLEARANCE: LVL 5</div>
+              </div>
+            </div>
+            <div style={{ flex:"1 1 240px", minWidth:0 }}>
+              <div style={{ background:"#F4E8D0", padding:isMobile?16:22, position:"relative", boxShadow:"4px 4px 0 #8B6F47", fontFamily:"Courier New,monospace", fontSize:isMobile?12:13, color:"#3D2817", lineHeight:1.8 }}>
+                <div style={{ borderBottom:"1px solid #8B6F47", marginBottom:11, paddingBottom:7, fontWeight:"bold", fontSize:10, letterSpacing:2, color:"#8B0000" }}>SUBJECT PROFILE - CONFIDENTIAL REPORT</div>
+                <p style={{ margin:"0 0 10px" }}>I am a UI/UX Designer who loves creating simple and meaningful digital experiences. I always think from the user perspective and focus on making designs that are clear, easy to use, and visually clean.</p>
+                <p style={{ margin:0 }}>With a background in customer support and design, I understand user problems deeply and work towards practical solutions.</p>
+                <div style={{ position:"absolute", top:8, right:8, border:"2px solid #8B0000", color:"#8B0000", fontFamily:"Courier New,monospace", fontSize:7, padding:"2px 6px", fontWeight:"bold", letterSpacing:2, transform:"rotate(-5deg)", opacity:0.5 }}>CONFIDENTIAL</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SKILLS */}
+      <section id="skills" style={{ background:"#2A1B0E", padding:sp, position:"relative", overflow:"hidden" }}>
+        <div style={{ position:"absolute", inset:0, backgroundImage:"repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(139,111,71,0.04) 60px,rgba(139,111,71,0.04) 62px)", pointerEvents:"none" }} />
+        <div style={{ maxWidth:800, margin:"0 auto", position:"relative", zIndex:1 }}>
+          <div style={{ textAlign:"center", marginBottom:40 }}>
+            <SectionLabel>SKILLS - DETECTIVE DESK</SectionLabel>
+            <p style={{ fontFamily:"Courier New,monospace", color:"#8B6F47", fontSize:12, marginTop:9 }}>Every clue pinned. Every skill documented. Evidence does not lie.</p>
+          </div>
+
+          {/* Chalkboard */}
+          <div style={{ display:"flex", gap:20, alignItems:"flex-start", marginBottom:32, flexWrap:"wrap" }}>
+            <div style={{ flex:"1 1 260px", minWidth:0 }}>
+              <div style={{ background:"linear-gradient(145deg,#6B4A1E,#4A3210)", border:"11px solid #5A3D15", borderRadius:6, padding:18, boxShadow:"6px 6px 24px rgba(0,0,0,0.7)", position:"relative" }}>
+                <div style={{ position:"absolute", bottom:-18, left:0, right:0, height:10, background:"#4A3210", borderRadius:"0 0 4px 4px", display:"flex", alignItems:"center", paddingLeft:14, gap:8 }}>
+                  {["#F4E8D0","#D4AF37","#8B0000"].map((c,i)=><div key={i} style={{ width:24, height:4, background:c, borderRadius:2, opacity:0.8 }} />)}
+                </div>
+                <div style={{ background:"#1C2A1C", borderRadius:2, padding:"16px 18px", minHeight:190, position:"relative" }}>
+                  <div style={{ textAlign:"center", marginBottom:14 }}>
+                    <div style={{ fontFamily:"Georgia,serif", fontSize:19, color:"#E8E8D8", opacity:0.92, lineHeight:1.3 }}>Investigation<br/>Philosophy</div>
+                    <div style={{ height:2, background:"rgba(212,175,55,0.6)", margin:"7px auto 0", width:90, borderRadius:1 }} />
+                  </div>
+                  <div style={{ display:"flex", gap:8, justifyContent:"center", flexWrap:"wrap" }}>
+                    {[{text:"Every problem leaves clues",bg:"#D4AF37",rot:-3,color:"#1A0F0A"},{text:"Every design starts with a question",bg:"#8B0000",rot:2,color:"#F4E8D0"},{text:"Every solution must be tested",bg:"#3D6B3D",rot:-1.5,color:"#F4E8D0"}].map((note,i)=>(
+                      <div key={i} style={{ background:note.bg, padding:"8px 10px", width:86, transform:`rotate(${note.rot}deg)`, boxShadow:"3px 4px 10px rgba(0,0,0,0.5)", cursor:"default", transition:"transform 0.2s", position:"relative" }}
+                        onMouseEnter={e=>e.currentTarget.style.transform="rotate(0deg) scale(1.06) translateY(-4px)"}
+                        onMouseLeave={e=>e.currentTarget.style.transform=`rotate(${note.rot}deg)`}>
+                        <div style={{ position:"absolute", top:-5, left:"50%", transform:"translateX(-50%)", width:7, height:7, borderRadius:"50%", background:"rgba(0,0,0,0.4)" }} />
+                        <div style={{ fontFamily:"Courier New,monospace", fontSize:9, color:note.color, lineHeight:1.5, fontWeight:"bold" }}>{note.text}</div>
+                      </div>
+                    ))}
+                  </div>
+                  <div style={{ marginTop:13, textAlign:"center" }}>
+                    <div style={{ fontFamily:"Georgia,serif", fontSize:9.5, color:"rgba(232,232,216,0.5)", fontStyle:"italic" }}>I believe great design comes from understanding users deeply before crafting pixels.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {!isMobile && (
+              <div style={{ display:"flex", flexDirection:"column", gap:16, flexShrink:0 }}>
+                <div style={{ width:100, height:100, borderRadius:"50%", background:"linear-gradient(145deg,#3D2817,#2A1B0E)", border:"5px solid #8B6F47", boxShadow:"0 0 0 3px #5A3D15,5px 5px 18px rgba(0,0,0,0.7)", display:"flex", alignItems:"center", justifyContent:"center", position:"relative" }}>
+                  <div style={{ position:"absolute", inset:7, borderRadius:"50%", background:"rgba(212,175,55,0.06)", border:"1px solid rgba(212,175,55,0.2)" }} />
+                  {[12,3,6,9].map((n,i)=>{const a=[-90,0,90,180];const x=50+38*Math.cos((a[i]*Math.PI)/180);const y=50+38*Math.sin((a[i]*Math.PI)/180);return<div key={n} style={{ position:"absolute",left:`${x}%`,top:`${y}%`,transform:"translate(-50%,-50%)",fontFamily:"Courier New,monospace",fontSize:9,color:"#D4AF37",fontWeight:"bold" }}>{n}</div>;})}
+                  <div style={{ position:"absolute", bottom:"50%", left:"50%", transformOrigin:"bottom center", transform:"translateX(-50%) rotate(-60deg)", width:2, height:22, background:"#D4AF37", borderRadius:2 }} />
+                  <div style={{ position:"absolute", bottom:"50%", left:"50%", transformOrigin:"bottom center", transform:"translateX(-50%) rotate(120deg)", width:1.5, height:30, background:"#F4E8D0", borderRadius:2 }} />
+                  <div style={{ position:"absolute", width:6, height:6, borderRadius:"50%", background:"#D4AF37", boxShadow:"0 0 6px #D4AF37" }} />
+                </div>
+                <div style={{ width:80, height:104, background:"#3D2817", border:"2px solid #5A3D15", borderRadius:"3px 6px 6px 3px", overflow:"hidden", position:"relative" }}>
+                  <div style={{ position:"absolute", left:0, top:0, bottom:0, width:11, background:"#8B0000", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", gap:5 }}>
+                    {[0,1,2,3,4].map(i=><div key={i} style={{ width:5, height:5, borderRadius:"50%", background:"#F4E8D0", opacity:0.6 }} />)}
+                  </div>
+                  <div style={{ marginLeft:11, padding:"8px 6px" }}>
+                    <div style={{ fontFamily:"Courier New,monospace", fontSize:8, color:"#D4AF37", fontWeight:"bold", marginBottom:4 }}>NOTEBOOK</div>
+                    {[0,1,2,3,4,5].map(i=><div key={i} style={{ height:1, background:"rgba(212,175,55,0.2)", marginBottom:7 }} />)}
+                    <div style={{ fontFamily:"Courier New,monospace", fontSize:7, color:"#8B6F47" }}>Case Notes...</div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* PHONE + MONITOR */}
+          <div style={{ display:"flex", flexDirection:isMobile?"column":"row", gap:isMobile?28:20, alignItems:isMobile?"stretch":"flex-end", marginBottom:32 }}>
+
+            {/* Phone widget */}
+            <div style={{ flexShrink:0, alignSelf:isMobile?"center":"flex-end", width:isMobile?160:140 }}>
+              <div style={{ background:"#1A0F0A", borderRadius:20, padding:"8px 7px", border:"3px solid #3D2817", boxShadow:"6px 6px 20px rgba(0,0,0,0.7)", transform:isMobile?"none":"rotate(-2deg)" }}>
+                <div style={{ width:32, height:7, background:"#0A0604", borderRadius:4, margin:"0 auto 7px" }} />
+                <div style={{ background:"#0d0d0d", borderRadius:12, padding:"8px 7px", border:"1px solid #2A1B0E" }}>
+                  <div style={{ fontFamily:"Courier New,monospace", fontSize:10, color:"#D4AF37", textAlign:"center", fontWeight:"bold", marginBottom:8, letterSpacing:1 }}>Tools</div>
+                  {[
+                    [
+                      { src:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg", label:"Figma" },
+                      { src:"https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg", label:"Illustrator" },
+                      { src:"https://upload.wikimedia.org/wikipedia/commons/c/c2/Adobe_XD_CC_icon.svg", label:"XD" },
+                    ],
+                    [
+                      { src:"https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg", label:"Photoshop" },
+                      { src:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg", label:"VS Code" },
+                      { src:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg", label:"Canva" },
+                    ],
+                    [
+                      { src:"https://upload.wikimedia.org/wikipedia/commons/5/59/Sketch_Logo.svg", label:"Sketch" },
+                      { src:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg", label:"GitHub" },
+                      { src:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", label:"Python" },
+                    ],
+                  ].map((row, ri) => (
+                    <div key={ri} style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:5, marginBottom:ri<2?5:0 }}>
+                      {row.map((app, i) => (
+                        <div key={i} style={{ background:"linear-gradient(145deg,#2A1B0E,#1A0F0A)", border:"1px solid #3D2817", borderRadius:8, padding:"7px 4px", textAlign:"center", cursor:"default", transition:"border-color 0.2s", display:"flex", alignItems:"center", justifyContent:"center" }}
+                          onMouseEnter={e=>e.currentTarget.style.borderColor="#D4AF37"}
+                          onMouseLeave={e=>e.currentTarget.style.borderColor="#3D2817"}>
+                          <img src={app.src} alt={app.label} style={{ width:26, height:26, objectFit:"contain", display:"block", filter:app.label==="GitHub"?"invert(1)":"none" }} />
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                  <div style={{ width:36, height:3, background:"#3D2817", borderRadius:2, margin:"8px auto 0" }} />
+                </div>
+              </div>
+            </div>
+
+            {/* Monitor */}
+            <div style={{ flex:"1 1 0", minWidth:0 }}>
+              <div style={{ background:"linear-gradient(145deg,#2e2e2e,#1c1c1c)", borderRadius:"11px 11px 4px 4px", padding:"6px 6px 0", boxShadow:"0 14px 50px rgba(0,0,0,0.85)", border:"2px solid #383838" }}>
+                <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", padding:"3px 10px 5px" }}>
+                  <div style={{ display:"flex", gap:5 }}>{["#ff5f57","#febc2e","#28c840"].map((c,i)=><div key={i} style={{ width:8, height:8, borderRadius:"50%", background:c }} />)}</div>
+                  <span style={{ fontFamily:"Courier New,monospace", color:"#555", fontSize:isMobile?8:9, letterSpacing:1 }}>SKILLS_TERMINAL.exe</span>
+                  <div style={{ width:28 }} />
+                </div>
+                <div style={{ background:"#080808", borderRadius:"5px 5px 0 0", padding:isMobile?"12px 12px":"14px 16px", minHeight:isMobile?180:190, border:"2px solid #0d0d0d" }}>
+                  <div style={{ display:"flex", flexDirection:isMobile?"column":"row" }}>
+                    <div style={{ flex:1, paddingRight:isMobile?0:11, paddingBottom:isMobile?11:0, borderRight:isMobile?"none":"1px solid #3D2817", borderBottom:isMobile?"1px solid #3D2817":"none", marginBottom:isMobile?12:0 }}>
+                      <div style={{ fontFamily:"Courier New,monospace", fontSize:11, color:"#D4AF37", fontWeight:"bold", letterSpacing:1, marginBottom:9 }}>UI skills</div>
+                      {["User Research","Persona Creation","Journey Mapping","Wireframing","Usability Testing"].map((s,i)=>(
+                        <div key={i} style={{ display:"flex", alignItems:"center", gap:5, marginBottom:isMobile?7:6 }}>
+                          <div style={{ width:4, height:4, borderRadius:"50%", background:"#D4AF37", flexShrink:0 }} />
+                          <span style={{ fontFamily:"Courier New,monospace", fontSize:isMobile?11:10, color:"#D4A574" }}>{s}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div style={{ flex:1, paddingLeft:isMobile?0:11 }}>
+                      <div style={{ fontFamily:"Courier New,monospace", fontSize:11, color:"#D4AF37", fontWeight:"bold", letterSpacing:1, marginBottom:9 }}>UX skills</div>
+                      {["Visual Hierarchy","Design Systems","Responsive Layouts","Prototyping","A/B Testing"].map((s,i)=>(
+                        <div key={i} style={{ display:"flex", alignItems:"center", gap:5, marginBottom:isMobile?7:6 }}>
+                          <div style={{ width:4, height:4, borderRadius:"50%", background:"#8B0000", flexShrink:0 }} />
+                          <span style={{ fontFamily:"Courier New,monospace", fontSize:isMobile?11:10, color:"#D4A574" }}>{s}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div style={{ borderTop:"1px solid #2A1B0E", marginTop:11, paddingTop:6, display:"flex", justifyContent:"space-between", alignItems:"center" }}>
+                    <div style={{ fontFamily:"Courier New,monospace", fontSize:8, color:"#5A3D15" }}>NOIR_OS v2.4 SKILLS_DB LOADED</div>
+                    <div style={{ display:"flex", gap:4, alignItems:"center" }}>
+                      <div style={{ width:5, height:5, borderRadius:"50%", background:"#28c840", boxShadow:"0 0 5px #28c840" }} />
+                      <div style={{ fontFamily:"Courier New,monospace", fontSize:8, color:"#28c840" }}>ACTIVE</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style={{ display:"flex", justifyContent:"center" }}><div style={{ width:42, height:13, background:"linear-gradient(to bottom,#222,#181818)", borderRadius:"0 0 3px 3px" }} /></div>
+              <div style={{ display:"flex", justifyContent:"center" }}><div style={{ width:140, height:9, background:"linear-gradient(145deg,#282828,#181818)", borderRadius:4 }} /></div>
+            </div>
+
+            {/* Desk items desktop only */}
+            {isDesktop && (
+              <div style={{ flexShrink:0, display:"flex", flexDirection:"column", alignItems:"center", gap:11 }}>
+                <div style={{ position:"relative" }}>
+                  <div style={{ width:46, height:46, background:"linear-gradient(145deg,#6B4A1E,#3D2817)", borderRadius:"6px 6px 10px 10px", border:"2px solid #5A3D15", position:"relative", overflow:"hidden" }}>
+                    <div style={{ position:"absolute", bottom:0, left:0, right:0, height:"60%", background:"radial-gradient(ellipse at center top,#5C3317,#3D2010)", borderRadius:"0 0 8px 8px" }} />
+                    <div style={{ position:"absolute", top:5, left:"50%", transform:"translateX(-50%)", fontFamily:"Courier New,monospace", fontSize:7, color:"#D4AF37", fontWeight:"bold", whiteSpace:"nowrap" }}>COFFEE.</div>
+                  </div>
+                  <div style={{ position:"absolute", right:-8, top:"25%", width:8, height:18, border:"2px solid #5A3D15", borderLeft:"none", borderRadius:"0 7px 7px 0" }} />
+                </div>
+                <div style={{ display:"flex", gap:3, alignItems:"flex-end" }}>
+                  {[{bg:"#D4AF37",tip:"#8B6F47",rot:-8},{bg:"#8B0000",tip:"#5A0000",rot:3}].map((p,i)=>(
+                    <div key={i} style={{ width:7, height:58, background:`linear-gradient(to bottom,${p.tip} 12%,${p.bg} 12%)`, borderRadius:"2px 2px 0 0", transform:`rotate(${p.rot}deg)`, transformOrigin:"bottom center", position:"relative" }}>
+                      <div style={{ position:"absolute", bottom:0, left:0, right:0, height:8, background:"#F4E8D0", borderRadius:"0 0 2px 2px" }} />
+                      <div style={{ position:"absolute", bottom:8, left:0, right:0, height:2, background:"#C0C0C0" }} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* PROFICIENCY REPORT — ANIMATED DEV SKILLS */}
+          <div>
+            <div style={{ background:"#3D2817", border:"2px solid #5A3D15", borderRadius:"6px 6px 0 0", padding:"4px 13px", display:"inline-flex", alignItems:"center", gap:10 }}>
+              <span style={{ fontFamily:"Courier New,monospace", fontSize:11, color:"#D4AF37", letterSpacing:2, fontWeight:"bold" }}>PROFICIENCY REPORT</span>
+              <span style={{ fontFamily:"Courier New,monospace", fontSize:9, color:"#8B6F47" }}>// DEV SKILLS</span>
+            </div>
+            <div style={{ background:"#F4E8D0", padding:isMobile?"16px 12px":"24px 22px", boxShadow:"4px 4px 0 #8B6F47", position:"relative", overflow:"hidden" }}>
+              {/* Scanline */}
+              <div style={{ position:"absolute", left:0, right:0, height:2, background:"linear-gradient(90deg,transparent,rgba(212,175,55,0.35),transparent)", animation:"scanline 3s linear infinite", pointerEvents:"none" }} />
+              {/* Floating stamp */}
+              <div style={{ position:"absolute", top:10, right:12, border:"2px solid #8B0000", color:"#8B0000", fontFamily:"Courier New,monospace", fontSize:7, padding:"2px 6px", fontWeight:"bold", letterSpacing:2, opacity:0.45, animation:"floatBadge 4s ease-in-out infinite" }}>CONFIDENTIAL</div>
+
+              <div style={{ display:"grid", gridTemplateColumns:isMobile?"1fr":isTablet?"repeat(2,1fr)":"repeat(4,1fr)", gap:"18px 20px" }}>
+                {[
+                  {label:"HTML",       value:90, icon:"🌐", color:"#E44D26"},
+                  {label:"CSS",        value:88, icon:"🎨", color:"#264DE4"},
+                  {label:"Bootstrap",  value:82, icon:"⚡", color:"#7952B3"},
+                  {label:"JavaScript", value:78, icon:"JS", color:"#F0C000"},
+                  {label:"React JS",   value:75, icon:"⚛",  color:"#61DAFB"},
+                  {label:"Python",     value:70, icon:"🐍", color:"#3776AB"},
+                  {label:"SQL",        value:72, icon:"🗄",  color:"#336791"},
+                ].map((s, idx) => (
+                  <div key={s.label}
+                    style={{ background:"linear-gradient(145deg,#fff8ee,#f0e6d0)", border:"1px solid rgba(139,111,71,0.3)", borderRadius:6, padding:"12px 13px", position:"relative", overflow:"hidden", animation:`cardSlideIn 0.5s ease-out both`, animationDelay:`${idx*0.08}s`, transition:"transform 0.2s, box-shadow 0.2s" }}
+                    onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-3px)";e.currentTarget.style.boxShadow="0 6px 18px rgba(139,111,71,0.25)";}}
+                    onMouseLeave={e=>{e.currentTarget.style.transform="none";e.currentTarget.style.boxShadow="none";}}>
+                    <div style={{ display:"flex", alignItems:"center", gap:7, marginBottom:9 }}>
+                      <div style={{ width:28, height:28, borderRadius:6, background:`linear-gradient(145deg,${s.color}22,${s.color}44)`, border:`1px solid ${s.color}88`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:s.icon==="JS"?10:13, fontWeight:"bold", color:s.icon==="JS"?s.color:undefined, flexShrink:0, fontFamily:"Courier New,monospace" }}>{s.icon}</div>
+                      <div style={{ flex:1, minWidth:0 }}>
+                        <div style={{ fontFamily:"Courier New,monospace", fontSize:10, fontWeight:"bold", color:"#3D2817", letterSpacing:0.5, whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>{s.label}</div>
+                      </div>
+                      <div style={{ fontFamily:"Courier New,monospace", fontSize:10, fontWeight:"bold", color:"#fff", background:`linear-gradient(135deg,#8B0000,${s.color})`, padding:"1px 6px", borderRadius:3, flexShrink:0 }}>{s.value}%</div>
+                    </div>
+                    <div style={{ height:7, background:"rgba(61,40,23,0.15)", borderRadius:4, overflow:"hidden" }}>
+                      <div style={{ height:"100%", width:s.value+"%", background:`linear-gradient(90deg,#8B0000,${s.color})`, borderRadius:4, animation:`barFill 1.2s cubic-bezier(0.22,1,0.36,1) ${idx*0.1}s both`, position:"relative" }}>
+                        <div style={{ position:"absolute", top:0, left:0, right:0, bottom:0, background:"linear-gradient(90deg,transparent 60%,rgba(255,255,255,0.35) 80%,transparent 100%)", animation:`scanline 2s linear ${idx*0.15}s infinite` }} />
+                      </div>
+                    </div>
+                    <div style={{ marginTop:5, fontFamily:"Courier New,monospace", fontSize:8, color:"#8B6F47", letterSpacing:1 }}>
+                      {s.value>=85?"EXPERT":s.value>=75?"PROFICIENT":s.value>=65?"INTERMEDIATE":"LEARNING"}
+                    </div>
+                    <div style={{ position:"absolute", bottom:6, right:8, width:5, height:5, borderRadius:"50%", background:s.color, opacity:0.5 }} />
+                  </div>
+                ))}
+              </div>
+
+              <div style={{ marginTop:16, paddingTop:10, borderTop:"1px dashed rgba(139,111,71,0.3)", display:"flex", justifyContent:"space-between", alignItems:"center", flexWrap:"wrap", gap:8 }}>
+                <div style={{ fontFamily:"Courier New,monospace", fontSize:8, color:"#8B6F47" }}>NOIR_OS :: DEV_SKILLS_MODULE v2.4</div>
+                <div style={{ display:"flex", gap:5, alignItems:"center" }}>
+                  <div style={{ width:5, height:5, borderRadius:"50%", background:"#28c840", animation:"pulse 2s infinite" }} />
+                  <div style={{ fontFamily:"Courier New,monospace", fontSize:8, color:"#28c840" }}>ALL SYSTEMS ACTIVE</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* TIMELINE + EDUCATION */}
+      <section style={{ background:"#1A0F0A", padding:sp }}>
+        <div style={{ maxWidth:800, margin:"0 auto" }}>
+          <SectionLabel>CASE TIMELINE - INVESTIGATION HISTORY</SectionLabel>
+          <div style={{ marginTop:36, position:"relative", marginBottom:48 }}>
+            {!isMobile && <div style={{ position:"absolute", left:96, top:0, bottom:0, width:1, background:"linear-gradient(to bottom,transparent,#8B6F47 8%,#8B6F47 92%,transparent)" }} />}
+            {timeline.map(t=>(
+              <div key={t.year} style={{ display:"flex", gap:isMobile?0:20, marginBottom:26, alignItems:"flex-start", flexDirection:isMobile?"column":"row" }}>
+                {!isMobile && <div style={{ flex:"0 0 96px", textAlign:"right", fontFamily:"Courier New,monospace", color:"#D4AF37", fontSize:13, fontWeight:"bold", paddingTop:4 }}>{t.year}</div>}
+                {!isMobile && <div style={{ flexShrink:0, width:12, height:12, borderRadius:"50%", background:"#D4AF37", marginTop:4, boxShadow:"0 0 12px rgba(212,175,55,0.5)" }} />}
+                <div style={{ flex:1, width:"100%" }}>
+                  {isMobile && <div style={{ fontFamily:"Courier New,monospace", color:"#D4AF37", fontSize:13, fontWeight:"bold", marginBottom:6 }}>{t.year}</div>}
+                  <div style={{ background:"#F4E8D0", padding:"13px 15px", position:"relative", boxShadow:"3px 3px 0 #8B6F47" }}>
+                    <div style={{ fontFamily:"Courier New,monospace", color:"#3D2817", fontWeight:"bold", fontSize:13 }}>{t.title}</div>
+                    <div style={{ fontFamily:"Courier New,monospace", color:"#8B0000", fontSize:11, letterSpacing:1, marginTop:2 }}>{t.place}</div>
+                    <div style={{ fontFamily:"Courier New,monospace", color:"#8B6F47", fontSize:12, marginTop:5, lineHeight:1.6 }}>{t.desc}</div>
+                    <div style={{ position:"absolute", top:8, right:8, background:"#D4AF37", color:"#1A0F0A", fontFamily:"Courier New,monospace", fontSize:9, padding:"2px 5px", fontWeight:"bold" }}>SOLVED</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <SectionLabel>ACADEMIC RECORDS - TRAINING DOSSIER</SectionLabel>
+          <div style={{ marginTop:32, position:"relative" }}>
+            {!isMobile && <div style={{ position:"absolute", left:96, top:0, bottom:0, width:1, background:"linear-gradient(to bottom,transparent,#8B6F47 8%,#8B6F47 92%,transparent)" }} />}
+            {education.map(e=>(
+              <div key={e.year} style={{ display:"flex", gap:isMobile?0:20, marginBottom:22, alignItems:"flex-start", flexDirection:isMobile?"column":"row" }}>
+                {!isMobile && <div style={{ flex:"0 0 96px", textAlign:"right", fontFamily:"Courier New,monospace", color:"#D4AF37", fontSize:12, fontWeight:"bold", paddingTop:5, lineHeight:1.4 }}>{e.year}</div>}
+                {!isMobile && <div style={{ flexShrink:0, width:12, height:12, borderRadius:2, background:"#8B6F47", marginTop:5, boxShadow:"0 0 10px rgba(139,111,71,0.5)", transform:"rotate(45deg)" }} />}
+                <div style={{ flex:1, width:"100%" }}>
+                  {isMobile && <div style={{ fontFamily:"Courier New,monospace", color:"#D4AF37", fontSize:12, fontWeight:"bold", marginBottom:6 }}>{e.year}</div>}
+                  <div style={{ background:"linear-gradient(135deg,#1A0F0A,#221409)", border:"1px solid #3D2817", padding:"13px 15px", position:"relative", boxShadow:"3px 3px 0 #3D2817" }}>
+                    <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:6 }}>
+                      <div style={{ background:"#D4AF37", color:"#1A0F0A", fontFamily:"Courier New,monospace", fontSize:12, fontWeight:"bold", padding:"2px 9px", letterSpacing:1 }}>{e.degree}</div>
+                      <div style={{ fontFamily:"Courier New,monospace", color:"#D4A574", fontSize:11, fontWeight:"bold" }}>{e.field}</div>
+                    </div>
+                    <div style={{ display:"flex", alignItems:"center", gap:6 }}>
+                      <span style={{ color:"#8B6F47", fontSize:10 }}>🎓</span>
+                      <span style={{ fontFamily:"Courier New,monospace", color:"#8B6F47", fontSize:11, lineHeight:1.5 }}>{e.institution}</span>
+                    </div>
+                    <div style={{ position:"absolute", top:8, right:8, background:e.badge==="PURSUING"?"#4D1A1A":"#1A4D1A", color:e.badge==="PURSUING"?"#FF9944":"#00FF41", fontFamily:"Courier New,monospace", fontSize:8, padding:"2px 6px", fontWeight:"bold", letterSpacing:1 }}>{e.badge}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CASES */}
+      <section id="cases" style={{ background:"#221409", padding:sp }}>
+        <div style={{ maxWidth:800, margin:"0 auto" }}>
+          <SectionLabel>PROJECT CASE FILES - FLOPPY ARCHIVE</SectionLabel>
+          <p style={{ fontFamily:"Courier New,monospace", color:"#8B6F47", fontSize:12, marginTop:8, marginBottom:32 }}>Click a floppy disk to load the case terminal</p>
+          <div style={{ display:"grid", gridTemplateColumns:isMobile?"repeat(2,1fr)":"repeat(3,1fr)", gap:isMobile?11:16 }}>
+            {projects.map(p=>(
+              <FloppyDisk key={p.id} p={p} isHover={diskHover===p.id} isInserted={diskInserted===p.id}
+                onHover={()=>setDiskHover(p.id)} onLeave={()=>setDiskHover(null)} onClick={()=>handleDiskClick(p)} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section id="contact" style={{ background:"#2A1B0E", padding:sp }}>
+        <div style={{ maxWidth:540, margin:"0 auto" }}>
+          <SectionLabel>SUBMIT CONFIDENTIAL EVIDENCE</SectionLabel>
+          <p style={{ fontFamily:"Courier New,monospace", color:"#8B6F47", fontSize:12, marginTop:8, marginBottom:32 }}>All tip submissions reviewed within 24 hours handled with full discretion</p>
+          <div style={{ background:"#F4E8D0", padding:isMobile?18:34, position:"relative", boxShadow:"8px 8px 0 #8B6F47" }}>
+            <div style={{ position:"absolute", top:-10, left:32, fontSize:20, transform:"rotate(180deg)", color:"#8B6F47" }}>📎</div>
+            <div style={{ fontFamily:"Courier New,monospace", color:"#8B0000", fontSize:10, fontWeight:"bold", letterSpacing:2, marginBottom:18, borderBottom:"1px solid #8B6F47", paddingBottom:8 }}>CONFIDENTIAL TIP SUBMISSION REF: DET-2025</div>
+            <form onSubmit={handleSubmit}>
+              {[{label:"WITNESS NAME:",name:"from_name",type:"text",ph:"Your full name..."},{label:"CONTACT EMAIL:",name:"from_email",type:"email",ph:"witness@secure.com..."}].map(f=>(
+                <div key={f.name} style={{ marginBottom:18 }}>
+                  <label style={{ display:"block", fontFamily:"Courier New,monospace", color:"#8B6F47", fontSize:11, letterSpacing:2, marginBottom:5, fontWeight:"bold" }}>{f.label}</label>
+                  <input type={f.type} name={f.name} placeholder={f.ph} required style={{ width:"100%", background:"transparent", border:"none", borderBottom:"1px solid #8B6F47", fontFamily:"Courier New,monospace", color:"#3D2817", fontSize:13, padding:"5px 0", outline:"none", boxSizing:"border-box" }} />
+                </div>
+              ))}
+              <div style={{ marginBottom:18 }}>
+                <label style={{ display:"block", fontFamily:"Courier New,monospace", color:"#8B6F47", fontSize:11, letterSpacing:2, marginBottom:5, fontWeight:"bold" }}>CASE MESSAGE:</label>
+                <textarea name="message" rows={4} placeholder="Describe the evidence..." required style={{ width:"100%", background:"transparent", border:"none", borderBottom:"1px solid #8B6F47", fontFamily:"Courier New,monospace", color:"#3D2817", fontSize:13, padding:"5px 0", resize:"none", outline:"none", boxSizing:"border-box" }} />
+              </div>
+              <button type="submit" style={{ marginTop:5, padding:"12px 28px", background:"#8B0000", color:"#F4E8D0", fontFamily:"Courier New,monospace", fontWeight:"bold", fontSize:12, letterSpacing:3, border:"none", cursor:"pointer", textTransform:"uppercase", boxShadow:"3px 3px 0 #3D2817", width:isMobile?"100%":"auto" }}>
+                {submitStamp?"EVIDENCE FILED":"SUBMIT EVIDENCE"}
+              </button>
+            </form>
+            {submitStamp && (
+              <div style={{ position:"absolute", top:"50%", left:"50%", transform:"translate(-50%,-50%) rotate(-12deg)", border:"4px solid #8B0000", color:"#8B0000", fontFamily:"Courier New,monospace", fontWeight:"bold", fontSize:isMobile?18:24, padding:"8px 16px", letterSpacing:4, opacity:0.8, pointerEvents:"none", animation:"stampIn 0.3s ease-out" }}>RECEIVED</div>
+            )}
+            <div style={{ position:"absolute", bottom:16, right:16, width:44, height:44, borderRadius:"50%", border:"4px solid rgba(139,111,71,0.2)" }} />
+          </div>
+        </div>
+      </section>
+
+      <div style={{ background:"repeating-linear-gradient(45deg,#FFD700 0px,#FFD700 40px,#1A0F0A 40px,#1A0F0A 80px)", height:40, display:"flex", alignItems:"center", justifyContent:"center", overflow:"hidden" }}>
+
+      </div>
+      <Footer theme="noir" />
+    </div>
+  );
+}
+
+export default function App() {
+  const [currentProject, setCurrentProject] = useState(null);
+
+  // Cursor: normal by default, magnifier on mousedown only
+  useEffect(() => {
+    const el = document.getElementById("mag-cursor");
+
+    const track = (e) => {
+      window._magX = e.clientX;
+      window._magY = e.clientY;
+      // Only move the SVG cursor while clicking
+      if (el && document.body.classList.contains("clicking")) {
+        el.style.left = e.clientX + "px";
+        el.style.top  = e.clientY + "px";
+      }
+    };
+
+    const down = (e) => {
+      document.body.classList.add("clicking");
+      if (el) {
+        el.style.left = (window._magX || e.clientX) + "px";
+        el.style.top  = (window._magY || e.clientY) + "px";
+      }
+    };
+
+    const up = () => {
+      document.body.classList.remove("clicking");
+    };
+
+    window.addEventListener("mousemove", track);
+    window.addEventListener("mousedown", down);
+    window.addEventListener("mouseup",   up);
+    return () => {
+      window.removeEventListener("mousemove", track);
+      window.removeEventListener("mousedown", down);
+      window.removeEventListener("mouseup",   up);
+    };
+  }, []);
+
+  const handleSelect  = (p) => { setCurrentProject(p); window.scrollTo({top:0,behavior:"smooth"}); };
+  const handleBack    = ()  => { setCurrentProject(null); setTimeout(()=>document.getElementById("cases")?.scrollIntoView({behavior:"smooth"}),100); };
+  const handleNext    = ()  => { const idx=projects.findIndex(p=>p.id===currentProject.id); setCurrentProject(projects[(idx+1)%projects.length]); window.scrollTo({top:0,behavior:"smooth"}); };
+  const nextProject   = currentProject ? projects[(projects.findIndex(p=>p.id===currentProject.id)+1)%projects.length] : null;
+
+  return (
+    <>
+      {/* Magnifying glass — hidden until mousedown */}
+      <div id="mag-cursor" style={{ position:"fixed", pointerEvents:"none", zIndex:99999, transform:"translate(-50%,-50%)", left:"-200px", top:"-200px", display:"none" }}>
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+          style={{ filter:"drop-shadow(0 2px 8px rgba(0,0,0,0.8))" }}>
+          <circle cx="16" cy="16" r="11.5" stroke="#D4AF37" strokeWidth="3" fill="rgba(212,175,55,0.12)"/>
+          <circle cx="16" cy="16" r="11.5" stroke="#8B6F47" strokeWidth="0.5" fill="none" opacity="0.5"/>
+          <ellipse cx="11.5" cy="11.5" rx="4" ry="2.2" fill="rgba(255,255,255,0.22)" transform="rotate(-35 11.5 11.5)"/>
+          <line x1="24.5" y1="24.5" x2="36" y2="36" stroke="#6B5437" strokeWidth="4" strokeLinecap="round"/>
+          <line x1="24.5" y1="24.5" x2="36" y2="36" stroke="#D4AF37" strokeWidth="2" strokeLinecap="round" opacity="0.7"/>
+          <circle cx="16" cy="16" r="6" stroke="rgba(212,175,55,0.15)" strokeWidth="1" fill="none"/>
+        </svg>
+      </div>
+
+      <style>{`
+        @keyframes blink        { 0%,100%{opacity:1} 50%{opacity:0} }
+        @keyframes stampIn      { from{transform:translate(-50%,-60%) rotate(-12deg) scale(1.5);opacity:0} to{transform:translate(-50%,-50%) rotate(-12deg) scale(1);opacity:0.8} }
+        @keyframes fadeInLine   { from{opacity:0;transform:translateX(-6px)} to{opacity:1;transform:none} }
+        @keyframes fadeInUp     { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
+        @keyframes pulse        { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(1.1)} }
+        @keyframes barFill      { from{width:0%} to{width:var(--bar-w,100%)} }
+        @keyframes cardSlideIn  { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes scanline     { 0%{left:-100%} 100%{left:200%} }
+        @keyframes floatBadge   { 0%,100%{transform:rotate(-2deg) translateY(0px)} 50%{transform:rotate(-2deg) translateY(-5px)} }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        input::placeholder, textarea::placeholder { color:#C4A882; opacity:0.5; }
+        button, a { -webkit-tap-highlight-color: transparent; }
+        img { max-width:100%; display:block; }
+
+        /* Normal cursor always visible */
+        * { cursor: auto; }
+        button, a, [role="button"] { cursor: pointer; }
+
+        /* While clicking: hide system cursor, show magnifier */
+        body.clicking, body.clicking * { cursor: none !important; }
+        body.clicking #mag-cursor { display: block !important; }
+      `}</style>
+
+      {currentProject
+        ? <ProjectPage project={currentProject} onBack={handleBack} onNext={handleNext} nextProject={nextProject} />
+        : <HomePage onSelectProject={handleSelect} />}
+    </>
+  );
+}
