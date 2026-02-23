@@ -3,16 +3,87 @@ import logo from "./logo.png";
 import emailjs from "@emailjs/browser";
 import myImage from "./assets/myImage.png";
 import profilePic from "../src/assets/profile.png";
+import Hero from "../src/assets/heroConsulven.png";
+import About from "../src/assets/aboutConsulven.png";
+import FooterMockup from "../src/assets/footerConsulven.png";
+import PC1 from "../src/assets/HeroPrime.png"
+import PC2 from "../src/assets/AboutPrime.png";
+import PC3 from "../src/assets/AboutPrime.png";
+import QQH01 from "../src/assets/QQH-01.png";
+import QQH02 from "../src/assets/QQH-02.png";
+import QQH03 from "../src/assets/QQH-03.png";
+import AnburFur1 from "../src/assets/AnbuFur-Hero.png";
+import AnburFur2 from "../src/assets/AnbuFur-01.png";
+import AnburFur3 from "../src/assets/AnbuFur-01.png";
+import fp1 from "../src/assets/truck BANNER.jpg";
+import fp2 from "../src/assets/ff02.png";
+import fp3 from "../src/assets/FastaPizza.png";
+import LP1 from "../src/assets/bfc.png";
+import LP2 from "../src/assets/ELS.jpeg";
+import LP3 from "../src/assets/DCP.png";
+
 
 const typewriterText = "Every Problem Leaves Clues. I Design the Solution.";
 
 const projects = [
-  { id:"01", title:"Consulven",  color:"#1c1408", label:"SOLVED", client:"Consulven IFSC",      role:"UI/UX Design", tools:"Figma, Framer, UX Research",         year:"2024", status:"SOLVED", desc:"International advisory firm requiring a credible digital presence.Rebuilt website UX from ground up with structured navigation.Focused on clarity, compliance communication, and enterprise trust.Digital positioning successfully established.",       websiteUrl:"https://consulvenifsc.com/", behanceUrl:"https://www.behance.net/gallery/230230983/Consulven-Consulting-Website-UIUX-Design", mockups:[{label:"Onboarding",src:null},{label:"Dashboard",src:null},{label:"Reports",src:null}] },
-  { id:"02", title:"Prime Counsel", color:"#0d1a0d", label:"SOLVED", client:"Prime Counsel Solution", role:"UI/UX Design",     tools:"Figma, Illustrator, Photoshop",  year:"2024", status:"SOLVED", desc:"Legal consultancy platform requiring modernization and UX overhaul.Redesigned legacy website into a structured, user-focused system.Built antique-inspired legal interface with modern usability standards.Navigation clarity improved. Brand authority strengthened.Deployment successful.", websiteUrl:"https://www.figma.com/proto/gHIhokLPZpAf1NQuBX8mwD/PRIME-COUNSEL?page-id=2622%3A17330&node-id=2622-20118&viewport=711%2C301%2C0.05&t=qZzAeEl1w1ARDyCM-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2622%3A21184", behanceUrl:"https://www.behance.net/gallery/230103201/Ancient-Legal-Web-Design?tracking_source=project_owner_other_projects", mockups:[{label:"Login",src:null},{label:"Portal",src:null},{label:"Records",src:null}] },
-  { id:"03", title:"QuantumQuest Wealth", color:"#0d1a0d", label:"SOLVED", client:"QuantumQuest Wealth", role:"UI/UX Designer, Logo", tools:"Figma, Photoshop, AI",  year:"2025", status:"SOLVED", desc:"Investment advisory firm requiring modern digital identity.Designed high-trust financial interface with structured UX flow.Implemented service architecture, testimonials, and conversion CTAs.User engagement increased. Investor confidence reinforced.System launch successful.", websiteUrl:"https://www.figma.com/proto/gHIhokLPZpAf1NQuBX8mwD/PRIME-COUNSEL?page-id=2622%3A17330&node-id=2622-20118&viewport=711%2C301%2C0.05&t=qZzAeEl1w1ARDyCM-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2622%3A21184", behanceUrl:"https://www.behance.net/gallery/230103201/Ancient-Legal-Web-Design?tracking_source=project_owner_other_projects", mockups:[{label:"Login",src:null},{label:"Portal",src:null},{label:"Records",src:null}] },
-  { id:"04", title:"Fasta Pizza", color:"#0d1a0d", label:"SOLVED", client:"QuantumQuest Wealth", role:"UI/UX Designer", tools:"Figma, Photoshop, Illustator",  year:"2024-2025", status:"SOLVED", desc:"Designed a responsive ecommerce ordering system for Fasta Pizza,focusing on fast menu navigation, mobile usability, and strong CTAs.Result: smoother ordering flow, higher engagement, and improved usability.", websiteUrl:"https://www.figma.com/proto/gHIhokLPZpAf1NQuBX8mwD/PRIME-COUNSEL?page-id=2622%3A17330&node-id=2622-20118&viewport=711%2C301%2C0.05&t=qZzAeEl1w1ARDyCM-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2622%3A21184", behanceUrl:"https://www.behance.net/gallery/230103201/Ancient-Legal-Web-Design?tracking_source=project_owner_other_projects", mockups:[{label:"Login",src:null},{label:"Portal",src:null},{label:"Records",src:null}] },
-  { id:"05", title:"Poster", color:"#0d1a0d", label:"SOLVED", client:"Fasta Pizza", role:"Poster Design", tools:"Photoshop",  year:"2025", status:"SOLVED", desc:"PROMOTIONAL FOOD TRUCK POSTER DESIGNED FOR FASTA PIZZA.VISUAL HIERARCHY OPTIMIZED. BRAND COLORS SYNCHRONIZED.MARKETING BANNER DEPLOYED FOR EVENT BOOKINGS.", websiteUrl:"https://www.figma.com/proto/gHIhokLPZpAf1NQuBX8mwD/PRIME-COUNSEL?page-id=2622%3A17330&node-id=2622-20118&viewport=711%2C301%2C0.05&t=qZzAeEl1w1ARDyCM-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2622%3A21184", behanceUrl:"https://www.behance.net/gallery/230103201/Ancient-Legal-Web-Design?tracking_source=project_owner_other_projects", mockups:[{label:"Login",src:null},{label:"Portal",src:null},{label:"Records",src:null}] },
-  { id:"06", title:"ELS Logo", color:"#0d1a0d", label:"SOLVED", client:"ELS", role:"Logo Design", tools:"Photoshop",  year:"2024", status:"SOLVED", desc:" LEGAL BRAND IDENTITY INITIALIZED.SERIF TYPOGRAPHY SELECTED FOR AUTHORITY SIGNAL.PRIMARY INITIALS EMPHASIZED. TRUST PROTOCOL ACTIVE.LOGO DEPLOYED.", websiteUrl:"https://www.els.legal/services", behanceUrl:"https://www.behance.net/gallery/230103201/Ancient-Legal-Web-Design?tracking_source=project_owner_other_projects", mockups:[{label:"Login",src:null},{label:"Portal",src:null},{label:"Records",src:null}] },
+  {
+    id:"01", title:"Consulven", color:"#1c1408", label:"SOLVED",
+    client:"Consulven IFSC", role:"UI/UX Design", tools:"Figma, Framer, UX Research", year:"2024", status:"SOLVED",
+    desc:"International advisory firm requiring a credible digital presence.Rebuilt website UX from ground up with structured navigation.Focused on clarity, compliance communication, and enterprise trust.Digital positioning successfully established.",
+    websiteUrl:"https://consulvenifsc.com/",
+    behanceUrl:"https://www.behance.net/gallery/230230983/Consulven-Consulting-Website-UIUX-Design",
+    mockups:[{label:"Onboarding",src:Hero},{label:"Dashboard",src:About},{label:"Reports",src:FooterMockup}],
+  },
+  {
+    id:"02", title:"Prime Counsel", color:"#0d1a0d", label:"SOLVED",
+    client:"Prime Counsel Solution", role:"UI/UX Design", tools:"Figma, Illustrator, Photoshop", year:"2024", status:"SOLVED",
+    desc:"Legal consultancy platform requiring modernization and UX overhaul.Redesigned legacy website into a structured, user-focused system.Built antique-inspired legal interface with modern usability standards.Navigation clarity improved. Brand authority strengthened.Deployment successful.",
+    websiteUrl:"https://www.figma.com/proto/gHIhokLPZpAf1NQuBX8mwD/PRIME-COUNSEL?page-id=2622%3A17330&node-id=2622-20118&viewport=711%2C301%2C0.05&t=qZzAeEl1w1ARDyCM-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2622%3A21184",
+    behanceUrl:"https://www.behance.net/gallery/230103201/Ancient-Legal-Web-Design?tracking_source=project_owner_other_projects",
+    mockups:[{label:"Login",src:PC1},{label:"Portal",src:PC2},{label:"Records",src:PC3}],
+  },
+  {
+    id:"03", title:"QuantumQuest Wealth", color:"#0d1a0d", label:"SOLVED",
+    client:"QuantumQuest Wealth", role:"UI/UX Designer, Logo", tools:"Figma, Photoshop, AI", year:"2025", status:"SOLVED",
+    desc:"Investment advisory firm requiring modern digital identity.Designed high-trust financial interface with structured UX flow.Implemented service architecture, testimonials, and conversion CTAs.User engagement increased. Investor confidence reinforced.System launch successful.",
+    websiteUrl:"https://www.figma.com/proto/XUMSBZvykv8g1BT424pB4R/QuantunQuest-Wealth?page-id=1%3A3&node-id=1-2030&viewport=-2%2C-590%2C0.07&t=R9GN2UytWQYUa7e9-1&scaling=scale-down&content-scaling=fixed",
+    behanceUrl:"https://www.behance.net/gallery/230103201/Ancient-Legal-Web-Design?tracking_source=project_owner_other_projects",
+    mockups:[{label:"Login",src:QQH01},{label:"Portal",src:QQH02},{label:"Records",src:QQH03}],
+  },
+  {
+    id:"04", title:"Fasta Pizza", color:"#0d1a0d", label:"SOLVED",
+    client:"FastaPizza", role:"UI/UX Designer", tools:"Figma, Photoshop, Illustrator", year:"2024-2025", status:"SOLVED",
+    desc:"Designed a responsive ecommerce ordering system for Fasta Pizza,focusing on fast menu navigation, mobile usability, and strong CTAs.Result: smoother ordering flow, higher engagement, and improved usability.",
+    websiteUrl:"https://www.fastapizza.com/",
+    behanceUrl:"https://www.behance.net/gallery/230103201/Ancient-Legal-Web-Design?tracking_source=project_owner_other_projects",
+    mockups:[{label:"Login",src:fp1},{label:"Portal",src:fp2},{label:"Records",src:fp3}],
+  },
+  {
+    id:"05", title:"AnbuFur", color:"#1A0F08", label:"LIVE",
+    client:"AnbuFur", role:"Full-Stack Developer & UI/UX Designer",
+    tools:"React, TypeScript, Supabase, Tailwind CSS, Figma", year:"2025", status:"LIVE",
+    desc:"Built a full-stack animal rescue & adoption platform for India — featuring a real-time community rescue feed, 3-step adoption flow, volunteer role marketplace, and local vet clinic finder. Result: end-to-end product from zero to live in 2 weeks, serving Tamil Nadu's animal welfare community.",
+    websiteUrl:"https://anbu-fur.netlify.app/",
+    behanceUrl:"https://www.behance.net/gallery/244613911/AnbuFur-Animal-Rescue-Adoption-Platform",
+    mockups:[
+      {label:"Adopt",     src:AnburFur1},
+      {label:"Community", src:AnburFur2},
+      {label:"Volunteer", src:AnburFur3},
+    ],
+  },
+  {
+    id:"06", title:"Logo & Poster", color:"#0D0A1A", label:"SOLVED",
+    client:"Multiple Clients", role:"Brand Designer & Graphic Designer",
+    tools:"Illustrator, Photoshop, Figma", year:"2024–2025", status:"SOLVED",
+    desc:"Brand identity & poster design across diverse industries. Created mascot-led logo for AK's Cafe Point showcased in Instagram mockup format. Designed ELS Legal logo mounted on outdoor lightbox signage for real-world brand presence. Developed DCP Dream Cut Pictures cinematic logo identity. Delivered consistent visual language across print and digital formats for each brand.",
+    websiteUrl:"https://www.behance.net/gopikakrishvfc",
+    behanceUrl:"https://www.behance.net/gopikakrishvfc",
+    mockups:[
+      {label:"Logo",   src:LP1},
+      {label:"Logo",     src:LP2},
+      {label:"Logo", src:LP3},
+    ],
+  },
 ];
 
 const timeline = [
@@ -100,6 +171,7 @@ function Footer({ theme="noir" }) {
 }
 
 function FloppyDisk({ p, isHover, isInserted, onHover, onLeave, onClick }) {
+  const isLive = p.label === "LIVE";
   return (
     <div style={{ cursor:"pointer", transform:isInserted?"translateY(18px) scale(0.92)":isHover?"translateY(-8px) scale(1.04)":"none", transition:"transform 0.25s cubic-bezier(0.22,1,0.36,1)", filter:isHover?"drop-shadow(0 10px 18px rgba(212,175,55,0.35))":"none" }}
       onMouseEnter={onHover} onMouseLeave={onLeave} onClick={onClick}>
@@ -111,7 +183,11 @@ function FloppyDisk({ p, isHover, isInserted, onHover, onLeave, onClick }) {
         <div style={{ background:"#F4E8D0", margin:"5px 7px 7px", padding:"8px" }}>
           <div style={{ fontFamily:"Courier New,monospace", color:"#3D2817", fontSize:11, fontWeight:"bold", lineHeight:1.4 }}>Case: {p.title}</div>
           <div style={{ display:"flex", justifyContent:"space-between", marginTop:5, alignItems:"center" }}>
-            <span style={{ background:p.label==="SOLVED"?"#1A4D1A":"#4D1A1A", color:p.label==="SOLVED"?"#00FF41":"#FF6644", fontFamily:"Courier New,monospace", fontSize:8, padding:"2px 5px", fontWeight:"bold" }}>{p.label}</span>
+            <span style={{
+              background: isLive ? "#001A4D" : "#1A4D1A",
+              color: isLive ? "#00AAFF" : "#00FF41",
+              fontFamily:"Courier New,monospace", fontSize:8, padding:"2px 5px", fontWeight:"bold"
+            }}>{p.label}</span>
             <span style={{ fontFamily:"Courier New,monospace", color:"#8B6F47", fontSize:10 }}>#{p.id}</span>
           </div>
           {isHover && <div style={{ fontFamily:"Courier New,monospace", color:"#8B0000", fontSize:9, marginTop:3 }}>click to load</div>}
@@ -123,17 +199,131 @@ function FloppyDisk({ p, isHover, isInserted, onHover, onLeave, onClick }) {
   );
 }
 
-function TerminalWindow({ title, children, flex="1" }) {
+// ─── NEW: Mockup card with Behance hover overlay ───────────────────────────
+function MockupCard({ src, label, behanceUrl, isMobile }) {
+  const [hovered, setHovered] = useState(false);
+
   return (
-    <div style={{ flex, border:"1px solid #00FF41", background:"rgba(0,255,65,0.02)", minWidth:0 }}>
-      <div style={{ background:"#00FF41", padding:"4px 8px", display:"flex", alignItems:"center", justifyContent:"space-between" }}>
-        <span style={{ fontFamily:"Courier New,monospace", fontSize:9, color:"#050505", fontWeight:"bold", letterSpacing:1 }}>{title}</span>
-        <div style={{ display:"flex", gap:4 }}>{["--","[]","X"].map(s=><span key={s} style={{ fontFamily:"Courier New,monospace", fontSize:9, color:"#050505" }}>{s}</span>)}</div>
+    <a
+      href={behanceUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{ flex:1, display:"flex", flexDirection:"column", textDecoration:"none", position:"relative" }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <div style={{
+        width:"100%",
+        height: isMobile ? 130 : 200,
+        border: hovered ? "2px solid #0057FF" : "2px solid #00FF41",
+        borderRadius: 6,
+        overflow:"hidden",
+        background:"#010a01",
+        position:"relative",
+        boxShadow: hovered
+          ? "0 0 24px rgba(0,87,255,0.55), 0 0 8px rgba(0,87,255,0.3)"
+          : "0 0 8px rgba(0,255,65,0.1)",
+        transition:"border-color 0.25s, box-shadow 0.25s",
+        cursor:"pointer",
+      }}>
+        {/* Mockup image */}
+        {src
+          ? <img src={src} alt={label} style={{ width:"100%", height:"100%", objectFit:"cover", display:"block", transition:"transform 0.35s ease", transform: hovered ? "scale(1.06)" : "scale(1)" }} />
+          : (
+            <div style={{ width:"100%", height:"100%", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", gap:6, background:"#010a01" }}>
+              <span style={{ color:"rgba(0,255,65,0.4)", fontSize:22 }}>+</span>
+              <span style={{ fontFamily:"Courier New,monospace", fontSize:7, color:"rgba(0,255,65,0.4)", letterSpacing:1 }}>NO IMAGE</span>
+            </div>
+          )
+        }
+
+        {/* Hover overlay */}
+        <div style={{
+          position:"absolute",
+          inset:0,
+          background: hovered ? "rgba(0,10,30,0.72)" : "rgba(0,10,30,0)",
+          display:"flex",
+          flexDirection:"column",
+          alignItems:"center",
+          justifyContent:"center",
+          gap:10,
+          transition:"background 0.25s",
+          pointerEvents: hovered ? "auto" : "none",
+        }}>
+          {hovered && (
+            <>
+              {/* Behance "Bē" logo circle */}
+              <div style={{
+                width:44,
+                height:44,
+                borderRadius:"50%",
+                background:"#0057FF",
+                display:"flex",
+                alignItems:"center",
+                justifyContent:"center",
+                fontFamily:"Georgia, serif",
+                fontSize:20,
+                fontWeight:"bold",
+                color:"#fff",
+                boxShadow:"0 0 18px rgba(0,87,255,0.8)",
+                animation:"popIn 0.2s ease-out",
+              }}>Bē</div>
+
+              {/* Button label */}
+              <div style={{
+                background:"#0057FF",
+                color:"#fff",
+                fontFamily:"Courier New,monospace",
+                fontSize: isMobile ? 8 : 10,
+                fontWeight:"bold",
+                letterSpacing:2,
+                padding:"5px 12px",
+                borderRadius:3,
+                textTransform:"uppercase",
+                boxShadow:"0 0 12px rgba(0,87,255,0.6)",
+                animation:"popIn 0.25s ease-out",
+              }}>VIEW ON BEHANCE</div>
+            </>
+          )}
+        </div>
+
+        {/* Corner brackets — green when not hovered, blue when hovered */}
+        {[
+          {top:0,left:0,borderTop:true,borderLeft:true},
+          {top:0,right:0,borderTop:true,borderRight:true},
+          {bottom:0,left:0,borderBottom:true,borderLeft:true},
+          {bottom:0,right:0,borderBottom:true,borderRight:true},
+        ].map((pos,i) => (
+          <div key={i} style={{
+            position:"absolute",
+            width:8, height:8,
+            ...(pos.top    !== undefined ? {top:0}    : {bottom:0}),
+            ...(pos.left   !== undefined ? {left:0}   : {right:0}),
+            borderTop:    pos.borderTop    ? `2px solid ${hovered?"#0057FF":"#00FF41"}` : "none",
+            borderBottom: pos.borderBottom ? `2px solid ${hovered?"#0057FF":"#00FF41"}` : "none",
+            borderLeft:   pos.borderLeft   ? `2px solid ${hovered?"#0057FF":"#00FF41"}` : "none",
+            borderRight:  pos.borderRight  ? `2px solid ${hovered?"#0057FF":"#00FF41"}` : "none",
+            transition:"border-color 0.25s",
+          }} />
+        ))}
       </div>
-      <div style={{ padding:"8px 10px" }}>{children}</div>
-    </div>
+
+      {/* Label below mockup */}
+      <div style={{
+        fontFamily:"Courier New,monospace",
+        fontSize:8,
+        color: hovered ? "#0057FF" : "#00FF41",
+        letterSpacing:1,
+        textAlign:"center",
+        marginTop:4,
+        textTransform:"uppercase",
+        transition:"color 0.25s",
+        textShadow: hovered ? "0 0 8px rgba(0,87,255,0.7)" : "none",
+      }}>{label}</div>
+    </a>
   );
 }
+// ──────────────────────────────────────────────────────────────────────────────
 
 function ProjectPage({ project, onBack, onNext, nextProject }) {
   const [termLines, setTermLines] = useState([]);
@@ -201,65 +391,22 @@ function ProjectPage({ project, onBack, onNext, nextProject }) {
                   ))}
                   {showContent && (
                     <div style={{ marginTop:13, animation:"fadeInUp 0.5s ease-out" }}>
-                      <div style={{ display:"flex", gap:8, marginBottom:12, flexWrap:"wrap" }}>
-                        {project.websiteUrl && (
-                          <a href={project.websiteUrl} target="_blank" rel="noopener noreferrer"
-                            style={{ display:"flex", alignItems:"center", gap:6, background:"none", border:"1px solid #00FF41", color:"#00FF41", fontFamily:"Courier New,monospace", fontSize:isMobile?9:10, padding:"5px 12px", textDecoration:"none", letterSpacing:1, transition:"all 0.2s", borderRadius:2 }}
-                            onMouseEnter={e=>{e.currentTarget.style.background="#00FF41";e.currentTarget.style.color="#050505";}}
-                            onMouseLeave={e=>{e.currentTarget.style.background="none";e.currentTarget.style.color="#00FF41";}}>
-                            <span>🌐</span> LIVE WEBSITE
-                          </a>
-                        )}
-                        {project.behanceUrl && (
-                          <a href={project.behanceUrl} target="_blank" rel="noopener noreferrer"
-                            style={{ display:"flex", alignItems:"center", gap:6, background:"none", border:"1px solid #00AAFF", color:"#00AAFF", fontFamily:"Courier New,monospace", fontSize:isMobile?9:10, padding:"5px 12px", textDecoration:"none", letterSpacing:1, transition:"all 0.2s", borderRadius:2 }}
-                            onMouseEnter={e=>{e.currentTarget.style.background="#00AAFF";e.currentTarget.style.color="#050505";}}
-                            onMouseLeave={e=>{e.currentTarget.style.background="none";e.currentTarget.style.color="#00AAFF";}}>
-                            <span>Bē</span> VIEW ON BEHANCE
-                          </a>
-                        )}
-                      </div>
-                      <div style={{ display:"flex", gap:8, marginBottom:8 }}>
-                        {project.mockups.map((m,i)=>(
-                          <div key={i} style={{ flex:1, display:"flex", flexDirection:"column", gap:5 }}>
-                            <div style={{ width:"100%", height:isMobile?90:110, border:"1px solid #00FF41", borderRadius:4, overflow:"hidden", background:"#010a01", position:"relative", boxShadow:"0 0 8px rgba(0,255,65,0.1)" }}>
-                              {m.src
-                                ? <img src={m.src} alt={m.label} style={{ width:"100%", height:"100%", objectFit:"cover", display:"block" }} />
-                                : (
-                                  <div style={{ width:"100%", height:"100%", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", gap:6, background:"#010a01" }}>
-                                    <div style={{ width:24, height:24, border:"1px dashed rgba(0,255,65,0.4)", borderRadius:3, display:"flex", alignItems:"center", justifyContent:"center" }}>
-                                      <span style={{ color:"rgba(0,255,65,0.5)", fontSize:14 }}>+</span>
-                                    </div>
-                                    <span style={{ fontFamily:"Courier New,monospace", fontSize:7, color:"rgba(0,255,65,0.4)", letterSpacing:1, textAlign:"center", lineHeight:1.6 }}>ADD<br/>PHOTO</span>
-                                  </div>
-                                )
-                              }
-                              <div style={{ position:"absolute", top:0, left:0, width:8, height:8, borderTop:"2px solid #00FF41", borderLeft:"2px solid #00FF41" }} />
-                              <div style={{ position:"absolute", top:0, right:0, width:8, height:8, borderTop:"2px solid #00FF41", borderRight:"2px solid #00FF41" }} />
-                              <div style={{ position:"absolute", bottom:0, left:0, width:8, height:8, borderBottom:"2px solid #00FF41", borderLeft:"2px solid #00FF41" }} />
-                              <div style={{ position:"absolute", bottom:0, right:0, width:8, height:8, borderBottom:"2px solid #00FF41", borderRight:"2px solid #00FF41" }} />
-                            </div>
-                            <div style={{ fontFamily:"Courier New,monospace", fontSize:8, color:"#00FF41", textAlign:"center", letterSpacing:1 }}>{m.label.toUpperCase()}</div>
-                          </div>
+                      {/* ── LARGE MOCKUP GRID (replaces small grid + terminal windows) ── */}
+                      <div style={{ display:"flex", gap: isMobile ? 6 : 10 }}>
+                        {project.mockups.map((m, i) => (
+                          <MockupCard
+                            key={i}
+                            src={m.src}
+                            label={m.label}
+                            behanceUrl={project.behanceUrl}
+                            isMobile={isMobile}
+                          />
                         ))}
                       </div>
-                      <div style={{ display:"flex", gap:6, flexWrap:"wrap" }}>
-                        <TerminalWindow title="PROJECT_DETAILS" flex="1 1 150px">
-                          <div style={{ fontFamily:"Courier New,monospace", fontSize:isMobile?9:10, lineHeight:1.9 }}>
-                            {[["CLIENT",project.client],["ROLE",project.role],["TOOLS",project.tools],["YEAR",project.year],["STATUS",project.status]].map(([k,v])=>(
-                              <div key={k} style={{ display:"flex", flexWrap:"wrap" }}>
-                                <span style={{ color:"#00FFFF", minWidth:66, fontSize:isMobile?8:9 }}>{k}:</span>
-                                <span style={{ color:"#00FF41", fontSize:isMobile?8:9 }}>{v}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </TerminalWindow>
-                        <TerminalWindow title="CASE_SUMMARY" flex="2 1 180px">
-                          <div style={{ fontFamily:"Courier New,monospace", fontSize:isMobile?9:10, color:"#00CC33", lineHeight:1.8 }}>
-                            {project.desc}
-                            <div style={{ marginTop:7, color:"#D4AF37", fontSize:9 }}>INVESTIGATION COMPLETE {cursor?"_":" "}</div>
-                          </div>
-                        </TerminalWindow>
+
+                      {/* ── Blinking cursor status line ── */}
+                      <div style={{ marginTop:10, fontFamily:"Courier New,monospace", fontSize:9, color:"#D4AF37", letterSpacing:1 }}>
+                        INVESTIGATION COMPLETE {cursor ? "_" : " "}
                       </div>
                     </div>
                   )}
@@ -489,8 +636,6 @@ function HomePage({ onSelectProject }) {
             <SectionLabel>SKILLS - DETECTIVE DESK</SectionLabel>
             <p style={{ fontFamily:"Courier New,monospace", color:"#8B6F47", fontSize:12, marginTop:9 }}>Every clue pinned. Every skill documented. Evidence does not lie.</p>
           </div>
-
-          {/* Chalkboard */}
           <div style={{ display:"flex", gap:20, alignItems:"flex-start", marginBottom:32, flexWrap:"wrap" }}>
             <div style={{ flex:"1 1 260px", minWidth:0 }}>
               <div style={{ background:"linear-gradient(145deg,#6B4A1E,#4A3210)", border:"11px solid #5A3D15", borderRadius:6, padding:18, boxShadow:"6px 6px 24px rgba(0,0,0,0.7)", position:"relative" }}>
@@ -541,35 +686,20 @@ function HomePage({ onSelectProject }) {
             )}
           </div>
 
-          {/* PHONE + MONITOR */}
           <div style={{ display:"flex", flexDirection:isMobile?"column":"row", gap:isMobile?28:20, alignItems:isMobile?"stretch":"flex-end", marginBottom:32 }}>
-
-            {/* Phone widget */}
             <div style={{ flexShrink:0, alignSelf:isMobile?"center":"flex-end", width:isMobile?160:140 }}>
               <div style={{ background:"#1A0F0A", borderRadius:20, padding:"8px 7px", border:"3px solid #3D2817", boxShadow:"6px 6px 20px rgba(0,0,0,0.7)", transform:isMobile?"none":"rotate(-2deg)" }}>
                 <div style={{ width:32, height:7, background:"#0A0604", borderRadius:4, margin:"0 auto 7px" }} />
                 <div style={{ background:"#0d0d0d", borderRadius:12, padding:"8px 7px", border:"1px solid #2A1B0E" }}>
                   <div style={{ fontFamily:"Courier New,monospace", fontSize:10, color:"#D4AF37", textAlign:"center", fontWeight:"bold", marginBottom:8, letterSpacing:1 }}>Tools</div>
                   {[
-                    [
-                      { src:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg", label:"Figma" },
-                      { src:"https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg", label:"Illustrator" },
-                      { src:"https://upload.wikimedia.org/wikipedia/commons/c/c2/Adobe_XD_CC_icon.svg", label:"XD" },
-                    ],
-                    [
-                      { src:"https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg", label:"Photoshop" },
-                      { src:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg", label:"VS Code" },
-                      { src:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg", label:"Canva" },
-                    ],
-                    [
-                      { src:"https://upload.wikimedia.org/wikipedia/commons/5/59/Sketch_Logo.svg", label:"Sketch" },
-                      { src:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg", label:"GitHub" },
-                      { src:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", label:"Python" },
-                    ],
-                  ].map((row, ri) => (
+                    [{src:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",label:"Figma"},{src:"https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg",label:"Illustrator"},{src:"https://upload.wikimedia.org/wikipedia/commons/c/c2/Adobe_XD_CC_icon.svg",label:"XD"}],
+                    [{src:"https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg",label:"Photoshop"},{src:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",label:"VS Code"},{src:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg",label:"Canva"}],
+                    [{src:"https://upload.wikimedia.org/wikipedia/commons/5/59/Sketch_Logo.svg",label:"Sketch"},{src:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",label:"GitHub"},{src:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",label:"Python"}],
+                  ].map((row,ri)=>(
                     <div key={ri} style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:5, marginBottom:ri<2?5:0 }}>
-                      {row.map((app, i) => (
-                        <div key={i} style={{ background:"linear-gradient(145deg,#2A1B0E,#1A0F0A)", border:"1px solid #3D2817", borderRadius:8, padding:"7px 4px", textAlign:"center", cursor:"default", transition:"border-color 0.2s", display:"flex", alignItems:"center", justifyContent:"center" }}
+                      {row.map((app,i)=>(
+                        <div key={i} style={{ background:"linear-gradient(145deg,#2A1B0E,#1A0F0A)", border:"1px solid #3D2817", borderRadius:8, padding:"7px 4px", cursor:"default", transition:"border-color 0.2s", display:"flex", alignItems:"center", justifyContent:"center" }}
                           onMouseEnter={e=>e.currentTarget.style.borderColor="#D4AF37"}
                           onMouseLeave={e=>e.currentTarget.style.borderColor="#3D2817"}>
                           <img src={app.src} alt={app.label} style={{ width:26, height:26, objectFit:"contain", display:"block", filter:app.label==="GitHub"?"invert(1)":"none" }} />
@@ -582,7 +712,6 @@ function HomePage({ onSelectProject }) {
               </div>
             </div>
 
-            {/* Monitor */}
             <div style={{ flex:"1 1 0", minWidth:0 }}>
               <div style={{ background:"linear-gradient(145deg,#2e2e2e,#1c1c1c)", borderRadius:"11px 11px 4px 4px", padding:"6px 6px 0", boxShadow:"0 14px 50px rgba(0,0,0,0.85)", border:"2px solid #383838" }}>
                 <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", padding:"3px 10px 5px" }}>
@@ -624,7 +753,6 @@ function HomePage({ onSelectProject }) {
               <div style={{ display:"flex", justifyContent:"center" }}><div style={{ width:140, height:9, background:"linear-gradient(145deg,#282828,#181818)", borderRadius:4 }} /></div>
             </div>
 
-            {/* Desk items desktop only */}
             {isDesktop && (
               <div style={{ flexShrink:0, display:"flex", flexDirection:"column", alignItems:"center", gap:11 }}>
                 <div style={{ position:"relative" }}>
@@ -646,30 +774,26 @@ function HomePage({ onSelectProject }) {
             )}
           </div>
 
-          {/* PROFICIENCY REPORT — ANIMATED DEV SKILLS */}
           <div>
             <div style={{ background:"#3D2817", border:"2px solid #5A3D15", borderRadius:"6px 6px 0 0", padding:"4px 13px", display:"inline-flex", alignItems:"center", gap:10 }}>
               <span style={{ fontFamily:"Courier New,monospace", fontSize:11, color:"#D4AF37", letterSpacing:2, fontWeight:"bold" }}>PROFICIENCY REPORT</span>
               <span style={{ fontFamily:"Courier New,monospace", fontSize:9, color:"#8B6F47" }}>// DEV SKILLS</span>
             </div>
             <div style={{ background:"#F4E8D0", padding:isMobile?"16px 12px":"24px 22px", boxShadow:"4px 4px 0 #8B6F47", position:"relative", overflow:"hidden" }}>
-              {/* Scanline */}
               <div style={{ position:"absolute", left:0, right:0, height:2, background:"linear-gradient(90deg,transparent,rgba(212,175,55,0.35),transparent)", animation:"scanline 3s linear infinite", pointerEvents:"none" }} />
-              {/* Floating stamp */}
               <div style={{ position:"absolute", top:10, right:12, border:"2px solid #8B0000", color:"#8B0000", fontFamily:"Courier New,monospace", fontSize:7, padding:"2px 6px", fontWeight:"bold", letterSpacing:2, opacity:0.45, animation:"floatBadge 4s ease-in-out infinite" }}>CONFIDENTIAL</div>
-
               <div style={{ display:"grid", gridTemplateColumns:isMobile?"1fr":isTablet?"repeat(2,1fr)":"repeat(4,1fr)", gap:"18px 20px" }}>
                 {[
-                  {label:"HTML",       value:90, icon:"🌐", color:"#E44D26"},
-                  {label:"CSS",        value:88, icon:"🎨", color:"#264DE4"},
-                  {label:"Bootstrap",  value:82, icon:"⚡", color:"#7952B3"},
-                  {label:"JavaScript", value:78, icon:"JS", color:"#F0C000"},
-                  {label:"React JS",   value:75, icon:"⚛",  color:"#61DAFB"},
-                  {label:"Python",     value:70, icon:"🐍", color:"#3776AB"},
-                  {label:"SQL",        value:72, icon:"🗄",  color:"#336791"},
-                ].map((s, idx) => (
+                  {label:"HTML",value:90,icon:"🌐",color:"#E44D26"},
+                  {label:"CSS",value:88,icon:"🎨",color:"#264DE4"},
+                  {label:"Bootstrap",value:82,icon:"⚡",color:"#7952B3"},
+                  {label:"JavaScript",value:78,icon:"JS",color:"#F0C000"},
+                  {label:"React JS",value:75,icon:"⚛",color:"#61DAFB"},
+                  {label:"Python",value:70,icon:"🐍",color:"#3776AB"},
+                  {label:"SQL",value:72,icon:"🗄",color:"#336791"},
+                ].map((s,idx)=>(
                   <div key={s.label}
-                    style={{ background:"linear-gradient(145deg,#fff8ee,#f0e6d0)", border:"1px solid rgba(139,111,71,0.3)", borderRadius:6, padding:"12px 13px", position:"relative", overflow:"hidden", animation:`cardSlideIn 0.5s ease-out both`, animationDelay:`${idx*0.08}s`, transition:"transform 0.2s, box-shadow 0.2s" }}
+                    style={{ background:"linear-gradient(145deg,#fff8ee,#f0e6d0)", border:"1px solid rgba(139,111,71,0.3)", borderRadius:6, padding:"12px 13px", position:"relative", overflow:"hidden", animation:`cardSlideIn 0.5s ease-out both`, animationDelay:`${idx*0.08}s`, transition:"transform 0.2s,box-shadow 0.2s" }}
                     onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-3px)";e.currentTarget.style.boxShadow="0 6px 18px rgba(139,111,71,0.25)";}}
                     onMouseLeave={e=>{e.currentTarget.style.transform="none";e.currentTarget.style.boxShadow="none";}}>
                     <div style={{ display:"flex", alignItems:"center", gap:7, marginBottom:9 }}>
@@ -691,7 +815,6 @@ function HomePage({ onSelectProject }) {
                   </div>
                 ))}
               </div>
-
               <div style={{ marginTop:16, paddingTop:10, borderTop:"1px dashed rgba(139,111,71,0.3)", display:"flex", justifyContent:"space-between", alignItems:"center", flexWrap:"wrap", gap:8 }}>
                 <div style={{ fontFamily:"Courier New,monospace", fontSize:8, color:"#8B6F47" }}>NOIR_OS :: DEV_SKILLS_MODULE v2.4</div>
                 <div style={{ display:"flex", gap:5, alignItems:"center" }}>
@@ -701,7 +824,6 @@ function HomePage({ onSelectProject }) {
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -727,7 +849,6 @@ function HomePage({ onSelectProject }) {
               </div>
             ))}
           </div>
-
           <SectionLabel>ACADEMIC RECORDS - TRAINING DOSSIER</SectionLabel>
           <div style={{ marginTop:32, position:"relative" }}>
             {!isMobile && <div style={{ position:"absolute", left:96, top:0, bottom:0, width:1, background:"linear-gradient(to bottom,transparent,#8B6F47 8%,#8B6F47 92%,transparent)" }} />}
@@ -800,9 +921,7 @@ function HomePage({ onSelectProject }) {
         </div>
       </section>
 
-      <div style={{ background:"repeating-linear-gradient(45deg,#FFD700 0px,#FFD700 40px,#1A0F0A 40px,#1A0F0A 80px)", height:40, display:"flex", alignItems:"center", justifyContent:"center", overflow:"hidden" }}>
-
-      </div>
+      <div style={{ background:"repeating-linear-gradient(45deg,#FFD700 0px,#FFD700 40px,#1A0F0A 40px,#1A0F0A 80px)", height:40 }} />
       <Footer theme="noir" />
     </div>
   );
@@ -811,40 +930,23 @@ function HomePage({ onSelectProject }) {
 export default function App() {
   const [currentProject, setCurrentProject] = useState(null);
 
-  // Cursor: normal by default, magnifier on mousedown only
   useEffect(() => {
     const el = document.getElementById("mag-cursor");
-
     const track = (e) => {
-      window._magX = e.clientX;
-      window._magY = e.clientY;
-      // Only move the SVG cursor while clicking
+      window._magX = e.clientX; window._magY = e.clientY;
       if (el && document.body.classList.contains("clicking")) {
-        el.style.left = e.clientX + "px";
-        el.style.top  = e.clientY + "px";
+        el.style.left = e.clientX + "px"; el.style.top = e.clientY + "px";
       }
     };
-
     const down = (e) => {
       document.body.classList.add("clicking");
-      if (el) {
-        el.style.left = (window._magX || e.clientX) + "px";
-        el.style.top  = (window._magY || e.clientY) + "px";
-      }
+      if (el) { el.style.left=(window._magX||e.clientX)+"px"; el.style.top=(window._magY||e.clientY)+"px"; }
     };
-
-    const up = () => {
-      document.body.classList.remove("clicking");
-    };
-
+    const up = () => document.body.classList.remove("clicking");
     window.addEventListener("mousemove", track);
     window.addEventListener("mousedown", down);
     window.addEventListener("mouseup",   up);
-    return () => {
-      window.removeEventListener("mousemove", track);
-      window.removeEventListener("mousedown", down);
-      window.removeEventListener("mouseup",   up);
-    };
+    return () => { window.removeEventListener("mousemove",track); window.removeEventListener("mousedown",down); window.removeEventListener("mouseup",up); };
   }, []);
 
   const handleSelect  = (p) => { setCurrentProject(p); window.scrollTo({top:0,behavior:"smooth"}); };
@@ -854,10 +956,8 @@ export default function App() {
 
   return (
     <>
-      {/* Magnifying glass — hidden until mousedown */}
       <div id="mag-cursor" style={{ position:"fixed", pointerEvents:"none", zIndex:99999, transform:"translate(-50%,-50%)", left:"-200px", top:"-200px", display:"none" }}>
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
-          style={{ filter:"drop-shadow(0 2px 8px rgba(0,0,0,0.8))" }}>
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ filter:"drop-shadow(0 2px 8px rgba(0,0,0,0.8))" }}>
           <circle cx="16" cy="16" r="11.5" stroke="#D4AF37" strokeWidth="3" fill="rgba(212,175,55,0.12)"/>
           <circle cx="16" cy="16" r="11.5" stroke="#8B6F47" strokeWidth="0.5" fill="none" opacity="0.5"/>
           <ellipse cx="11.5" cy="11.5" rx="4" ry="2.2" fill="rgba(255,255,255,0.22)" transform="rotate(-35 11.5 11.5)"/>
@@ -866,7 +966,6 @@ export default function App() {
           <circle cx="16" cy="16" r="6" stroke="rgba(212,175,55,0.15)" strokeWidth="1" fill="none"/>
         </svg>
       </div>
-
       <style>{`
         @keyframes blink        { 0%,100%{opacity:1} 50%{opacity:0} }
         @keyframes stampIn      { from{transform:translate(-50%,-60%) rotate(-12deg) scale(1.5);opacity:0} to{transform:translate(-50%,-50%) rotate(-12deg) scale(1);opacity:0.8} }
@@ -877,22 +976,17 @@ export default function App() {
         @keyframes cardSlideIn  { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
         @keyframes scanline     { 0%{left:-100%} 100%{left:200%} }
         @keyframes floatBadge   { 0%,100%{transform:rotate(-2deg) translateY(0px)} 50%{transform:rotate(-2deg) translateY(-5px)} }
-
-        * { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        @keyframes popIn        { from{opacity:0;transform:scale(0.6)} to{opacity:1;transform:scale(1)} }
+        * { box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
         input::placeholder, textarea::placeholder { color:#C4A882; opacity:0.5; }
-        button, a { -webkit-tap-highlight-color: transparent; }
+        button, a { -webkit-tap-highlight-color:transparent; }
         img { max-width:100%; display:block; }
-
-        /* Normal cursor always visible */
-        * { cursor: auto; }
-        button, a, [role="button"] { cursor: pointer; }
-
-        /* While clicking: hide system cursor, show magnifier */
-        body.clicking, body.clicking * { cursor: none !important; }
-        body.clicking #mag-cursor { display: block !important; }
+        * { cursor:auto; }
+        button, a, [role="button"] { cursor:pointer; }
+        body.clicking, body.clicking * { cursor:none !important; }
+        body.clicking #mag-cursor { display:block !important; }
       `}</style>
-
       {currentProject
         ? <ProjectPage project={currentProject} onBack={handleBack} onNext={handleNext} nextProject={nextProject} />
         : <HomePage onSelectProject={handleSelect} />}
