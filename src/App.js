@@ -22,67 +22,152 @@ import LP1 from "../src/assets/bfc.png";
 import LP2 from "../src/assets/ELS.jpeg";
 import LP3 from "../src/assets/DCP.png";
 
-
 const typewriterText = "Every Problem Leaves Clues. I Design the Solution.";
 
 const projects = [
   {
-    id:"01", title:"Consulven", color:"#1c1408", label:"SOLVED",
-    client:"Consulven IFSC", role:"UI/UX Design", tools:"Figma, Framer, UX Research", year:"2024", status:"SOLVED",
-    desc:"International advisory firm requiring a credible digital presence.Rebuilt website UX from ground up with structured navigation.Focused on clarity, compliance communication, and enterprise trust.Digital positioning successfully established.",
+    id:"01", 
+    title:"Consulven", 
+    color:"#3D2817", 
+    label:"CASE #2024-001",
+    status:"SOLVED",
+    client:"Consulven IFSC", 
+    role:"UI/UX Design", 
+    tools:"Figma, Framer, UX Research", 
+    year:"2024",
+    duration:"2 months",
+    desc:"International advisory firm requiring a credible digital presence. Rebuilt website UX from ground up with structured navigation. Focused on clarity, compliance communication, and enterprise trust. Digital positioning successfully established.",
+    challenge:"The client needed a professional digital presence that would communicate credibility and compliance expertise to international clients. The existing website lacked structure and failed to build trust.",
+    solution:"Rebuilt website UX from ground up with structured navigation, clear compliance messaging, and enterprise-focused design language. Implemented intuitive information architecture and professional visual identity.",
+    results:[
+      "Successfully established digital positioning",
+      "Improved user trust and engagement metrics",
+      "Clear communication of compliance expertise",
+      "Enhanced professional brand perception"
+    ],
     websiteUrl:"https://consulvenifsc.com/",
     behanceUrl:"https://www.behance.net/gallery/230230983/Consulven-Consulting-Website-UIUX-Design",
-    mockups:[{label:"Onboarding",src:Hero},{label:"Dashboard",src:About},{label:"Reports",src:FooterMockup}],
+    mockups:[{label:"Hero",src:Hero},{label:"About",src:About},{label:"Footer",src:FooterMockup}],
   },
   {
-    id:"02", title:"Prime Counsel", color:"#0d1a0d", label:"SOLVED",
-    client:"Prime Counsel Solution", role:"UI/UX Design", tools:"Figma, Illustrator, Photoshop", year:"2024", status:"SOLVED",
-    desc:"Legal consultancy platform requiring modernization and UX overhaul.Redesigned legacy website into a structured, user-focused system.Built antique-inspired legal interface with modern usability standards.Navigation clarity improved. Brand authority strengthened.Deployment successful.",
+    id:"02", 
+    title:"Prime Counsel", 
+    color:"#8B6F47", 
+    label:"CASE #2024-002",
+    status:"SOLVED",
+    client:"Prime Counsel Solution", 
+    role:"UI/UX Design", 
+    tools:"Figma, Illustrator, Photoshop", 
+    year:"2024",
+    duration:"3 months",
+    desc:"Legal consultancy platform requiring modernization and UX overhaul. Redesigned legacy website into a structured, user-focused system. Built antique-inspired legal interface with modern usability standards. Navigation clarity improved. Brand authority strengthened. Deployment successful.",
+    challenge:"Legacy legal website suffered from poor usability and outdated interface. Users struggled with complex navigation and the site failed to communicate professional authority effectively.",
+    solution:"Redesigned into structured, user-focused system with antique-inspired legal aesthetic combined with modern usability standards. Implemented clear navigation hierarchy and improved content organization.",
+    results:[
+      "Navigation clarity significantly improved",
+      "Brand authority strengthened",
+      "Modern usability with classic legal aesthetics",
+      "Successful deployment and user adoption"
+    ],
     websiteUrl:"https://www.figma.com/proto/gHIhokLPZpAf1NQuBX8mwD/PRIME-COUNSEL?page-id=2622%3A17330&node-id=2622-20118&viewport=711%2C301%2C0.05&t=qZzAeEl1w1ARDyCM-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2622%3A21184",
     behanceUrl:"https://www.behance.net/gallery/230103201/Ancient-Legal-Web-Design?tracking_source=project_owner_other_projects",
     mockups:[{label:"Login",src:PC1},{label:"Portal",src:PC2},{label:"Records",src:PC3}],
   },
   {
-    id:"03", title:"QuantumQuest Wealth", color:"#0d1a0d", label:"SOLVED",
-    client:"QuantumQuest Wealth", role:"UI/UX Designer, Logo", tools:"Figma, Photoshop, AI", year:"2025", status:"SOLVED",
-    desc:"Investment advisory firm requiring modern digital identity.Designed high-trust financial interface with structured UX flow.Implemented service architecture, testimonials, and conversion CTAs.User engagement increased. Investor confidence reinforced.System launch successful.",
-    websiteUrl:"https://www.figma.com/proto/XUMSBZvykv8g1BT424pB4R/QuantunQuest-Wealth?page-id=1%3A3&node-id=1-2030&viewport=-2%2C-590%2C0.07&t=R9GN2UytWQYUa7e9-1&scaling=scale-down&content-scaling=fixed",
+    id:"03", 
+    title:"QuantumQuest Wealth", 
+    color:"#D4AF37", 
+    label:"CASE #2025-003",
+    status:"SOLVED",
+    client:"QuantumQuest Wealth", 
+    role:"UI/UX Designer, Logo", 
+    tools:"Figma, Photoshop, AI", 
+    year:"2025",
+    duration:"2 months",
+    desc:"Investment advisory firm requiring modern digital identity. Designed high-trust financial interface with structured UX flow. Implemented service architecture, testimonials, and conversion CTAs. User engagement increased. Investor confidence reinforced. System launch successful.",
+    challenge:"Investment firm needed to establish digital credibility and trust with potential investors. Existing presence failed to communicate expertise and failed to convert visitors into leads.",
+    solution:"Designed high-trust financial interface with structured UX flow, clear service architecture, strategic testimonial placement, and optimized conversion CTAs throughout the user journey.",
+    results:[
+      "User engagement metrics increased",
+      "Investor confidence reinforced",
+      "Successful system launch",
+      "Improved lead conversion rates"
+    ],
+    websiteUrl:"https://www.figma.com/proto/gHIhokLPZpAf1NQuBX8mwD/PRIME-COUNSEL?page-id=2622%3A17330&node-id=2622-20118&viewport=711%2C301%2C0.05&t=qZzAeEl1w1ARDyCM-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2622%3A21184",
     behanceUrl:"https://www.behance.net/gallery/230103201/Ancient-Legal-Web-Design?tracking_source=project_owner_other_projects",
-    mockups:[{label:"Login",src:QQH01},{label:"Portal",src:QQH02},{label:"Records",src:QQH03}],
+    mockups:[{label:"Hero",src:QQH01},{label:"Services",src:QQH02},{label:"Contact",src:QQH03}],
   },
   {
-    id:"04", title:"Fasta Pizza", color:"#0d1a0d", label:"SOLVED",
-    client:"FastaPizza", role:"UI/UX Designer", tools:"Figma, Photoshop, Illustrator", year:"2024-2025", status:"SOLVED",
-    desc:"Designed a responsive ecommerce ordering system for Fasta Pizza,focusing on fast menu navigation, mobile usability, and strong CTAs.Result: smoother ordering flow, higher engagement, and improved usability.",
-    websiteUrl:"https://www.fastapizza.com/",
+    id:"04", 
+    title:"Fasta Pizza", 
+    color:"#8B0000", 
+    label:"CASE #2024-004",
+    status:"SOLVED",
+    client:"FastaPizza", 
+    role:"UI/UX Designer", 
+    tools:"Figma, Photoshop, Illustrator", 
+    year:"2024-2025",
+    duration:"2 months",
+    desc:"Designed a responsive ecommerce ordering system for Fasta Pizza, focusing on fast menu navigation, mobile usability, and strong CTAs. Result: smoother ordering flow, higher engagement, and improved usability.",
+    challenge:"Customers struggled with slow ordering process and poor mobile experience. Menu navigation was confusing and conversion rates were low on mobile devices.",
+    solution:"Implemented responsive ecommerce system with fast menu navigation, mobile-first design approach, and strategically placed CTAs. Streamlined the entire ordering flow for maximum efficiency.",
+    results:[
+      "Smoother ordering flow achieved",
+      "Higher user engagement metrics",
+      "Improved mobile usability scores",
+      "Increased mobile conversion rates"
+    ],
+    websiteUrl:"https://www.figma.com/proto/gHIhokLPZpAf1NQuBX8mwD/PRIME-COUNSEL?page-id=2622%3A17330&node-id=2622-20118&viewport=711%2C301%2C0.05&t=qZzAeEl1w1ARDyCM-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2622%3A21184",
     behanceUrl:"https://www.behance.net/gallery/230103201/Ancient-Legal-Web-Design?tracking_source=project_owner_other_projects",
-    mockups:[{label:"Login",src:fp1},{label:"Portal",src:fp2},{label:"Records",src:fp3}],
+    mockups:[{label:"Banner",src:fp1},{label:"Menu",src:fp2},{label:"Order",src:fp3}],
   },
   {
-    id:"05", title:"AnbuFur", color:"#1A0F08", label:"LIVE",
-    client:"AnbuFur", role:"Full-Stack Developer & UI/UX Designer",
-    tools:"React, TypeScript, Supabase, Tailwind CSS, Figma", year:"2025", status:"LIVE",
+    id:"05", 
+    title:"AnbuFur", 
+    color:"#D4A574", 
+    label:"CASE #2025-005",
+    status:"LIVE",
+    client:"AnbuFur", 
+    role:"Full-Stack Developer & UI/UX Designer",
+    tools:"React, TypeScript, Supabase, Tailwind CSS, Figma", 
+    year:"2025",
+    duration:"2 weeks",
     desc:"Built a full-stack animal rescue & adoption platform for India — featuring a real-time community rescue feed, 3-step adoption flow, volunteer role marketplace, and local vet clinic finder. Result: end-to-end product from zero to live in 2 weeks, serving Tamil Nadu's animal welfare community.",
+    challenge:"Tamil Nadu's animal welfare community lacked a centralized platform for rescue coordination, adoption processes, and volunteer management. Fragmented communication led to delayed rescues and poor adoption rates.",
+    solution:"Built full-stack platform with real-time rescue feed, streamlined 3-step adoption flow, volunteer marketplace, and vet clinic directory. Rapid development cycle delivered complete solution in 2 weeks.",
+    results:[
+      "End-to-end platform launched successfully",
+      "Serving Tamil Nadu animal welfare community",
+      "Real-time rescue coordination enabled",
+      "Streamlined adoption process implemented"
+    ],
     websiteUrl:"https://anbu-fur.netlify.app/",
     behanceUrl:"https://www.behance.net/gallery/244613911/AnbuFur-Animal-Rescue-Adoption-Platform",
-    mockups:[
-      {label:"Adopt",     src:AnburFur1},
-      {label:"Community", src:AnburFur2},
-      {label:"Volunteer", src:AnburFur3},
-    ],
+    mockups:[{label:"Adopt",src:AnburFur1},{label:"Community",src:AnburFur2},{label:"Volunteer",src:AnburFur3}],
   },
   {
-    id:"06", title:"Logo & Poster", color:"#0D0A1A", label:"SOLVED",
-    client:"Multiple Clients", role:"Brand Designer & Graphic Designer",
-    tools:"Illustrator, Photoshop, Figma", year:"2024–2025", status:"SOLVED",
+    id:"06", 
+    title:"Logo & Poster Design", 
+    color:"#3D2817", 
+    label:"CASE #2024-006",
+    status:"SOLVED",
+    client:"Multiple Clients", 
+    role:"Brand Designer & Graphic Designer",
+    tools:"Illustrator, Photoshop, Figma", 
+    year:"2024–2025",
+    duration:"Ongoing",
     desc:"Brand identity & poster design across diverse industries. Created mascot-led logo for AK's Cafe Point showcased in Instagram mockup format. Designed ELS Legal logo mounted on outdoor lightbox signage for real-world brand presence. Developed DCP Dream Cut Pictures cinematic logo identity. Delivered consistent visual language across print and digital formats for each brand.",
+    challenge:"Multiple clients across different industries needed distinctive brand identities that would work across both digital and physical touchpoints. Each required unique visual language appropriate to their sector.",
+    solution:"Created tailored brand identities including mascot-led designs, professional legal branding, and cinematic logos. Ensured consistency across print and digital formats with real-world application in mind.",
+    results:[
+      "Consistent visual language delivered",
+      "Multi-industry brand portfolio created",
+      "Physical and digital touchpoint integration",
+      "Client satisfaction across all projects"
+    ],
     websiteUrl:"https://www.behance.net/gopikakrishvfc",
     behanceUrl:"https://www.behance.net/gopikakrishvfc",
-    mockups:[
-      {label:"Logo",   src:LP1},
-      {label:"Logo",     src:LP2},
-      {label:"Logo", src:LP3},
-    ],
+    mockups:[{label:"Cafe",src:LP1},{label:"Legal",src:LP2},{label:"Cinema",src:LP3}],
   },
 ];
 
@@ -162,7 +247,7 @@ function Footer({ theme="noir" }) {
         )}
         <div style={{ textAlign:"center", paddingTop:18, borderTop:`1px solid ${t?"#00FF41":"#3D2817"}` }}>
           <div style={{ fontFamily:"Courier New,monospace", color:t?"#00FF41":"#8B6F47", fontSize:11 }}>
-            {t?"> CASE_FILE 2025 - GOPIKA KRISHNA :: DESIGN_DETECTIVE":"CASE FILE 2026 - GOPIKA KRISHNA DESIGN DETECTIVE"}
+            {t?"> CASE_FILE 2026 - GOPIKA KRISHNA :: DESIGN_DETECTIVE":"CASE FILE 2026 - GOPIKA KRISHNA DESIGN DETECTIVE"}
           </div>
         </div>
       </div>
@@ -170,297 +255,636 @@ function Footer({ theme="noir" }) {
   );
 }
 
-function FloppyDisk({ p, isHover, isInserted, onHover, onLeave, onClick }) {
-  const isLive = p.label === "LIVE";
+// NEW: Floppy Disk Component for grid view
+function FloppyDisk({ p, isHover, onHover, onLeave, onClick, isMobile }) {
+  const isLive = p.status === "LIVE";
+  
   return (
-    <div style={{ cursor:"pointer", transform:isInserted?"translateY(18px) scale(0.92)":isHover?"translateY(-8px) scale(1.04)":"none", transition:"transform 0.25s cubic-bezier(0.22,1,0.36,1)", filter:isHover?"drop-shadow(0 10px 18px rgba(212,175,55,0.35))":"none" }}
-      onMouseEnter={onHover} onMouseLeave={onLeave} onClick={onClick}>
-      <div style={{ background:p.color, border:`2px solid ${isHover?"#D4AF37":"#8B6F47"}`, position:"relative", boxShadow:isHover?"4px 8px 0 #D4AF37":"4px 4px 0 #8B6F47", transition:"border-color 0.2s,box-shadow 0.2s" }}>
-        <div style={{ background:isHover?"#C4A030":"#8B6F47", height:22, margin:"0 10px", display:"flex", alignItems:"center", paddingLeft:7 }}>
-          <div style={{ width:32, height:4, background:"#D4A574", borderRadius:1 }} />
-          <div style={{ marginLeft:"auto", marginRight:3, width:8, height:12, background:"#3D2817", borderRadius:1 }} />
+    <div 
+      style={{ 
+        cursor:"pointer", 
+        transform:isHover?"translateY(-10px) scale(1.05)":"none", 
+        transition:"transform 0.25s cubic-bezier(0.22,1,0.36,1)",
+        filter:isHover?"drop-shadow(0 10px 18px rgba(212,175,55,0.35))":"none"
+      }}
+      onMouseEnter={onHover} 
+      onMouseLeave={onLeave} 
+      onClick={onClick}
+    >
+      {/* Floppy Disk Body */}
+      <div style={{ 
+        background:"linear-gradient(to bottom right, #2A2A2A, #1A1A1A)", 
+        border:`4px solid ${isHover?"#D4AF37":"#3D3D3D"}`, 
+        aspectRatio:"1", 
+        position:"relative", 
+        overflow:"hidden",
+        boxShadow:isHover?"0 10px 30px rgba(0,0,0,0.7)":"0 4px 12px rgba(0,0,0,0.6)",
+        transition:"border-color 0.2s, box-shadow 0.2s"
+      }}>
+        {/* Top gradient area */}
+        <div style={{ position:"absolute", top:0, left:0, right:0, height:"33%", background:"linear-gradient(to bottom, #3D3D3D, transparent)" }} />
+        
+        {/* Metal shutter */}
+        <div style={{ 
+          position:"absolute", 
+          bottom:"2rem", 
+          left:"50%", 
+          transform:"translateX(-50%)", 
+          width:"75%", 
+          height:"3rem", 
+          background:"linear-gradient(to bottom, #5A5A5A, #2A2A2A)", 
+          border:"2px solid #3D3D3D",
+          boxShadow:"inset 0 2px 4px rgba(0,0,0,0.5)"
+        }} />
+        
+        {/* Center hub */}
+        <div style={{ 
+          position:"absolute", 
+          top:"50%", 
+          left:"50%", 
+          transform:"translate(-50%, -50%)", 
+          width:isMobile?"3rem":"4rem", 
+          height:isMobile?"3rem":"4rem", 
+          borderRadius:"50%", 
+          background:"linear-gradient(to bottom right, #1A1A1A, #0A0A0A)", 
+          border:"4px solid #3D3D3D",
+          boxShadow:"inset 0 2px 6px rgba(0,0,0,0.8)"
+        }}>
+          <div style={{ 
+            position:"absolute", 
+            inset:"0.75rem", 
+            borderRadius:"50%", 
+            border:"2px solid #2A2A2A" 
+          }} />
         </div>
-        <div style={{ background:"#F4E8D0", margin:"5px 7px 7px", padding:"8px" }}>
-          <div style={{ fontFamily:"Courier New,monospace", color:"#3D2817", fontSize:11, fontWeight:"bold", lineHeight:1.4 }}>Case: {p.title}</div>
-          <div style={{ display:"flex", justifyContent:"space-between", marginTop:5, alignItems:"center" }}>
-            <span style={{
-              background: isLive ? "#001A4D" : "#1A4D1A",
-              color: isLive ? "#00AAFF" : "#00FF41",
-              fontFamily:"Courier New,monospace", fontSize:8, padding:"2px 5px", fontWeight:"bold"
-            }}>{p.label}</span>
-            <span style={{ fontFamily:"Courier New,monospace", color:"#8B6F47", fontSize:10 }}>#{p.id}</span>
+        
+        {/* Label sticker */}
+        <div style={{ 
+          position:"absolute", 
+          top:isMobile?"1rem":"1.5rem", 
+          left:"50%", 
+          transform:"translateX(-50%)", 
+          width:"83%", 
+          background:"linear-gradient(to bottom right, #F4E8D0, #E8DCC4)", 
+          padding:isMobile?"0.5rem":"0.75rem", 
+          boxShadow:"0 2px 8px rgba(0,0,0,0.3)", 
+          border:"1px solid #8B6F47",
+          transition:"box-shadow 0.2s"
+        }}>
+          <div style={{ display:"flex", flexDirection:"column", gap:isMobile?"0.15rem":"0.25rem" }}>
+            <p style={{ 
+              fontFamily:"Courier New,monospace", 
+              fontSize:isMobile?"0.65rem":"0.75rem", 
+              color:"#3D2817", 
+              fontWeight:"bold", 
+              margin:0,
+              overflow:"hidden",
+              textOverflow:"ellipsis",
+              whiteSpace:"nowrap"
+            }}>
+              {p.title}
+            </p>
+            <p style={{ 
+              fontFamily:"Courier New,monospace", 
+              fontSize:isMobile?"0.5rem":"0.6rem", 
+              color:"#8B6F47",
+              margin:0
+            }}>
+              {p.label}
+            </p>
+            <div style={{ 
+              display:"flex", 
+              alignItems:"center", 
+              justifyContent:"space-between", 
+              paddingTop:"0.25rem", 
+              borderTop:"1px solid #8B6F47" 
+            }}>
+              <span style={{ 
+                fontFamily:"Courier New,monospace", 
+                fontSize:"0.5rem", 
+                color:"#5A4A3A" 
+              }}>
+                {p.status}
+              </span>
+              <div style={{ 
+                width:isMobile?"0.4rem":"0.5rem", 
+                height:isMobile?"0.4rem":"0.5rem", 
+                borderRadius:"50%", 
+                background:isLive?"#0057FF":"#00CC33" 
+              }} />
+            </div>
           </div>
-          {isHover && <div style={{ fontFamily:"Courier New,monospace", color:"#8B0000", fontSize:9, marginTop:3 }}>click to load</div>}
         </div>
-        <div style={{ position:"absolute", bottom:0, right:0, width:0, height:0, borderTop:"10px solid transparent", borderLeft:"10px solid transparent", borderBottom:"10px solid #1A0F0A", borderRight:"10px solid #1A0F0A" }} />
-        {isInserted && <div style={{ position:"absolute", inset:0, background:"rgba(0,255,65,0.1)", display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"Courier New,monospace", color:"#00FF41", fontSize:10, fontWeight:"bold" }}>LOADING...</div>}
+        
+        {/* Write protection tabs */}
+        <div style={{ position:"absolute", top:"1rem", left:"1rem", width:"1.5rem", height:"0.75rem", background:"#3D3D3D", border:"1px solid #5A5A5A" }} />
+        <div style={{ position:"absolute", top:"1rem", right:"1rem", width:"1.5rem", height:"0.75rem", background:"#1A1A1A", border:"1px solid #5A5A5A" }} />
+        
+        {/* Bottom notch */}
+        <div style={{ position:"absolute", bottom:0, right:"2rem", width:"2rem", height:"1rem", background:"#0A0A0A" }} />
+      </div>
+      
+      {/* Save icon indicator */}
+      <div style={{ 
+        position:"absolute", 
+        bottom:"-0.75rem", 
+        right:"-0.75rem", 
+        width:isMobile?"2.5rem":"3rem", 
+        height:isMobile?"2.5rem":"3rem", 
+        background:"#8B0000", 
+        borderRadius:"50%", 
+        display:"flex", 
+        alignItems:"center", 
+        justifyContent:"center", 
+        boxShadow:"0 2px 8px rgba(0,0,0,0.5)", 
+        border:"2px solid #F4E8D0",
+        transform:isHover?"scale(1.1)":"scale(1)",
+        transition:"transform 0.2s"
+      }}>
+        <svg width={isMobile?"16":"20"} height={isMobile?"16":"20"} viewBox="0 0 24 24" fill="none" stroke="#F4E8D0" strokeWidth="2">
+          <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+          <polyline points="17 21 17 13 7 13 7 21"/>
+          <polyline points="7 3 7 8 15 8"/>
+        </svg>
+      </div>
+      
+      {/* Label below */}
+      <div style={{ 
+        marginTop:"1rem", 
+        textAlign:"center", 
+        fontFamily:"Courier New,monospace", 
+        fontSize:isMobile?"0.7rem":"0.875rem", 
+        color:isHover?"#D4AF37":"#D4A574",
+        transition:"color 0.2s"
+      }}>
+        CLICK TO LOAD
       </div>
     </div>
   );
 }
 
-// ─── NEW: Mockup card with Behance hover overlay ───────────────────────────
-function MockupCard({ src, label, behanceUrl, isMobile }) {
-  const [hovered, setHovered] = useState(false);
-
-  return (
-    <a
-      href={behanceUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      style={{ flex:1, display:"flex", flexDirection:"column", textDecoration:"none", position:"relative" }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      <div style={{
-        width:"100%",
-        height: isMobile ? 130 : 200,
-        border: hovered ? "2px solid #0057FF" : "2px solid #00FF41",
-        borderRadius: 6,
-        overflow:"hidden",
-        background:"#010a01",
-        position:"relative",
-        boxShadow: hovered
-          ? "0 0 24px rgba(0,87,255,0.55), 0 0 8px rgba(0,87,255,0.3)"
-          : "0 0 8px rgba(0,255,65,0.1)",
-        transition:"border-color 0.25s, box-shadow 0.25s",
-        cursor:"pointer",
-      }}>
-        {/* Mockup image */}
-        {src
-          ? <img src={src} alt={label} style={{ width:"100%", height:"100%", objectFit:"cover", display:"block", transition:"transform 0.35s ease", transform: hovered ? "scale(1.06)" : "scale(1)" }} />
-          : (
-            <div style={{ width:"100%", height:"100%", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", gap:6, background:"#010a01" }}>
-              <span style={{ color:"rgba(0,255,65,0.4)", fontSize:22 }}>+</span>
-              <span style={{ fontFamily:"Courier New,monospace", fontSize:7, color:"rgba(0,255,65,0.4)", letterSpacing:1 }}>NO IMAGE</span>
-            </div>
-          )
-        }
-
-        {/* Hover overlay */}
-        <div style={{
-          position:"absolute",
-          inset:0,
-          background: hovered ? "rgba(0,10,30,0.72)" : "rgba(0,10,30,0)",
-          display:"flex",
-          flexDirection:"column",
-          alignItems:"center",
-          justifyContent:"center",
-          gap:10,
-          transition:"background 0.25s",
-          pointerEvents: hovered ? "auto" : "none",
-        }}>
-          {hovered && (
-            <>
-              {/* Behance "Bē" logo circle */}
-              <div style={{
-                width:44,
-                height:44,
-                borderRadius:"50%",
-                background:"#0057FF",
-                display:"flex",
-                alignItems:"center",
-                justifyContent:"center",
-                fontFamily:"Georgia, serif",
-                fontSize:20,
-                fontWeight:"bold",
-                color:"#fff",
-                boxShadow:"0 0 18px rgba(0,87,255,0.8)",
-                animation:"popIn 0.2s ease-out",
-              }}>Bē</div>
-
-              {/* Button label */}
-              <div style={{
-                background:"#0057FF",
-                color:"#fff",
-                fontFamily:"Courier New,monospace",
-                fontSize: isMobile ? 8 : 10,
-                fontWeight:"bold",
-                letterSpacing:2,
-                padding:"5px 12px",
-                borderRadius:3,
-                textTransform:"uppercase",
-                boxShadow:"0 0 12px rgba(0,87,255,0.6)",
-                animation:"popIn 0.25s ease-out",
-              }}>VIEW ON BEHANCE</div>
-            </>
-          )}
-        </div>
-
-        {/* Corner brackets — green when not hovered, blue when hovered */}
-        {[
-          {top:0,left:0,borderTop:true,borderLeft:true},
-          {top:0,right:0,borderTop:true,borderRight:true},
-          {bottom:0,left:0,borderBottom:true,borderLeft:true},
-          {bottom:0,right:0,borderBottom:true,borderRight:true},
-        ].map((pos,i) => (
-          <div key={i} style={{
-            position:"absolute",
-            width:8, height:8,
-            ...(pos.top    !== undefined ? {top:0}    : {bottom:0}),
-            ...(pos.left   !== undefined ? {left:0}   : {right:0}),
-            borderTop:    pos.borderTop    ? `2px solid ${hovered?"#0057FF":"#00FF41"}` : "none",
-            borderBottom: pos.borderBottom ? `2px solid ${hovered?"#0057FF":"#00FF41"}` : "none",
-            borderLeft:   pos.borderLeft   ? `2px solid ${hovered?"#0057FF":"#00FF41"}` : "none",
-            borderRight:  pos.borderRight  ? `2px solid ${hovered?"#0057FF":"#00FF41"}` : "none",
-            transition:"border-color 0.25s",
-          }} />
-        ))}
-      </div>
-
-      {/* Label below mockup */}
-      <div style={{
-        fontFamily:"Courier New,monospace",
-        fontSize:8,
-        color: hovered ? "#0057FF" : "#00FF41",
-        letterSpacing:1,
-        textAlign:"center",
-        marginTop:4,
-        textTransform:"uppercase",
-        transition:"color 0.25s",
-        textShadow: hovered ? "0 0 8px rgba(0,87,255,0.7)" : "none",
-      }}>{label}</div>
-    </a>
-  );
-}
-// ──────────────────────────────────────────────────────────────────────────────
-
+// NEW: Terminal Project Page Component
 function ProjectPage({ project, onBack, onNext, nextProject }) {
-  const [termLines, setTermLines] = useState([]);
-  const [diskIn, setDiskIn] = useState(false);
-  const [screenOn, setScreenOn] = useState(false);
-  const [showContent, setShowContent] = useState(false);
+  const [loadingProgress, setLoadingProgress] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [typedText, setTypedText] = useState("");
   const [cursor, setCursor] = useState(true);
   const w = useWindowWidth();
   const isMobile = w < 600;
 
-  const lines = [
-    `> NOIR_OS v2.4.1 - DETECTIVE BUREAU TERMINAL`,
-    `> Initialising case file system...`,
-    `> Inserting floppy disk [ CASE #${project.id} ]...`,
-    `> Reading encrypted case data...`,
-    `> 100% LOADED`,
-    `> CASE FILE DECRYPTED - ACCESS GRANTED`,
-    `> LOADING :: ${project.title.toUpperCase()}`,
-  ];
+  useEffect(() => {
+    setLoadingProgress(0);
+    setIsLoaded(false);
+    setTypedText("");
+    
+    const progressInterval = setInterval(() => {
+      setLoadingProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(progressInterval);
+          setTimeout(() => setIsLoaded(true), 500);
+          return 100;
+        }
+        return prev + 2;
+      });
+    }, 30);
+
+    return () => clearInterval(progressInterval);
+  }, [project.id]);
 
   useEffect(() => {
-    setDiskIn(false); setScreenOn(false); setShowContent(false); setTermLines([]);
-    const t1=setTimeout(()=>setDiskIn(true),400);
-    const t2=setTimeout(()=>setScreenOn(true),900);
-    let idx=0;
-    const t3=setTimeout(()=>{
-      const iv=setInterval(()=>{
-        if(idx<lines.length){setTermLines(l=>[...l,lines[idx]]);idx++;}
-        else{clearInterval(iv);setTimeout(()=>setShowContent(true),500);}
-      },370);
-    },1100);
-    const blink=setInterval(()=>setCursor(c=>!c),530);
-    return()=>{clearTimeout(t1);clearTimeout(t2);clearTimeout(t3);clearInterval(blink);};
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[project.id]);
+    if (isLoaded && project) {
+      let currentIndex = 0;
+      const typingInterval = setInterval(() => {
+        if (currentIndex <= project.title.length) {
+          setTypedText(project.title.substring(0, currentIndex));
+          currentIndex++;
+        } else {
+          clearInterval(typingInterval);
+        }
+      }, 50);
+
+      return () => clearInterval(typingInterval);
+    }
+  }, [isLoaded, project]);
+
+  useEffect(() => {
+    const blink = setInterval(() => setCursor(c => !c), 530);
+    return () => clearInterval(blink);
+  }, []);
 
   return (
-    <div style={{ background:"#050505", minHeight:"100vh", display:"flex", flexDirection:"column" }}>
-      <div style={{ position:"fixed", inset:0, backgroundImage:"repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.12) 2px,rgba(0,0,0,0.12) 4px)", pointerEvents:"none", zIndex:50 }} />
-      <nav style={{ position:"fixed", top:0, left:0, right:0, zIndex:200, background:"rgba(5,5,5,0.97)", borderBottom:"1px solid #00FF41", padding:isMobile?"9px 12px":"11px 32px", display:"flex", alignItems:"center", justifyContent:"space-between", gap:8 }}>
-        <button onClick={onBack} style={{ background:"none", border:"1px solid #00FF41", color:"#00FF41", fontFamily:"Courier New,monospace", fontSize:isMobile?9:11, padding:isMobile?"5px 9px":"6px 14px", cursor:"pointer", letterSpacing:1, transition:"all 0.2s" }}
-          onMouseEnter={e=>{e.currentTarget.style.background="#00FF41";e.currentTarget.style.color="#050505";}}
-          onMouseLeave={e=>{e.currentTarget.style.background="none";e.currentTarget.style.color="#00FF41";}}>
-          {isMobile?"BACK":"BACK TO CASE FILES"}
-        </button>
-        {!isMobile && <span style={{ fontFamily:"Courier New,monospace", color:"#00FF41", fontSize:11, letterSpacing:2, textShadow:"0 0 8px #00FF41" }}>CASE #{project.id} :: {project.title.toUpperCase()}{cursor?"_":" "}</span>}
-        <button onClick={onNext} style={{ background:"none", border:"1px solid #00CC33", color:"#00CC33", fontFamily:"Courier New,monospace", fontSize:isMobile?9:11, padding:isMobile?"5px 9px":"6px 14px", cursor:"pointer", letterSpacing:1, transition:"all 0.2s" }}
-          onMouseEnter={e=>{e.currentTarget.style.background="#00CC33";e.currentTarget.style.color="#050505";}}
-          onMouseLeave={e=>{e.currentTarget.style.background="none";e.currentTarget.style.color="#00CC33";}}>NEXT</button>
-      </nav>
+    <div style={{ background:"#0A0A0A", minHeight:"100vh", color:"#00FF41", fontFamily:"Courier New,monospace", position:"relative", overflow:"hidden" }}>
+      {/* CRT Scanlines Effect */}
+      <div style={{ 
+        position:"fixed", 
+        inset:0, 
+        pointerEvents:"none", 
+        zIndex:50, 
+        opacity:0.1,
+        backgroundImage:"repeating-linear-gradient(0deg, transparent, transparent 2px, #00FF41 2px, #00FF41 4px)"
+      }} />
+      
+      {/* CRT Screen Curvature */}
+      <div style={{ 
+        position:"fixed", 
+        inset:0, 
+        pointerEvents:"none", 
+        zIndex:50, 
+        border:"20px solid #1A1A1A", 
+        borderRadius:"3%",
+        boxShadow:"inset 0 0 100px rgba(0,255,65,0.1)"
+      }} />
 
-      <div style={{ flex:1, paddingTop:56 }}>
-        <div style={{ padding:isMobile?"14px 10px 0":"24px 18px 0", display:"flex", justifyContent:"center" }}>
-          <div style={{ width:"100%", maxWidth:700 }}>
-            <div style={{ background:"linear-gradient(145deg,#2e2e2e,#1c1c1c)", borderRadius:"12px 12px 4px 4px", padding:"6px 6px 0", boxShadow:"0 20px 60px rgba(0,0,0,0.95)", border:"2px solid #383838" }}>
-              <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", padding:"4px 11px 5px" }}>
-                <div style={{ display:"flex", gap:5 }}>{["#ff5f57","#febc2e","#28c840"].map((c,i)=><div key={i} style={{ width:9, height:9, borderRadius:"50%", background:c }} />)}</div>
-                <span style={{ fontFamily:"Courier New,monospace", color:"#555", fontSize:isMobile?8:10, letterSpacing:1 }}>NOIR-OS CASE #{project.id}</span>
-                <div style={{ width:34 }} />
+      {/* Terminal Container */}
+      <div style={{ position:"relative", zIndex:10, minHeight:"100vh", padding:isMobile?"1rem":"2rem" }}>
+        {/* Terminal Header */}
+        <div style={{ maxWidth:"1200px", margin:"0 auto 2rem" }}>
+          <div style={{ 
+            background:"#1A1A1A", 
+            border:"2px solid #00FF41", 
+            padding:"1rem", 
+            display:"flex", 
+            alignItems:"center", 
+            justifyContent:"space-between",
+            boxShadow:"0 0 20px rgba(0,255,65,0.3)"
+          }}>
+            <div style={{ display:"flex", alignItems:"center", gap:"1rem" }}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00FF41" strokeWidth="2">
+                <polyline points="4 17 10 11 4 5"/>
+                <line x1="12" y1="19" x2="20" y2="19"/>
+              </svg>
+              <span style={{ fontSize:isMobile?"0.75rem":"0.875rem" }}>SYSTEM_A: CASE FILE VIEWER v2.0</span>
+            </div>
+            <button
+              onClick={onBack}
+              style={{ 
+                fontSize:isMobile?"0.75rem":"0.875rem", 
+                background:"none", 
+                border:"1px solid #00FF41", 
+                color:"#00FF41",
+                padding:"0.5rem 1rem",
+                cursor:"pointer",
+                transition:"all 0.2s"
+              }}
+              onMouseEnter={e => {e.currentTarget.style.background="#00FF41"; e.currentTarget.style.color="#0A0A0A";}}
+              onMouseLeave={e => {e.currentTarget.style.background="none"; e.currentTarget.style.color="#00FF41";}}
+            >
+              [X] EXIT
+            </button>
+          </div>
+        </div>
+
+        {/* Loading Screen */}
+        {!isLoaded && (
+          <div style={{ maxWidth:"1200px", margin:"0 auto" }}>
+            <div style={{ marginBottom:"2rem" }}>
+              <p style={{ fontSize:"0.875rem", marginBottom:"0.5rem" }}>&gt; INITIALIZING SYSTEM...</p>
+              <p style={{ fontSize:"0.875rem", marginBottom:"0.5rem" }}>&gt; LOADING CASE FILE: {project.id}</p>
+              <p style={{ fontSize:"0.875rem", marginBottom:"0.5rem" }}>&gt; ACCESSING DATABASE...</p>
+              <p style={{ fontSize:"0.875rem", animation:"pulse 1.5s infinite" }}>&gt; RETRIEVING EVIDENCE...</p>
+            </div>
+
+            <div style={{ marginBottom:"0.5rem" }}>
+              <div style={{ display:"flex", alignItems:"center", gap:"0.5rem" }}>
+                <span style={{ fontSize:"0.875rem" }}>PROGRESS:</span>
+                <div style={{ flex:1, height:"1.5rem", border:"2px solid #00FF41", background:"#0A0A0A", overflow:"hidden" }}>
+                  <div style={{ 
+                    width:`${loadingProgress}%`, 
+                    height:"100%", 
+                    background:"#00FF41",
+                    transition:"width 0.1s linear"
+                  }} />
+                </div>
+                <span style={{ fontSize:"0.875rem", width:"4rem", textAlign:"right" }}>{loadingProgress}%</span>
               </div>
-              <div style={{ background:screenOn?"#010801":"#050505", borderRadius:"6px 6px 0 0", minHeight:isMobile?260:360, position:"relative", overflow:"hidden", border:"2px solid #0d0d0d", transition:"all 1s" }}>
-                <div style={{ padding:isMobile?"12px 11px":"19px 21px", position:"relative", zIndex:5 }}>
-                  {termLines.map((line,i)=>(
-                    <div key={i} style={{ fontFamily:"Courier New,monospace", fontSize:isMobile?9:11, color:i===4?"#D4AF37":i===5?"#00FFFF":i===6?"#39FF14":"#00FF41", marginBottom:4, lineHeight:1.55, animation:"fadeInLine 0.2s ease-out" }}>{line}</div>
-                  ))}
-                  {showContent && (
-                    <div style={{ marginTop:13, animation:"fadeInUp 0.5s ease-out" }}>
-                      {/* ── LARGE MOCKUP GRID (replaces small grid + terminal windows) ── */}
-                      <div style={{ display:"flex", gap: isMobile ? 6 : 10 }}>
-                        {project.mockups.map((m, i) => (
-                          <MockupCard
-                            key={i}
-                            src={m.src}
-                            label={m.label}
-                            behanceUrl={project.behanceUrl}
-                            isMobile={isMobile}
-                          />
-                        ))}
-                      </div>
+              <p style={{ fontSize:"0.75rem", opacity:0.7, marginTop:"0.5rem" }}>
+                {loadingProgress < 30 && '██████░░░░░░░░░░░░░░ LOADING...'}
+                {loadingProgress >= 30 && loadingProgress < 60 && '████████████░░░░░░░░ DECRYPTING...'}
+                {loadingProgress >= 60 && loadingProgress < 90 && '████████████████░░░░ ANALYZING...'}
+                {loadingProgress >= 90 && '████████████████████ COMPLETE'}
+              </p>
+            </div>
+          </div>
+        )}
 
-                      {/* ── Blinking cursor status line ── */}
-                      <div style={{ marginTop:10, fontFamily:"Courier New,monospace", fontSize:9, color:"#D4AF37", letterSpacing:1 }}>
-                        INVESTIGATION COMPLETE {cursor ? "_" : " "}
-                      </div>
-                    </div>
-                  )}
-                  {!showContent && termLines.length>0 && <div style={{ fontFamily:"Courier New,monospace", color:"#00FF41", fontSize:14, marginTop:6 }}>{cursor?"_":" "}</div>}
+        {/* Main Content */}
+        {isLoaded && (
+          <div style={{ maxWidth:"1200px", margin:"0 auto", opacity:1, animation:"fadeIn 0.5s" }}>
+            {/* Project Header */}
+            <div style={{ 
+              border:"2px solid #00FF41", 
+              padding:isMobile?"1rem":"1.5rem", 
+              background:"#0A0A0A",
+              boxShadow:"0 0 30px rgba(0,255,65,0.2)",
+              marginBottom:"2rem"
+            }}>
+              <div style={{ display:"flex", alignItems:"flex-start", justifyContent:"space-between", marginBottom:"1rem", flexWrap:"wrap", gap:"1rem" }}>
+                <div style={{ flex:1 }}>
+                  <p style={{ fontSize:"0.75rem", marginBottom:"0.5rem", opacity:0.7 }}>&gt; CASE FILE LOADED</p>
+                  <h1 style={{ fontSize:isMobile?"1.5rem":"2rem", margin:"0 0 0.5rem" }}>
+                    &gt; {typedText}
+                    <span style={{ opacity:cursor?1:0 }}>_</span>
+                  </h1>
+                  <p style={{ fontSize:"0.875rem", opacity:0.7 }}>STATUS: {project.status} ✓</p>
+                </div>
+                <div style={{ 
+                  display:"flex", 
+                  flexDirection:"column",
+                  gap:"0.75rem"
+                }}>
+                  <a
+                    href={project.behanceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ 
+                      padding:isMobile?"0.5rem 0.75rem":"0.6rem 1rem",
+                      border:"2px solid #00FF41",
+                      background:"none",
+                      color:"#00FF41",
+                      fontFamily:"Courier New,monospace",
+                      fontSize:isMobile?"0.65rem":"0.75rem",
+                      fontWeight:"bold",
+                      textDecoration:"none",
+                      textAlign:"center",
+                      cursor:"pointer",
+                      transition:"all 0.2s",
+                      letterSpacing:1,
+                      whiteSpace:"nowrap"
+                    }}
+                    onMouseEnter={e => {e.currentTarget.style.background="#00FF41"; e.currentTarget.style.color="#0A0A0A";}}
+                    onMouseLeave={e => {e.currentTarget.style.background="none"; e.currentTarget.style.color="#00FF41";}}
+                  >
+                    CASE STUDY
+                  </a>
+                  <a
+                    href={project.websiteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ 
+                      padding:isMobile?"0.5rem 0.75rem":"0.6rem 1rem",
+                      border:"2px solid #00FF41",
+                      background:"none",
+                      color:"#00FF41",
+                      fontFamily:"Courier New,monospace",
+                      fontSize:isMobile?"0.65rem":"0.75rem",
+                      fontWeight:"bold",
+                      textDecoration:"none",
+                      textAlign:"center",
+                      cursor:"pointer",
+                      transition:"all 0.2s",
+                      letterSpacing:1,
+                      whiteSpace:"nowrap"
+                    }}
+                    onMouseEnter={e => {e.currentTarget.style.background="#00FF41"; e.currentTarget.style.color="#0A0A0A";}}
+                    onMouseLeave={e => {e.currentTarget.style.background="none"; e.currentTarget.style.color="#00FF41";}}
+                  >
+                    LIVE SITE
+                  </a>
+                </div>
+              </div>
+
+              {/* Metadata Grid */}
+              <div style={{ 
+                display:"grid", 
+                gridTemplateColumns:isMobile?"1fr":"repeat(4, 1fr)", 
+                gap:"1rem", 
+                paddingTop:"1rem", 
+                borderTop:"2px dashed #00FF41" 
+              }}>
+                <div>
+                  <p style={{ fontSize:"0.75rem", opacity:0.7, marginBottom:"0.25rem" }}>CLIENT:</p>
+                  <p style={{ fontSize:"0.875rem", display:"flex", alignItems:"center", gap:"0.5rem" }}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00FF41" strokeWidth="2">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                      <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    {project.client}
+                  </p>
+                </div>
+                <div>
+                  <p style={{ fontSize:"0.75rem", opacity:0.7, marginBottom:"0.25rem" }}>ROLE:</p>
+                  <p style={{ fontSize:"0.875rem" }}>{project.role}</p>
+                </div>
+                <div>
+                  <p style={{ fontSize:"0.75rem", opacity:0.7, marginBottom:"0.25rem" }}>DURATION:</p>
+                  <p style={{ fontSize:"0.875rem", display:"flex", alignItems:"center", gap:"0.5rem" }}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00FF41" strokeWidth="2">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                      <line x1="16" y1="2" x2="16" y2="6"/>
+                      <line x1="8" y1="2" x2="8" y2="6"/>
+                      <line x1="3" y1="10" x2="21" y2="10"/>
+                    </svg>
+                    {project.duration}
+                  </p>
+                </div>
+                <div>
+                  <p style={{ fontSize:"0.75rem", opacity:0.7, marginBottom:"0.25rem" }}>TOOLS:</p>
+                  <p style={{ fontSize:"0.875rem" }}>{project.tools}</p>
                 </div>
               </div>
             </div>
-            <div style={{ display:"flex", justifyContent:"center" }}><div style={{ width:50, height:16, background:"linear-gradient(to bottom,#222,#181818)", borderRadius:"0 0 3px 3px" }} /></div>
-            <div style={{ display:"flex", justifyContent:"center" }}><div style={{ width:160, height:10, background:"linear-gradient(145deg,#282828,#181818)", borderRadius:4 }} /></div>
-            {!isMobile && (
-              <div style={{ display:"flex", gap:13, marginTop:16, alignItems:"flex-start", justifyContent:"center", flexWrap:"wrap" }}>
-                <div style={{ background:"linear-gradient(145deg,#252525,#1a1a1a)", border:"1px solid #333", borderRadius:6, padding:12, width:148 }}>
-                  <div style={{ fontFamily:"Courier New,monospace", color:"#444", fontSize:9, letterSpacing:2, marginBottom:8, textAlign:"center" }}>NOIR-PC 8600</div>
-                  <div style={{ background:"#0d0d0d", border:"1px solid #3a3a3a", borderRadius:2, height:32, position:"relative", overflow:"hidden", display:"flex", alignItems:"center", justifyContent:"center", marginBottom:8 }}>
-                    <div style={{ position:"absolute", bottom:diskIn?1:-50, left:"50%", transform:"translateX(-50%)", width:72, height:26, background:project.color, border:"1px solid #8B6F47", transition:"bottom 0.55s" }}>
-                      <div style={{ width:28, height:3, background:"#8B6F47", borderRadius:1, margin:"auto", marginTop:11 }} />
-                    </div>
-                    <div style={{ position:"absolute", right:6, top:"50%", transform:"translateY(-50%)", width:5, height:5, borderRadius:"50%", background:diskIn?"#00FF41":"#2a2a2a", transition:"all 0.5s" }} />
-                  </div>
-                  <div style={{ display:"flex", alignItems:"center", gap:5, marginBottom:8 }}>
-                    <div style={{ width:6, height:6, borderRadius:"50%", background:diskIn?"#D4AF37":"#2a2a2a", transition:"all 0.5s" }} />
-                    <span style={{ fontFamily:"Courier New,monospace", color:diskIn?"#D4AF37":"#333", fontSize:8 }}>{diskIn?"READING":"STANDBY"}</span>
-                  </div>
-                  <div style={{ background:"#F4E8D0", padding:"4px 6px", borderRadius:2 }}>
-                    <div style={{ fontFamily:"Courier New,monospace", color:"#3D2817", fontSize:9, fontWeight:"bold" }}>#{project.id}: {project.title}</div>
+
+            {/* Terminal Windows Grid */}
+            <div style={{ 
+              display:"grid", 
+              gridTemplateColumns:isMobile?"1fr":"repeat(2, 1fr)", 
+              gap:"1.5rem",
+              marginBottom:"2rem"
+            }}>
+              {/* Description */}
+              <div style={{ border:"2px solid #00FF41", padding:"1.5rem", background:"#0A0A0A" }}>
+                <p style={{ fontSize:"0.75rem", marginBottom:"1rem", opacity:0.7 }}>&gt; PROJECT_OVERVIEW.txt</p>
+                <p style={{ fontSize:"0.875rem", lineHeight:1.6 }}>{project.desc}</p>
+              </div>
+
+              {/* Challenge */}
+              <div style={{ border:"2px solid #00FF41", padding:"1.5rem", background:"#0A0A0A" }}>
+                <p style={{ fontSize:"0.75rem", marginBottom:"1rem", opacity:0.7 }}>&gt; CHALLENGE.log</p>
+                <p style={{ fontSize:"0.875rem", lineHeight:1.6 }}>{project.challenge}</p>
+              </div>
+
+              {/* Solution */}
+              <div style={{ border:"2px solid #00FF41", padding:"1.5rem", background:"#0A0A0A" }}>
+                <p style={{ fontSize:"0.75rem", marginBottom:"1rem", opacity:0.7 }}>&gt; SOLUTION.md</p>
+                <p style={{ fontSize:"0.875rem", lineHeight:1.6 }}>{project.solution}</p>
+              </div>
+
+              {/* Results */}
+              <div style={{ border:"2px solid #00FF41", padding:"1.5rem", background:"#0A0A0A" }}>
+                <p style={{ fontSize:"0.75rem", marginBottom:"1rem", opacity:0.7 }}>&gt; RESULTS.dat</p>
+                <ul style={{ listStyle:"none", padding:0, margin:0 }}>
+                  {project.results.map((result, index) => (
+                    <li key={index} style={{ 
+                      fontSize:"0.875rem", 
+                      display:"flex", 
+                      alignItems:"flex-start", 
+                      gap:"0.5rem",
+                      marginBottom:"0.5rem",
+                      opacity:0,
+                      animation:`fadeInLeft 0.3s ease-out ${index * 0.1 + 0.5}s forwards`
+                    }}>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00FF41" strokeWidth="2" style={{ flexShrink:0, marginTop:"0.125rem" }}>
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                      </svg>
+                      {result}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Image Placeholders */}
+            <div style={{ 
+              display:"grid", 
+              gridTemplateColumns:isMobile?"1fr":"repeat(3, 1fr)", 
+              gap:"1.5rem",
+              marginBottom:"2rem"
+            }}>
+              {project.mockups.map((mockup, i) => (
+                <div key={i} style={{ border:"2px solid #00FF41", padding:"1rem", background:"#0A0A0A" }}>
+                  <p style={{ fontSize:"0.75rem", marginBottom:"0.5rem", opacity:0.7 }}>&gt; {mockup.label.toUpperCase()}.png</p>
+                  <div style={{ 
+                    aspectRatio:"16/9", 
+                    background:mockup.src?"#001a0a":"linear-gradient(to bottom right, #001a0a, #0A0A0A)", 
+                    border:"1px solid #00FF41", 
+                    display:"flex", 
+                    alignItems:"center", 
+                    justifyContent:"center",
+                    overflow:"hidden"
+                  }}>
+                    {mockup.src ? (
+                      <img src={mockup.src} alt={mockup.label} style={{ width:"100%", height:"100%", objectFit:"cover" }} />
+                    ) : (
+                      <p style={{ fontSize:"0.75rem", opacity:0.5 }}>[PROJECT MOCKUP {i+1}]</p>
+                    )}
                   </div>
                 </div>
-                <div style={{ background:"linear-gradient(145deg,#282828,#1e1e1e)", border:"1px solid #333", borderRadius:8, padding:"10px 11px", flex:1, maxWidth:320 }}>
-                  {[["Q","W","E","R","T","Y","U","I","O","P"],["A","S","D","F","G","H","J","K","L"],["Z","X","C","V","B","N","M"]].map((row,ri)=>(
-                    <div key={ri} style={{ display:"flex", gap:3, marginBottom:3, justifyContent:"center" }}>
-                      {row.map(k=><div key={k} style={{ width:22, height:21, background:"linear-gradient(145deg,#383838,#282828)", border:"1px solid #444", borderRadius:3, display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"Courier New,monospace", fontSize:8, color:"#555", boxShadow:"0 2px 0 #111" }}>{k}</div>)}
-                    </div>
-                  ))}
-                  <div style={{ display:"flex", justifyContent:"center", marginTop:3 }}>
-                    <div style={{ width:120, height:21, background:"linear-gradient(145deg,#383838,#282828)", border:"1px solid #444", borderRadius:3, boxShadow:"0 2px 0 #111" }} />
-                  </div>
+              ))}
+            </div>
+
+            {/* Floppy Disk Drive Indicator */}
+            <div style={{ 
+              border:"2px solid #00FF41", 
+              padding:"1.5rem", 
+              background:"#0A0A0A", 
+              display:"flex", 
+              alignItems:"center", 
+              justifyContent:"space-between",
+              flexWrap:"wrap",
+              gap:"1rem",
+              marginBottom:"2rem"
+            }}>
+              <div style={{ display:"flex", alignItems:"center", gap:"1rem" }}>
+                <div style={{ 
+                  width:"4rem", 
+                  height:"3rem", 
+                  border:"2px solid #00FF41", 
+                  background:"#1A1A1A", 
+                  position:"relative" 
+                }}>
+                  <div style={{ position:"absolute", inset:"0.5rem", border:"1px solid #00FF41" }} />
+                  <div style={{ 
+                    position:"absolute", 
+                    bottom:0, 
+                    left:"50%", 
+                    transform:"translateX(-50%)", 
+                    width:"2rem", 
+                    height:"0.25rem", 
+                    background:"#00FF41" 
+                  }} />
+                </div>
+                <div>
+                  <p style={{ fontSize:"0.75rem", opacity:0.7 }}>DISK LOADED:</p>
+                  <p style={{ fontSize:"0.875rem" }}>{project.title}.flp</p>
                 </div>
               </div>
-            )}
+              <div style={{ fontSize:"0.75rem", opacity:0.7 }}>
+                CAPACITY: UNLIMITED | STATUS: READ-ONLY
+              </div>
+            </div>
+
+            {/* Navigation */}
+            <div style={{ 
+              display:"flex", 
+              alignItems:"center", 
+              justifyContent:"space-between", 
+              paddingTop:"2rem", 
+              borderTop:"2px dashed #00FF41",
+              gap:"1rem",
+              flexWrap:"wrap"
+            }}>
+              <button
+                onClick={onBack}
+                style={{ 
+                  display:"flex", 
+                  alignItems:"center", 
+                  gap:"0.5rem", 
+                  padding:"0.75rem 1.5rem", 
+                  border:"2px solid #00FF41",
+                  background:"none",
+                  color:"#00FF41",
+                  cursor:"pointer",
+                  fontSize:"0.875rem",
+                  transition:"all 0.2s"
+                }}
+                onMouseEnter={e => {e.currentTarget.style.background="#00FF41"; e.currentTarget.style.color="#0A0A0A";}}
+                onMouseLeave={e => {e.currentTarget.style.background="none"; e.currentTarget.style.color="#00FF41";}}
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <line x1="19" y1="12" x2="5" y2="12"/>
+                  <polyline points="12 19 5 12 12 5"/>
+                </svg>
+                <span>[BACK TO CASES]</span>
+              </button>
+
+              <button
+                onClick={onNext}
+                style={{ 
+                  display:"flex", 
+                  alignItems:"center", 
+                  gap:"0.5rem", 
+                  padding:"0.75rem 1.5rem", 
+                  border:"2px solid #00FF41",
+                  background:"none",
+                  color:"#00FF41",
+                  cursor:"pointer",
+                  fontSize:"0.875rem",
+                  transition:"all 0.2s"
+                }}
+                onMouseEnter={e => {e.currentTarget.style.background="#00FF41"; e.currentTarget.style.color="#0A0A0A";}}
+                onMouseLeave={e => {e.currentTarget.style.background="none"; e.currentTarget.style.color="#00FF41";}}
+              >
+                <span>[NEXT: {nextProject.title.toUpperCase()}]</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                  <polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </button>
+            </div>
+
+            {/* Terminal Prompt */}
+            <div style={{ display:"flex", alignItems:"center", gap:"0.5rem", paddingTop:"1rem" }}>
+              <span style={{ fontSize:"0.875rem" }}>&gt;</span>
+              <span style={{ fontSize:"0.875rem", opacity:cursor?1:0 }}>_</span>
+            </div>
           </div>
-        </div>
-        <div style={{ display:"flex", justifyContent:"center", gap:11, padding:"20px 14px 16px", flexWrap:"wrap" }}>
-          <button onClick={onBack} style={{ padding:"10px 22px", background:"none", border:"1px solid #8B6F47", color:"#8B6F47", fontFamily:"Courier New,monospace", fontSize:11, letterSpacing:2, cursor:"pointer", textTransform:"uppercase", transition:"all 0.2s" }}
-            onMouseEnter={e=>{e.currentTarget.style.borderColor="#D4AF37";e.currentTarget.style.color="#D4AF37";}}
-            onMouseLeave={e=>{e.currentTarget.style.borderColor="#8B6F47";e.currentTarget.style.color="#8B6F47";}}>BACK TO CASE FILES</button>
-          <button onClick={onNext} style={{ padding:"10px 22px", background:"#00FF41", border:"1px solid #00FF41", color:"#050505", fontFamily:"Courier New,monospace", fontSize:11, letterSpacing:2, cursor:"pointer", textTransform:"uppercase", fontWeight:"bold", transition:"background 0.2s" }}
-            onMouseEnter={e=>e.currentTarget.style.background="#39FF14"}
-            onMouseLeave={e=>e.currentTarget.style.background="#00FF41"}>NEXT: {nextProject.title.toUpperCase()}</button>
-        </div>
+        )}
       </div>
-      <div style={{ background:"repeating-linear-gradient(45deg,#FFD700 0px,#FFD700 40px,#050505 40px,#050505 80px)", height:40, display:"flex", alignItems:"center", justifyContent:"center", overflow:"hidden", borderTop:"2px solid #00FF41", borderBottom:"2px solid #00FF41" }}>
-        <div style={{ fontFamily:"Courier New,monospace", fontSize:isMobile?9:12, fontWeight:"bold", color:"#050505", letterSpacing:isMobile?3:6, textTransform:"uppercase" }}>EVIDENCE ZONE - AUTHORIZED ACCESS ONLY</div>
-      </div>
-      <Footer theme="terminal" />
+
+      {/* Screen Glow */}
+      <div style={{ 
+        position:"fixed", 
+        inset:0, 
+        pointerEvents:"none", 
+        background:"radial-gradient(circle at center, rgba(0,255,65,0.05), transparent)" 
+      }} />
+
+      <style>{`
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeInLeft { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+      `}</style>
     </div>
   );
 }
@@ -468,7 +892,6 @@ function ProjectPage({ project, onBack, onNext, nextProject }) {
 function HomePage({ onSelectProject }) {
   const [typed, setTyped] = useState("");
   const [diskHover, setDiskHover] = useState(null);
-  const [diskInserted, setDiskInserted] = useState(null);
   const [submitStamp, setSubmitStamp] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const iv = useRef(null);
@@ -490,7 +913,6 @@ function HomePage({ onSelectProject }) {
     return()=>clearInterval(iv.current);
   },[]);
 
-  const handleDiskClick=(p)=>{setDiskInserted(p.id);setTimeout(()=>{setDiskInserted(null);onSelectProject(p);},900);};
   const navLinks=[{label:"About",id:"about"},{label:"Skills",id:"skills"},{label:"Cases",id:"cases"},{label:"Contact",id:"contact"}];
   const scrollTo=(id)=>{document.getElementById(id)?.scrollIntoView({behavior:"smooth"});setMenuOpen(false);};
   const sp = isMobile ? "56px 16px" : isTablet ? "70px 28px" : "96px 48px";
@@ -589,7 +1011,7 @@ function HomePage({ onSelectProject }) {
                   onMouseLeave={e=>{e.currentTarget.style.borderColor="#8B6F47";e.currentTarget.style.color="#D4A574";}}>OPEN NEW CASE</a>
               </div>
               <div style={{ display:"flex", gap:10, flexWrap:"wrap" }}>
-                {[["8+","Cases Solved"],["2.5yrs","Field Work"],["4.9","Rating"]].map(([val,label])=>(
+                {[["6+","Cases Solved"],["2.5yrs","Field Work"],["4.9","Rating"]].map(([val,label])=>(
                   <div key={label} style={{ background:"rgba(212,175,55,0.15)", border:"1px solid #8B6F47", padding:isMobile?"8px 12px":"10px 16px", borderRadius:4 }}>
                     <div style={{ fontFamily:"Courier New,monospace", fontSize:isMobile?17:20, color:"#D4AF37", fontWeight:"bold" }}>{val}</div>
                     <div style={{ fontFamily:"Courier New,monospace", fontSize:9, color:"#8B6F47", letterSpacing:1, marginTop:2 }}>{label.toUpperCase()}</div>
@@ -628,7 +1050,7 @@ function HomePage({ onSelectProject }) {
         </div>
       </section>
 
-      {/* SKILLS */}
+      {/* SKILLS - keeping original */}
       <section id="skills" style={{ background:"#2A1B0E", padding:sp, position:"relative", overflow:"hidden" }}>
         <div style={{ position:"absolute", inset:0, backgroundImage:"repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(139,111,71,0.04) 60px,rgba(139,111,71,0.04) 62px)", pointerEvents:"none" }} />
         <div style={{ maxWidth:800, margin:"0 auto", position:"relative", zIndex:1 }}>
@@ -722,7 +1144,7 @@ function HomePage({ onSelectProject }) {
                 <div style={{ background:"#080808", borderRadius:"5px 5px 0 0", padding:isMobile?"12px 12px":"14px 16px", minHeight:isMobile?180:190, border:"2px solid #0d0d0d" }}>
                   <div style={{ display:"flex", flexDirection:isMobile?"column":"row" }}>
                     <div style={{ flex:1, paddingRight:isMobile?0:11, paddingBottom:isMobile?11:0, borderRight:isMobile?"none":"1px solid #3D2817", borderBottom:isMobile?"1px solid #3D2817":"none", marginBottom:isMobile?12:0 }}>
-                      <div style={{ fontFamily:"Courier New,monospace", fontSize:11, color:"#D4AF37", fontWeight:"bold", letterSpacing:1, marginBottom:9 }}>UI skills</div>
+                      <div style={{ fontFamily:"Courier New,monospace", fontSize:11, color:"#D4AF37", fontWeight:"bold", letterSpacing:1, marginBottom:9 }}>UX skills</div>
                       {["User Research","Persona Creation","Journey Mapping","Wireframing","Usability Testing"].map((s,i)=>(
                         <div key={i} style={{ display:"flex", alignItems:"center", gap:5, marginBottom:isMobile?7:6 }}>
                           <div style={{ width:4, height:4, borderRadius:"50%", background:"#D4AF37", flexShrink:0 }} />
@@ -731,7 +1153,7 @@ function HomePage({ onSelectProject }) {
                       ))}
                     </div>
                     <div style={{ flex:1, paddingLeft:isMobile?0:11 }}>
-                      <div style={{ fontFamily:"Courier New,monospace", fontSize:11, color:"#D4AF37", fontWeight:"bold", letterSpacing:1, marginBottom:9 }}>UX skills</div>
+                      <div style={{ fontFamily:"Courier New,monospace", fontSize:11, color:"#D4AF37", fontWeight:"bold", letterSpacing:1, marginBottom:9 }}>UI skills</div>
                       {["Visual Hierarchy","Design Systems","Responsive Layouts","Prototyping","A/B Testing"].map((s,i)=>(
                         <div key={i} style={{ display:"flex", alignItems:"center", gap:5, marginBottom:isMobile?7:6 }}>
                           <div style={{ width:4, height:4, borderRadius:"50%", background:"#8B0000", flexShrink:0 }} />
@@ -827,7 +1249,7 @@ function HomePage({ onSelectProject }) {
         </div>
       </section>
 
-      {/* TIMELINE + EDUCATION */}
+      {/* TIMELINE + EDUCATION - keeping original */}
       <section style={{ background:"#1A0F0A", padding:sp }}>
         <div style={{ maxWidth:800, margin:"0 auto" }}>
           <SectionLabel>CASE TIMELINE - INVESTIGATION HISTORY</SectionLabel>
@@ -876,16 +1298,212 @@ function HomePage({ onSelectProject }) {
         </div>
       </section>
 
-      {/* CASES */}
-      <section id="cases" style={{ background:"#221409", padding:sp }}>
-        <div style={{ maxWidth:800, margin:"0 auto" }}>
-          <SectionLabel>PROJECT CASE FILES - FLOPPY ARCHIVE</SectionLabel>
-          <p style={{ fontFamily:"Courier New,monospace", color:"#8B6F47", fontSize:12, marginTop:8, marginBottom:32 }}>Click a floppy disk to load the case terminal</p>
-          <div style={{ display:"grid", gridTemplateColumns:isMobile?"repeat(2,1fr)":"repeat(3,1fr)", gap:isMobile?11:16 }}>
-            {projects.map(p=>(
-              <FloppyDisk key={p.id} p={p} isHover={diskHover===p.id} isInserted={diskInserted===p.id}
-                onHover={()=>setDiskHover(p.id)} onLeave={()=>setDiskHover(null)} onClick={()=>handleDiskClick(p)} />
+      {/* NEW: CASES SECTION WITH FLOPPY DISKS */}
+      <section id="cases" style={{ position:"relative", padding:sp, background:"#1A1A1A" }}>
+        {/* Desk texture */}
+        <div style={{ 
+          position:"absolute", 
+          inset:0, 
+          opacity:0.1,
+          backgroundImage:"linear-gradient(90deg, #8B6F47 1px, transparent 1px), linear-gradient(#8B6F47 1px, transparent 1px)",
+          backgroundSize:"50px 50px"
+        }} />
+
+        <div style={{ maxWidth:"1400px", margin:"0 auto", position:"relative", zIndex:1 }}>
+          {/* Section Header */}
+          <div style={{ textAlign:"center", marginBottom:"4rem" }}>
+            <div style={{ display:"inline-block", marginBottom:"1rem" }}>
+              <div style={{ 
+                padding:"0.5rem 1.5rem", 
+                background:"#8B0000", 
+                color:"#F4E8D0", 
+                fontFamily:"Courier New,monospace", 
+                fontSize:"0.875rem", 
+                letterSpacing:3, 
+                transform:"rotate(-2deg)", 
+                boxShadow:"0 4px 12px rgba(0,0,0,0.5)" 
+              }}>
+                CASE ARCHIVES
+              </div>
+            </div>
+            <h2 style={{ 
+              fontFamily:"Courier New,monospace", 
+              fontSize:isMobile?"1.5rem":"2rem", 
+              color:"#D4AF37", 
+              marginBottom:"0.5rem", 
+              fontWeight:"bold",
+              letterSpacing:3,
+              textTransform:"uppercase"
+            }}>
+              Project Portfolio
+            </h2>
+            <p style={{ fontFamily:"Courier New,monospace", color:"#D4A574" }}>
+              SOLVED CASES / CLICK TO VIEW EVIDENCE
+            </p>
+          </div>
+
+          {/* Filing Cabinet Header */}
+          <div style={{ maxWidth:"800px", margin:"0 auto 3rem" }}>
+            <div style={{ 
+              background:"linear-gradient(to bottom, #8B6F47, #5A4A3A)", 
+              padding:"1.5rem", 
+              boxShadow:"0 8px 24px rgba(0,0,0,0.7)", 
+              border:"4px solid #3D2817" 
+            }}>
+              <div style={{ 
+                display:"flex", 
+                alignItems:"center", 
+                justifyContent:"space-between", 
+                color:"#F4E8D0",
+                flexWrap:"wrap",
+                gap:"1rem"
+              }}>
+                <div style={{ display:"flex", alignItems:"center", gap:"0.75rem" }}>
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#F4E8D0" strokeWidth="2">
+                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                    <line x1="12" y1="11" x2="12" y2="17"/>
+                    <line x1="9" y1="14" x2="15" y2="14"/>
+                  </svg>
+                  <div>
+                    <h3 style={{ fontFamily:"Courier New,monospace", fontSize:"1.25rem", margin:0 }}>
+                      CASE FILES CABINET
+                    </h3>
+                    <p style={{ fontFamily:"Courier New,monospace", fontSize:"0.75rem", color:"#D4A574", margin:0 }}>
+                      Click any disk to load case details
+                    </p>
+                  </div>
+                </div>
+                <div style={{ fontFamily:"Courier New,monospace", fontSize:"0.875rem" }}>
+                  {projects.length} CASES
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Floppy Disks Grid */}
+          <div style={{ 
+            display:"grid", 
+            gridTemplateColumns:isMobile?"repeat(2, 1fr)":"repeat(3, 1fr)", 
+            gap:isMobile?"1.5rem":"2rem", 
+            maxWidth:"900px", 
+            margin:"0 auto 3rem",
+            position:"relative"
+          }}>
+            {projects.map((p) => (
+              <div key={p.id} style={{ maxWidth:isMobile?"160px":"240px", margin:"0 auto", width:"100%" }}>
+                <FloppyDisk 
+                  p={p}
+                  isHover={diskHover === p.id}
+                  onHover={() => setDiskHover(p.id)}
+                  onLeave={() => setDiskHover(null)}
+                  onClick={() => onSelectProject(p)}
+                  isMobile={isMobile}
+                />
+              </div>
             ))}
+          </div>
+
+          {/* Desk Items */}
+          <div style={{ 
+            display:"flex", 
+            alignItems:"center", 
+            justifyContent:"center", 
+            gap:isMobile?"2rem":"3rem", 
+            marginTop:"4rem",
+            flexWrap:"wrap"
+          }}>
+            {!isMobile && (
+              <div style={{ fontFamily:"Courier New,monospace", color:"#8B6F47", fontSize:"0.875rem" }}>
+                <div style={{ display:"flex", alignItems:"center", gap:"0.5rem", marginBottom:"0.5rem" }}>
+                  <div style={{ width:"0.75rem", height:"0.75rem", background:"#8B6F47", borderRadius:"50%" }} />
+                  <span>ARCHIVED</span>
+                </div>
+                <div style={{ display:"flex", alignItems:"center", gap:"0.5rem" }}>
+                  <div style={{ width:"0.75rem", height:"0.75rem", background:"#00CC33", borderRadius:"50%" }} />
+                  <span>ACTIVE</span>
+                </div>
+              </div>
+            )}
+
+            {/* Coffee Cup */}
+            <div style={{ 
+              width:"5rem", 
+              height:"6rem", 
+              background:"linear-gradient(to bottom, #8B6F47, #5A4A3A)", 
+              borderRadius:"0 0 999px 999px", 
+              border:"4px solid #3D2817", 
+              boxShadow:"0 8px 24px rgba(0,0,0,0.7)", 
+              position:"relative" 
+            }}>
+              <div style={{ 
+                position:"absolute", 
+                top:"0.5rem", 
+                left:"0.5rem", 
+                right:"0.5rem", 
+                height:"1rem", 
+                background:"linear-gradient(to bottom, #3D2817, transparent)", 
+                borderRadius:"999px" 
+              }} />
+              <div style={{ 
+                position:"absolute", 
+                top:"50%", 
+                right:"-1.5rem", 
+                width:"2rem", 
+                height:"3rem", 
+                border:"4px solid #3D2817", 
+                borderRadius:"0 999px 999px 0",
+                transform:"translateY(-50%)"
+              }} />
+            </div>
+
+            {!isMobile && (
+              <div style={{ 
+                fontFamily:"Courier New,monospace", 
+                color:"#D4A574", 
+                fontSize:"0.75rem", 
+                textAlign:"center", 
+                maxWidth:"20rem" 
+              }}>
+                <p style={{ margin:"0 0 0.25rem" }}>"Evidence preserved on 3.5" floppy disks"</p>
+                <p style={{ color:"#8B6F47", margin:0 }}>- Detective's Archive, 2026</p>
+              </div>
+            )}
+          </div>
+
+          {/* Note */}
+          <div style={{ 
+            maxWidth:"28rem", 
+            margin:"3rem auto 0",
+            transform:"rotate(-1deg)"
+          }}>
+            <div style={{ 
+              background:"linear-gradient(to bottom right, #FFFACD, #F0E68C)", 
+              padding:"1.5rem", 
+              boxShadow:"0 4px 16px rgba(0,0,0,0.3)", 
+              position:"relative" 
+            }}>
+              <div style={{ 
+                position:"absolute", 
+                top:"-0.5rem", 
+                left:"50%", 
+                transform:"translateX(-50%)", 
+                width:"1rem", 
+                height:"1rem", 
+                background:"#8B0000", 
+                borderRadius:"50%", 
+                boxShadow:"0 2px 6px rgba(0,0,0,0.3)" 
+              }} />
+              <p style={{ 
+                fontFamily:"Courier New,monospace", 
+                fontSize:"0.75rem", 
+                color:"#3D2817", 
+                textAlign:"center",
+                margin:0,
+                lineHeight:1.6
+              }}>
+                💾 Each disk contains full case documentation including research, wireframes, final designs, and results. Click any disk to access the terminal and review the evidence.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -897,7 +1515,7 @@ function HomePage({ onSelectProject }) {
           <p style={{ fontFamily:"Courier New,monospace", color:"#8B6F47", fontSize:12, marginTop:8, marginBottom:32 }}>All tip submissions reviewed within 24 hours handled with full discretion</p>
           <div style={{ background:"#F4E8D0", padding:isMobile?18:34, position:"relative", boxShadow:"8px 8px 0 #8B6F47" }}>
             <div style={{ position:"absolute", top:-10, left:32, fontSize:20, transform:"rotate(180deg)", color:"#8B6F47" }}>📎</div>
-            <div style={{ fontFamily:"Courier New,monospace", color:"#8B0000", fontSize:10, fontWeight:"bold", letterSpacing:2, marginBottom:18, borderBottom:"1px solid #8B6F47", paddingBottom:8 }}>CONFIDENTIAL TIP SUBMISSION REF: DET-2025</div>
+            <div style={{ fontFamily:"Courier New,monospace", color:"#8B0000", fontSize:10, fontWeight:"bold", letterSpacing:2, marginBottom:18, borderBottom:"1px solid #8B6F47", paddingBottom:8 }}>CONFIDENTIAL TIP SUBMISSION REF: DET-2026</div>
             <form onSubmit={handleSubmit}>
               {[{label:"WITNESS NAME:",name:"from_name",type:"text",ph:"Your full name..."},{label:"CONTACT EMAIL:",name:"from_email",type:"email",ph:"witness@secure.com..."}].map(f=>(
                 <div key={f.name} style={{ marginBottom:18 }}>
@@ -923,6 +1541,25 @@ function HomePage({ onSelectProject }) {
 
       <div style={{ background:"repeating-linear-gradient(45deg,#FFD700 0px,#FFD700 40px,#1A0F0A 40px,#1A0F0A 80px)", height:40 }} />
       <Footer theme="noir" />
+
+      <style>{`
+        @keyframes blink        { 0%,100%{opacity:1} 50%{opacity:0} }
+        @keyframes stampIn      { from{transform:translate(-50%,-60%) rotate(-12deg) scale(1.5);opacity:0} to{transform:translate(-50%,-50%) rotate(-12deg) scale(1);opacity:0.8} }
+        @keyframes pulse        { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(1.1)} }
+        @keyframes barFill      { from{width:0%} to{width:var(--bar-w,100%)} }
+        @keyframes cardSlideIn  { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes scanline     { 0%{left:-100%} 100%{left:200%} }
+        @keyframes floatBadge   { 0%,100%{transform:rotate(-2deg) translateY(0px)} 50%{transform:rotate(-2deg) translateY(-5px)} }
+        * { box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        input::placeholder, textarea::placeholder { color:#C4A882; opacity:0.5; }
+        button, a { -webkit-tap-highlight-color:transparent; }
+        img { max-width:100%; display:block; }
+        * { cursor:auto; }
+        button, a, [role="button"] { cursor:pointer; }
+        body.clicking, body.clicking * { cursor:none !important; }
+        body.clicking #mag-cursor { display:block !important; }
+      `}</style>
     </div>
   );
 }
@@ -966,27 +1603,6 @@ export default function App() {
           <circle cx="16" cy="16" r="6" stroke="rgba(212,175,55,0.15)" strokeWidth="1" fill="none"/>
         </svg>
       </div>
-      <style>{`
-        @keyframes blink        { 0%,100%{opacity:1} 50%{opacity:0} }
-        @keyframes stampIn      { from{transform:translate(-50%,-60%) rotate(-12deg) scale(1.5);opacity:0} to{transform:translate(-50%,-50%) rotate(-12deg) scale(1);opacity:0.8} }
-        @keyframes fadeInLine   { from{opacity:0;transform:translateX(-6px)} to{opacity:1;transform:none} }
-        @keyframes fadeInUp     { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
-        @keyframes pulse        { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(1.1)} }
-        @keyframes barFill      { from{width:0%} to{width:var(--bar-w,100%)} }
-        @keyframes cardSlideIn  { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
-        @keyframes scanline     { 0%{left:-100%} 100%{left:200%} }
-        @keyframes floatBadge   { 0%,100%{transform:rotate(-2deg) translateY(0px)} 50%{transform:rotate(-2deg) translateY(-5px)} }
-        @keyframes popIn        { from{opacity:0;transform:scale(0.6)} to{opacity:1;transform:scale(1)} }
-        * { box-sizing:border-box; }
-        html { scroll-behavior:smooth; }
-        input::placeholder, textarea::placeholder { color:#C4A882; opacity:0.5; }
-        button, a { -webkit-tap-highlight-color:transparent; }
-        img { max-width:100%; display:block; }
-        * { cursor:auto; }
-        button, a, [role="button"] { cursor:pointer; }
-        body.clicking, body.clicking * { cursor:none !important; }
-        body.clicking #mag-cursor { display:block !important; }
-      `}</style>
       {currentProject
         ? <ProjectPage project={currentProject} onBack={handleBack} onNext={handleNext} nextProject={nextProject} />
         : <HomePage onSelectProject={handleSelect} />}
