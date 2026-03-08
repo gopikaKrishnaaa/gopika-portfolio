@@ -8,13 +8,13 @@ import About from "../src/assets/aboutConsulven.png";
 import FooterMockup from "../src/assets/footerConsulven.png";
 import PC1 from "../src/assets/HeroPrime.png"
 import PC2 from "../src/assets/AboutPrime.png";
-import PC3 from "../src/assets/AboutPrime.png";
+import PC3 from "../src/assets/ContactPrime.png";
 import QQH01 from "../src/assets/QQH-01.png";
 import QQH02 from "../src/assets/QQH-02.png";
 import QQH03 from "../src/assets/QQH-03.png";
 import AnburFur1 from "../src/assets/AnbuFur-Hero.png";
 import AnburFur2 from "../src/assets/AnbuFur-01.png";
-import AnburFur3 from "../src/assets/AnbuFur-01.png";
+import AnburFur3 from "../src/assets/anbufur-2.png";
 import fp1 from "../src/assets/truck BANNER.jpg";
 import fp2 from "../src/assets/ff02.png";
 import fp3 from "../src/assets/FastaPizza.png";
@@ -33,7 +33,7 @@ const projects = [
     status:"SOLVED",
     client:"Consulven IFSC", 
     role:"UI/UX Design", 
-    tools:"Figma, Framer, UX Research", 
+    tools:"Figma, UX Research", 
     year:"2024",
     duration:"2 months",
     desc:"International advisory firm requiring a credible digital presence. Rebuilt website UX from ground up with structured navigation. Focused on clarity, compliance communication, and enterprise trust. Digital positioning successfully established.",
@@ -83,7 +83,7 @@ const projects = [
     role:"UI/UX Designer, Logo", 
     tools:"Figma, Photoshop, AI", 
     year:"2025",
-    duration:"2 months",
+    duration:"1 week",
     desc:"Investment advisory firm requiring modern digital identity. Designed high-trust financial interface with structured UX flow. Implemented service architecture, testimonials, and conversion CTAs. User engagement increased. Investor confidence reinforced. System launch successful.",
     challenge:"Investment firm needed to establish digital credibility and trust with potential investors. Existing presence failed to communicate expertise and failed to convert visitors into leads.",
     solution:"Designed high-trust financial interface with structured UX flow, clear service architecture, strategic testimonial placement, and optimized conversion CTAs throughout the user journey.",
@@ -93,18 +93,18 @@ const projects = [
       "Successful system launch",
       "Improved lead conversion rates"
     ],
-    websiteUrl:"https://www.figma.com/proto/gHIhokLPZpAf1NQuBX8mwD/PRIME-COUNSEL?page-id=2622%3A17330&node-id=2622-20118&viewport=711%2C301%2C0.05&t=qZzAeEl1w1ARDyCM-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2622%3A21184",
-    behanceUrl:"https://www.behance.net/gallery/230103201/Ancient-Legal-Web-Design?tracking_source=project_owner_other_projects",
+    websiteUrl:"https://www.figma.com/proto/XUMSBZvykv8g1BT424pB4R/QuantunQuest-Wealth?node-id=1-2030&viewport=219%2C59%2C0.04&t=LrY4kvU4vSj0N1Yn-1&scaling=scale-down&content-scaling=fixed&page-id=1%3A3",
+    behanceUrl:"https://www.behance.net/gallery/229369907/Modern-UIUX-for-Financial-Advisory/modules/1314047951",
     mockups:[{label:"Hero",src:QQH01},{label:"Services",src:QQH02},{label:"Contact",src:QQH03}],
   },
   {
     id:"04", 
-    title:"Fasta Pizza", 
+    title:"ELS Legal", 
     color:"#8B0000", 
     label:"CASE #2024-004",
     status:"SOLVED",
     client:"FastaPizza", 
-    role:"UI/UX Designer", 
+    role:"UI/UX Designer, Logo Design", 
     tools:"Figma, Photoshop, Illustrator", 
     year:"2024-2025",
     duration:"2 months",
@@ -117,7 +117,7 @@ const projects = [
       "Improved mobile usability scores",
       "Increased mobile conversion rates"
     ],
-    websiteUrl:"https://www.figma.com/proto/gHIhokLPZpAf1NQuBX8mwD/PRIME-COUNSEL?page-id=2622%3A17330&node-id=2622-20118&viewport=711%2C301%2C0.05&t=qZzAeEl1w1ARDyCM-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2622%3A21184",
+    websiteUrl:"https://www.figma.com/proto/AWymbf5PAPNilmAtKYe2yZ/ELS-LEGAL?node-id=1-4489&viewport=-44%2C-367%2C0.05&t=cbRxiOyisFr0Zw6y-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1",
     behanceUrl:"https://www.behance.net/gallery/230103201/Ancient-Legal-Web-Design?tracking_source=project_owner_other_projects",
     mockups:[{label:"Banner",src:fp1},{label:"Menu",src:fp2},{label:"Order",src:fp3}],
   },
