@@ -15,9 +15,9 @@ import QQH03 from "../src/assets/QQH-03.png";
 import AnburFur1 from "../src/assets/AnbuFur-Hero.png";
 import AnburFur2 from "../src/assets/AnbuFur-01.png";
 import AnburFur3 from "../src/assets/anbufur-2.png";
-import fp1 from "../src/assets/truck BANNER.jpg";
-import fp2 from "../src/assets/ff02.png";
-import fp3 from "../src/assets/FastaPizza.png";
+import fp1 from "../src/assets/fp1.jpeg";
+import fp2 from "../src/assets/fp02.jpg";
+import fp3 from "../src/assets/fp03.jpg";
 import LP1 from "../src/assets/bfc.png";
 import LP2 from "../src/assets/ELS.jpeg";
 import LP3 from "../src/assets/DCP.png";
@@ -98,29 +98,38 @@ const projects = [
     mockups:[{label:"Hero",src:QQH01},{label:"Services",src:QQH02},{label:"Contact",src:QQH03}],
   },
   {
-    id:"04", 
-    title:"ELS Legal", 
-    color:"#8B0000", 
-    label:"CASE #2024-004",
-    status:"SOLVED",
-    client:"FastaPizza", 
-    role:"UI/UX Designer, Logo Design", 
-    tools:"Figma, Photoshop, Illustrator", 
-    year:"2024-2025",
-    duration:"2 months",
-    desc:"Designed a responsive ecommerce ordering system for Fasta Pizza, focusing on fast menu navigation, mobile usability, and strong CTAs. Result: smoother ordering flow, higher engagement, and improved usability.",
-    challenge:"Customers struggled with slow ordering process and poor mobile experience. Menu navigation was confusing and conversion rates were low on mobile devices.",
-    solution:"Implemented responsive ecommerce system with fast menu navigation, mobile-first design approach, and strategically placed CTAs. Streamlined the entire ordering flow for maximum efficiency.",
-    results:[
-      "Smoother ordering flow achieved",
-      "Higher user engagement metrics",
-      "Improved mobile usability scores",
-      "Increased mobile conversion rates"
-    ],
-    websiteUrl:"https://www.figma.com/proto/AWymbf5PAPNilmAtKYe2yZ/ELS-LEGAL?node-id=1-4489&viewport=-44%2C-367%2C0.05&t=cbRxiOyisFr0Zw6y-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1",
-    behanceUrl:"https://www.behance.net/gallery/230103201/Ancient-Legal-Web-Design?tracking_source=project_owner_other_projects",
-    mockups:[{label:"Banner",src:fp1},{label:"Menu",src:fp2},{label:"Order",src:fp3}],
-  },
+    id:"04",
+   title:"ELS Legal",
+color:"#8B0000",
+label:"CASE #2024-004",
+status:"SOLVED",
+client:"ELS Legal",
+role:"UI/UX Designer, Website Design, Logo Design",
+tools:"Figma, Photoshop, Illustrator",
+year:"2024-2025",
+duration:"2 months",
+desc:"Designed a responsive legal services website for ELS Legal, focused on clear service presentation, trust-building visuals, and easy user navigation. Result: improved user experience, stronger brand credibility, and better accessibility across devices.",
+
+challenge:"The website needed a professional legal identity, clear information hierarchy, and mobile-friendly navigation so users could easily understand services and contact the firm.",
+
+solution:"Created a clean responsive website with structured legal content sections, strong call-to-action placement, and a trust-focused visual style. Applied a mobile-first approach for smooth browsing on all devices.",
+
+results:[
+  "Improved website clarity and navigation",
+  "Stronger professional brand presentation",
+  "Better mobile responsiveness",
+  "Enhanced user engagement"
+],
+
+websiteUrl:"https://www.figma.com/proto/AWymbf5PAPNilmAtKYe2yZ/ELS-LEGAL?node-id=1-4489&viewport=-44%2C-367%2C0.05&t=cbRxiOyisFr0Zw6y-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1",
+
+behanceUrl:"https://www.behance.net/gallery/230103201/Ancient-Legal-Web-Design?tracking_source=project_owner_other_projects",
+
+mockups:[
+  {label:"Mockup",src:fp1},
+  {label:"Home",src:fp2},
+  {label:"Service",src:fp3}
+]},
   {
     id:"05", 
     title:"AnbuFur", 
@@ -167,7 +176,7 @@ const projects = [
     ],
     websiteUrl:"https://www.behance.net/gopikakrishvfc",
     behanceUrl:"https://www.behance.net/gopikakrishvfc",
-    mockups:[{label:"Cafe",src:LP1},{label:"Legal",src:LP2},{label:"Cinema",src:LP3}],
+    mockups:[{label:"Digital",src:LP1},{label:"Legal",src:LP2},{label:"Editing",src:LP3}],
   },
 ];
 
@@ -384,7 +393,7 @@ function FloppyDisk({ p, isHover, onHover, onLeave, onClick, isMobile }) {
         <div style={{ position:"absolute", bottom:0, right:"2rem", width:"2rem", height:"1rem", background:"#0A0A0A" }} />
       </div>
       
-      {/* Save icon indicator */}
+      {/* Save icon indicator - ONLY SHOWS ON HOVER */}
       <div style={{ 
         position:"absolute", 
         bottom:"-0.75rem", 
@@ -399,7 +408,8 @@ function FloppyDisk({ p, isHover, onHover, onLeave, onClick, isMobile }) {
         boxShadow:"0 2px 8px rgba(0,0,0,0.5)", 
         border:"2px solid #F4E8D0",
         transform:isHover?"scale(1.1)":"scale(1)",
-        transition:"transform 0.2s"
+        opacity:isHover?1:0,
+        transition:"transform 0.2s, opacity 0.2s"
       }}>
         <svg width={isMobile?"16":"20"} height={isMobile?"16":"20"} viewBox="0 0 24 24" fill="none" stroke="#F4E8D0" strokeWidth="2">
           <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
